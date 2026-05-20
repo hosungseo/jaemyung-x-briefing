@@ -14,6 +14,10 @@ const TYPE_COLORS = {
   "지역":            "var(--yellow)",
   "검증 요청":       "var(--red)",
   "사법·권력기관":   "var(--magenta)",
+  "사회안전·법질서": "var(--red)",
+  "국정운영·행정":   "var(--amber)",
+  "기념·문화소통":   "var(--yellow)",
+  "언론·여론대응":   "var(--magenta)",
 };
 
 const TYPE_CODE = {
@@ -24,6 +28,10 @@ const TYPE_CODE = {
   "지역":            "REG",
   "검증 요청":       "VRF",
   "사법·권력기관":   "JUD",
+  "사회안전·법질서": "LAW",
+  "국정운영·행정":   "ADM",
+  "기념·문화소통":   "CUL",
+  "언론·여론대응":   "MED",
 };
 
 const state = {
