@@ -6,24 +6,26 @@
   <title>Jaemyung X Briefing</title>
   <style>
     :root {
-      --ink: #151515;
-      --muted: #69645d;
-      --line: #dad1c3;
-      --paper: #f6f0e5;
-      --panel: #fffaf1;
-      --field: #fbf6ed;
-      --green: #006b5b;
-      --red: #bb3f32;
-      --blue: #2f5f9f;
-      --gold: #ad7d24;
-      --shadow: 0 18px 45px rgba(41, 30, 19, .08);
+      --ink: #f6f2ea;
+      --muted: #9c978f;
+      --line: #31312f;
+      --paper: #171716;
+      --panel: #222220;
+      --panel-2: #292927;
+      --field: #1d1d1b;
+      --green: #2f6ff1;
+      --red: #f06b5f;
+      --blue: #7da2ff;
+      --gold: #f0ba57;
+      --shadow: 0 18px 45px rgba(0, 0, 0, .28);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       background:
-        linear-gradient(90deg, rgba(21,21,21,.045) 1px, transparent 1px) 0 0 / 64px 64px,
-        linear-gradient(0deg, rgba(21,21,21,.035) 1px, transparent 1px) 0 0 / 64px 64px,
+        radial-gradient(circle at 16% 0%, rgba(47, 111, 241, .16), transparent 30%),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 54px 54px,
+        linear-gradient(0deg, rgba(255,255,255,.028) 1px, transparent 1px) 0 0 / 54px 54px,
         var(--paper);
       color: var(--ink);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -46,15 +48,16 @@
       grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
       gap: 28px;
       align-items: stretch;
-      min-height: 560px;
-      border-top: 3px solid var(--ink);
+      min-height: 620px;
+      border-top: 1px solid #4b4b47;
       border-bottom: 1px solid var(--line);
-      padding: 30px 0;
+      padding: 28px 0 34px;
     }
     .hero-main {
       display: grid;
       align-content: space-between;
       gap: 28px;
+      min-width: 0;
     }
     .eyebrow {
       color: var(--green);
@@ -67,21 +70,23 @@
       line-height: .87;
       margin: 14px 0 18px;
       max-width: 900px;
+      letter-spacing: -1px;
     }
     .lede {
       font-size: clamp(18px, 2vw, 24px);
       line-height: 1.5;
       max-width: 780px;
-      color: #302d29;
+      color: #d4cec2;
       margin: 0;
     }
     .usage-panel {
       background: #242423;
       color: #f7f0e5;
       border-radius: 8px;
-      padding: 14px;
+      padding: 16px;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(0, 0, 0, .2);
+      border: 1px solid #393936;
+      min-width: 0;
     }
     .usage-tabs {
       display: flex;
@@ -105,7 +110,7 @@
       border: 1px solid rgba(255,255,255,.04);
       border-radius: 4px;
       padding: 9px;
-      min-height: 66px;
+      min-height: 76px;
       display: grid;
       align-content: space-between;
     }
@@ -113,9 +118,9 @@
     .usage-stat b { font-size: 21px; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .activity-grid {
       display: grid;
-      grid-template-columns: repeat(26, 1fr);
+      grid-template-columns: repeat(39, 1fr);
       gap: 3px;
-      margin-top: 9px;
+      margin-top: 12px;
     }
     .activity-cell {
       aspect-ratio: 1;
@@ -132,14 +137,16 @@
       font-size: 12px;
     }
     .lead-tweet {
-      background: var(--ink);
-      color: var(--panel);
+      background: #242423;
+      color: #f6f2ea;
       border-radius: 8px;
-      padding: 20px;
+      padding: 22px;
       display: grid;
       grid-template-rows: auto 1fr auto;
       gap: 18px;
       box-shadow: var(--shadow);
+      border: 1px solid #393936;
+      min-width: 0;
     }
     .lead-tweet .label { color: #d3c4a8; font-size: 13px; font-weight: 800; }
     .lead-tweet p {
@@ -157,7 +164,7 @@
       position: sticky;
       top: 0;
       z-index: 5;
-      background: rgba(246,240,229,.92);
+      background: rgba(23,23,22,.86);
       backdrop-filter: blur(10px);
       padding: 16px 0;
       border-bottom: 1px solid var(--line);
@@ -167,6 +174,7 @@
       border: 1px solid var(--line);
       border-radius: 7px;
       background: var(--field);
+      color: var(--ink);
       padding: 0 13px;
       font: inherit;
     }
@@ -216,7 +224,7 @@
     .month-bar {
       height: var(--h);
       min-height: 16px;
-      background: linear-gradient(180deg, var(--green), #1c9c86);
+      background: linear-gradient(180deg, #80a2ff, var(--green));
       border-radius: 3px 3px 0 0;
       position: relative;
     }
@@ -245,7 +253,7 @@
       font-size: 13px;
       cursor: pointer;
     }
-    .keyword.hot { background: #f1ddbd; border-color: #d8b778; }
+    .keyword.hot { background: #303a55; border-color: #456fdf; color: #dbe6ff; }
     .tweet-list, .ranked { display: grid; gap: 12px; }
     .tweet {
       background: var(--panel);
@@ -258,14 +266,14 @@
     }
     .tweet:hover { transform: translateY(-2px); border-color: #b4a48f; box-shadow: var(--shadow); }
     .tweet .meta { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 13px; }
-    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; background: #faf3e8; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; background: #1b1b19; }
     .tweet p { margin: 0; line-height: 1.53; word-break: keep-all; }
-    .tweet mark { background: #ffe38b; padding: 0 2px; border-radius: 2px; }
+    .tweet mark { background: #775f1c; color: #fff3c4; padding: 0 2px; border-radius: 2px; }
     .tweet img { width: 100%; max-height: 330px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
-    .issues { margin: 0; padding-left: 18px; color: #3a352e; line-height: 1.5; }
+    .issues { margin: 0; padding-left: 18px; color: #d7d0c3; line-height: 1.5; }
     .ranked .tweet { border-left: 4px solid var(--gold); }
     .insight {
-      background: #fdf8ef;
+      background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: 16px;
@@ -277,12 +285,15 @@
     .empty { padding: 24px; border: 1px dashed var(--line); color: var(--muted); }
     footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
     @media (max-width: 900px) {
+      .shell { width: min(100% - 28px, 1240px); }
+      .topbar { align-items: flex-start; flex-wrap: wrap; }
       .hero, .layout, .command { grid-template-columns: 1fr; }
       .hero { min-height: unset; }
       .usage-grid { grid-template-columns: repeat(2, 1fr); }
       .activity-grid { grid-template-columns: repeat(13, 1fr); }
       .map { grid-template-columns: repeat(6, 1fr); }
-      h1 { font-size: 58px; }
+      h1 { max-width: 100%; font-size: 44px; line-height: .96; overflow-wrap: break-word; }
+      .lede { font-size: 18px; overflow-wrap: anywhere; }
     }
   </style>
 </head>
