@@ -43,7 +43,7 @@
     .topbar b { color: var(--green); }
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(330px, 450px);
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
       gap: 28px;
       align-items: stretch;
       min-height: 560px;
@@ -75,22 +75,62 @@
       color: #302d29;
       margin: 0;
     }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
+    .usage-panel {
+      background: #242423;
+      color: #f7f0e5;
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0, 0, 0, .2);
     }
-    .hero-stat {
-      background: var(--panel);
-      padding: 16px;
-      min-height: 118px;
+    .usage-tabs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      color: #c9c1b5;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .usage-tabs div { display: flex; gap: 6px; align-items: center; }
+    .usage-tabs span { padding: 5px 8px; border-radius: 4px; }
+    .usage-tabs .active { background: #f4efe5; color: #191918; }
+    .usage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+    }
+    .usage-stat {
+      background: #373736;
+      border: 1px solid rgba(255,255,255,.04);
+      border-radius: 4px;
+      padding: 9px;
+      min-height: 66px;
       display: grid;
       align-content: space-between;
     }
-    .hero-stat b { font-size: 32px; line-height: 1; }
-    .hero-stat span { color: var(--muted); font-size: 13px; }
+    .usage-stat span { color: #aaa39a; font-size: 11px; font-weight: 800; }
+    .usage-stat b { font-size: 21px; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(26, 1fr);
+      gap: 3px;
+      margin-top: 9px;
+    }
+    .activity-cell {
+      aspect-ratio: 1;
+      border-radius: 2px;
+      background: #373736;
+      border: 1px solid rgba(255,255,255,.035);
+    }
+    .activity-cell.l1 { background: #6d7d9e; }
+    .activity-cell.l2 { background: #4f7fda; }
+    .activity-cell.l3 { background: #2f6ff1; }
+    .usage-note {
+      margin: 9px 0 0;
+      color: #aaa39a;
+      font-size: 12px;
+    }
     .lead-tweet {
       background: var(--ink);
       color: var(--panel);
@@ -239,7 +279,8 @@
     @media (max-width: 900px) {
       .hero, .layout, .command { grid-template-columns: 1fr; }
       .hero { min-height: unset; }
-      .hero-grid { grid-template-columns: 1fr; }
+      .usage-grid { grid-template-columns: repeat(2, 1fr); }
+      .activity-grid { grid-template-columns: repeat(13, 1fr); }
       .map { grid-template-columns: repeat(6, 1fr); }
       h1 { font-size: 58px; }
     }
@@ -259,10 +300,23 @@
           <h1>Message Field Map</h1>
           <p class="lede">대선 이후 X 게시글을 시간, 의제, 반응, 쟁점으로 재배열한 브리핑 페이지. 새 글 감시는 알림으로 끝나지 않고 누적된 정치 메시지의 지형을 만든다.</p>
         </div>
-        <div class="hero-grid">
-          <div class="hero-stat"><span>분석 트윗</span><b id="m-count">0</b></div>
-          <div class="hero-stat"><span>수집 기간</span><b id="m-days">0일</b></div>
-          <div class="hero-stat"><span>최다 유형</span><b id="m-toptype">-</b></div>
+        <div class="usage-panel" aria-label="활동 요약">
+          <div class="usage-tabs">
+            <div><span class="active">개요</span><span>모델</span></div>
+            <div><span class="active">전체</span><span>30d</span><span>7d</span></div>
+          </div>
+          <div class="usage-grid">
+            <div class="usage-stat"><span>세션</span><b id="m-sessions">0</b></div>
+            <div class="usage-stat"><span>메시지</span><b id="m-count">0</b></div>
+            <div class="usage-stat"><span>총 반응</span><b id="m-engagement">0</b></div>
+            <div class="usage-stat"><span>활성 일수</span><b id="m-active-days">0</b></div>
+            <div class="usage-stat"><span>현재 연속 일수</span><b id="m-current-streak">0일</b></div>
+            <div class="usage-stat"><span>최장 연속 일수</span><b id="m-longest-streak">0일</b></div>
+            <div class="usage-stat"><span>최다 게시 시간</span><b id="m-top-hour">-</b></div>
+            <div class="usage-stat"><span>즐겨 사용한 유형</span><b id="m-toptype">-</b></div>
+          </div>
+          <div id="activityGrid" class="activity-grid"></div>
+          <p class="usage-note" id="activityNote">활동 밀도를 계산하는 중입니다.</p>
         </div>
       </div>
       <aside class="lead-tweet" id="leadTweet">
@@ -348,6 +402,71 @@
     }
     function daysBetween(a, b) {
       return Math.max(1, Math.round((new Date(b) - new Date(a)) / 86400000));
+    }
+    function dateKey(d) {
+      return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(d);
+    }
+    function addDays(d, n) {
+      const next = new Date(d);
+      next.setUTCDate(next.getUTCDate() + n);
+      return next;
+    }
+    function usageStats() {
+      const dayCounts = new Map();
+      const hourCounts = new Map();
+      let totalEngagement = 0;
+      data.tweets.forEach(t => {
+        const d = new Date(t.created_at);
+        const day = dateKey(d);
+        const hour = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Seoul", hour: "numeric", hour12: false }).format(d);
+        dayCounts.set(day, (dayCounts.get(day) || 0) + 1);
+        hourCounts.set(hour, (hourCounts.get(hour) || 0) + 1);
+        totalEngagement += (t.metrics.like_count || 0) + (t.metrics.retweet_count || 0) + (t.metrics.reply_count || 0) + (t.metrics.quote_count || 0);
+      });
+      const days = [...dayCounts.keys()].sort();
+      let longest = 0;
+      let run = 0;
+      let previous = null;
+      days.forEach(day => {
+        if (!previous || dateKey(addDays(new Date(`${previous}T00:00:00Z`), 1)) === day) run += 1;
+        else run = 1;
+        longest = Math.max(longest, run);
+        previous = day;
+      });
+      let current = 0;
+      if (days.length) {
+        const newestDay = days[days.length - 1];
+        for (let cursor = new Date(`${newestDay}T00:00:00Z`); dayCounts.has(dateKey(cursor)); cursor = addDays(cursor, -1)) current += 1;
+      }
+      return {
+        activeDays: dayCounts.size,
+        current,
+        longest,
+        totalEngagement,
+        topHour: topEntry(Object.fromEntries(hourCounts))[0],
+        dayCounts
+      };
+    }
+    function renderActivityGrid(stats) {
+      const oldest = new Date(`${dateKey(new Date(data.oldest))}T00:00:00Z`);
+      const newest = new Date(`${dateKey(new Date(data.newest))}T00:00:00Z`);
+      const span = Math.max(1, Math.round((newest - oldest) / 86400000));
+      const cells = 156;
+      const step = Math.max(1, Math.ceil(span / cells));
+      const buckets = [];
+      for (let i = 0; i < cells; i += 1) {
+        let value = 0;
+        for (let j = 0; j < step; j += 1) {
+          value += stats.dayCounts.get(dateKey(addDays(oldest, i * step + j))) || 0;
+        }
+        buckets.push(value);
+      }
+      const max = Math.max(1, ...buckets);
+      $("activityGrid").innerHTML = buckets.map(v => {
+        const level = v === 0 ? "" : v >= max * .66 ? "l3" : v >= max * .33 ? "l2" : "l1";
+        return `<span class="activity-cell ${level}" title="${v} posts"></span>`;
+      }).join("");
+      $("activityNote").textContent = `${data.startDate}부터 ${fmt.format(stats.activeDays)}일 동안 ${fmt.format(data.count)}개의 메시지를 남겼습니다.`;
     }
     function highlight(text, query) {
       const safe = escapeHtml(text);
@@ -452,10 +571,17 @@
       const topType = topEntry(data.byType)[0];
       $("generated").textContent = `생성 ${new Date(data.generated_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}`;
       $("range").textContent = `${data.oldest?.slice(0, 10)} → ${data.newest?.slice(0, 10)}`;
+      const stats = usageStats();
       $("m-count").textContent = fmt.format(data.count);
-      $("m-days").textContent = `${fmt.format(daysBetween(data.oldest, data.newest))}일`;
+      $("m-sessions").textContent = fmt.format(Object.keys(data.byMonth || {}).length);
+      $("m-engagement").textContent = fmt.format(stats.totalEngagement);
+      $("m-active-days").textContent = fmt.format(stats.activeDays);
+      $("m-current-streak").textContent = `${fmt.format(stats.current)}일`;
+      $("m-longest-streak").textContent = `${fmt.format(stats.longest)}일`;
+      $("m-top-hour").textContent = `${stats.topHour}시`;
       $("m-toptype").textContent = topType;
       $("type").innerHTML = `<option value="">전체 유형</option>` + Object.keys(data.byType).sort().map(x => `<option>${escapeHtml(x)}</option>`).join("");
+      renderActivityGrid(stats);
       renderLead();
       renderTimeline();
       renderTopics();
