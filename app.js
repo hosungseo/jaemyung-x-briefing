@@ -8,6 +8,11 @@ const fmtCompact = new Intl.NumberFormat("ko-KR", { notation: "compact", maximum
 
 const TYPE_COLORS = {
   "정치 메시지":     "var(--amber)",
+  "정당·국회":       "var(--cyan)",
+  "산업·과학기술":   "var(--green)",
+  "교육·돌봄":       "var(--yellow)",
+  "기후·에너지":     "var(--green)",
+  "보건·의료":       "var(--red)",
   "민생·경제":       "var(--green)",
   "역사·민주주의":   "var(--violet)",
   "외교·안보":       "var(--cyan)",
@@ -22,6 +27,11 @@ const TYPE_COLORS = {
 
 const TYPE_CODE = {
   "정치 메시지":     "POL",
+  "정당·국회":       "ASM",
+  "산업·과학기술":   "SCI",
+  "교육·돌봄":       "EDU",
+  "기후·에너지":     "ENV",
+  "보건·의료":       "HLT",
   "민생·경제":       "ECO",
   "역사·민주주의":   "HST",
   "외교·안보":       "DPL",
