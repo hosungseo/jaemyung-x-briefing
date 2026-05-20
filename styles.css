@@ -686,6 +686,20 @@ button { font: inherit; cursor: pointer; }
 }
 .feed-row .keywords span { color: var(--ink-2); }
 .feed-row .keywords span + span::before { content: " · "; color: var(--dim-2); }
+.policy-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 18px;
+  padding: 1px 7px;
+  margin-left: 5px;
+  border: 1px solid rgba(78, 201, 255, .45);
+  color: var(--cyan);
+  background: rgba(78, 201, 255, .08);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  line-height: 1;
+  vertical-align: middle;
+}
 
 .feed-row .metrics {
   font-family: var(--font-mono);
@@ -1050,6 +1064,61 @@ button { font: inherit; cursor: pointer; }
 }
 .drawer-kw {
   display: flex; flex-wrap: wrap; gap: 4px;
+}
+.drawer-note {
+  margin: 0;
+  color: var(--dim);
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+}
+.press-links {
+  display: grid;
+  gap: 8px;
+}
+.press-card {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  padding: 10px 12px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--cyan);
+}
+.press-card:hover {
+  border-color: var(--cyan);
+  background: var(--panel-2);
+}
+.press-rank {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}
+.press-main {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+.press-main b {
+  font-size: var(--fs-md);
+  line-height: 1.35;
+  word-break: keep-all;
+}
+.press-main small {
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+.press-main em {
+  color: var(--ink-2);
+  font-style: normal;
+  font-size: var(--fs-sm);
+  line-height: 1.35;
+}
+.press-debug {
+  color: var(--yellow);
+  font-size: var(--fs-xs);
 }
 
 /* ─── GRAPH ──────────────────────────────────────────────────── */

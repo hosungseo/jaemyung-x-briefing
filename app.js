@@ -54,6 +54,8 @@ const state = {
   visibleCount: 50,
   selectedId: null,
   dateRange: null,    // [startMs, endMs] | null
+  policyLinks: null,
+  debugScores: false,
 };
 
 function readURL() {
@@ -67,6 +69,7 @@ function readURL() {
     const parts = p.get("dr").split(",").map(Number);
     if (parts.length === 2 && parts.every(Number.isFinite)) state.dateRange = parts;
   }
+  state.debugScores = p.get("debug") === "1";
   return p.get("id");
 }
 function syncURL() {
@@ -76,6 +79,7 @@ function syncURL() {
   if (state.sort && state.sort !== "recent") p.set("sort", state.sort);
   if (state.view && state.view !== "list") p.set("view", state.view);
   if (state.dateRange) p.set("dr", state.dateRange.join(","));
+  if (state.debugScores) p.set("debug", "1");
   if (state.selectedId) p.set("id", state.selectedId);
   const qs = p.toString();
   history.replaceState(null, "", qs ? "?" + qs : location.pathname);
@@ -167,6 +171,17 @@ const el = (tag, props = {}, children = []) => {
 const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 
 const stripUrls = s => String(s || "").replace(/https?:\/\/\S+/g, "").trim();
+
+function pressLinksFor(id) {
+  return state.policyLinks?.links?.[id] || [];
+}
+
+function publicStrength(items) {
+  if (!items.length) return "";
+  if (items.some(x => x.strength === "높음")) return "높음";
+  if (items.some(x => x.strength === "중간")) return "중간";
+  return "낮음";
+}
 
 function highlight(text, q) {
   const safe = escapeHtml(text);
@@ -552,6 +567,8 @@ function feedRow(t, i) {
   const time = dParts[dParts.length - 1] || "";
   const date = t.date; // already YYYY-MM-DD
   const kws = (t.keywords || []).slice(0, 4).map(k => `<span>${escapeHtml(k)}</span>`).join("");
+  const press = pressLinksFor(t.id);
+  const strength = publicStrength(press);
 
   return `
     <div class="feed-row ${state.selectedId === t.id ? "active" : ""}" data-id="${t.id}">
@@ -563,6 +580,7 @@ function feedRow(t, i) {
         <span class="type-tag" style="--c:${TYPE_COLORS[t.type] || "var(--accent)"}">${TYPE_CODE[t.type] || ""} · ${escapeHtml(t.type)}</span>
         ${t._breakout ? `<span class="breakout-badge" title="유형 평균 대비 z=${t._z.toFixed(1)}σ">★ BREAKOUT · ${t._z.toFixed(1)}σ</span>` : ""}
         ${t.media && t.media.length ? `<span class="has-media">▣ IMG×${t.media.length}</span>` : ""}
+        ${press.length ? `<span class="policy-badge">정책근거 ${press.length} · ${strength}</span>` : ""}
         <div class="text">${highlight(text, q)}</div>
         ${kws ? `<div class="keywords">${kws}</div>` : ""}
       </div>
@@ -732,6 +750,25 @@ function openDrawer(id) {
   const media = (t.media || []).map(im => `<img src="${im.url}" referrerpolicy="no-referrer" alt="" class="drawer-img" data-url="${im.url}">`).join("");
   const kws = (t.keywords || []).map(k => `<button class="kw" onclick="window.__kwSearch('${escapeHtml(k).replace(/'/g, "\\'")}')">${escapeHtml(k)}</button>`).join("");
   const issues = (t.issues || []).map(i => `<li>${escapeHtml(i)}</li>`).join("");
+  const press = pressLinksFor(t.id);
+  const pressHTML = press.map((p, i) => {
+    const dbg = state.debugScores && p.debug ? `
+      <div class="press-debug mono">
+        BM25 ${p.debug.bm25_score} · FINAL ${p.debug.final_score} · OVERLAP ${p.debug.keyword_overlap} · Δ${p.debug.date_delta_days}d
+      </div>` : "";
+    const href = p.url || `../gov-press-md/${p.path}`;
+    return `
+      <a class="press-card" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">
+        <span class="press-rank">${String(i + 1).padStart(2, "0")}</span>
+        <span class="press-main">
+          <b>${escapeHtml(p.title)}</b>
+          <small>${escapeHtml(p.date)} · ${escapeHtml(p.ministry)} · 연결 강도 ${escapeHtml(p.strength)}</small>
+          <em>${escapeHtml(p.reason || "")}</em>
+          ${dbg}
+        </span>
+      </a>
+    `;
+  }).join("");
 
   $("drawer-body").innerHTML = `
     <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
@@ -757,6 +794,12 @@ function openDrawer(id) {
     ${issues ? `<div class="drawer-section"><h4>핵심 쟁점 · ISSUES</h4><ul>${issues}</ul></div>` : ""}
 
     ${kws ? `<div class="drawer-section"><h4>키워드 · KEYWORDS</h4><div class="drawer-kw">${kws}</div></div>` : ""}
+
+    <div class="drawer-section">
+      <h4>관련 정부 보도자료 · POLICY EVIDENCE</h4>
+      ${pressHTML ? `<div class="press-links">${pressHTML}</div>` : `<p class="drawer-note">날짜와 키워드 기준으로 강하게 연결되는 보도자료가 아직 없습니다.</p>`}
+      ${state.debugScores ? `<p class="drawer-note mono">DEBUG SCORE VIEW · owner only</p>` : ""}
+    </div>
 
     <div class="drawer-section">
       <h4>메타데이터 · META</h4>
@@ -1375,6 +1418,12 @@ function renderGraphPanel() {
 async function main() {
   const res = await fetch("./data/briefing.json");
   state.rawData = await res.json();
+  try {
+    const policyRes = await fetch("./data/policy-links.json");
+    if (policyRes.ok) state.policyLinks = await policyRes.json();
+  } catch (err) {
+    console.warn("policy-links.json unavailable", err);
+  }
 
   // Read URL state before populating inputs
   const initialId = readURL();
