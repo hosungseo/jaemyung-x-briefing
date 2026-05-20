@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jaemyung X Briefing</title>
+  <style>
+    :root {
+      --ink: #151515;
+      --muted: #69645d;
+      --line: #dad1c3;
+      --paper: #f6f0e5;
+      --panel: #fffaf1;
+      --field: #fbf6ed;
+      --green: #006b5b;
+      --red: #bb3f32;
+      --blue: #2f5f9f;
+      --gold: #ad7d24;
+      --shadow: 0 18px 45px rgba(41, 30, 19, .08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(21,21,21,.045) 1px, transparent 1px) 0 0 / 64px 64px,
+        linear-gradient(0deg, rgba(21,21,21,.035) 1px, transparent 1px) 0 0 / 64px 64px,
+        var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+    a { color: inherit; }
+    .shell { width: min(1240px, calc(100vw - 36px)); margin: 0 auto; padding: 24px 0 54px; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 12px 0 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .topbar b { color: var(--green); }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 450px);
+      gap: 28px;
+      align-items: stretch;
+      min-height: 560px;
+      border-top: 3px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+      padding: 30px 0;
+    }
+    .hero-main {
+      display: grid;
+      align-content: space-between;
+      gap: 28px;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(52px, 9vw, 124px);
+      line-height: .87;
+      margin: 14px 0 18px;
+      max-width: 900px;
+    }
+    .lede {
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.5;
+      max-width: 780px;
+      color: #302d29;
+      margin: 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .hero-stat {
+      background: var(--panel);
+      padding: 16px;
+      min-height: 118px;
+      display: grid;
+      align-content: space-between;
+    }
+    .hero-stat b { font-size: 32px; line-height: 1; }
+    .hero-stat span { color: var(--muted); font-size: 13px; }
+    .lead-tweet {
+      background: var(--ink);
+      color: var(--panel);
+      border-radius: 8px;
+      padding: 20px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 18px;
+      box-shadow: var(--shadow);
+    }
+    .lead-tweet .label { color: #d3c4a8; font-size: 13px; font-weight: 800; }
+    .lead-tweet p {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.42;
+      word-break: keep-all;
+    }
+    .lead-meta { display: flex; flex-wrap: wrap; gap: 8px; color: #d8d0c3; font-size: 13px; }
+    .lead-meta span, .lead-meta a { border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 6px 9px; }
+    .command {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) 180px 150px 44px;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(246,240,229,.92);
+      backdrop-filter: blur(10px);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    input, select, button {
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--field);
+      padding: 0 13px;
+      font: inherit;
+    }
+    button {
+      cursor: pointer;
+      background: var(--green);
+      color: var(--panel);
+      border-color: var(--green);
+      font-weight: 800;
+    }
+    .icon-btn { font-size: 18px; padding: 0; }
+    section { margin-top: 34px; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+    h2 { margin: 0; font-size: 25px; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 14px; }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr);
+      gap: 26px;
+      align-items: start;
+    }
+    .map {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 8px;
+      min-height: 210px;
+      align-items: end;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .month {
+      display: grid;
+      align-content: end;
+      gap: 8px;
+      min-width: 0;
+    }
+    .month-bar {
+      height: var(--h);
+      min-height: 16px;
+      background: linear-gradient(180deg, var(--green), #1c9c86);
+      border-radius: 3px 3px 0 0;
+      position: relative;
+    }
+    .month strong { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .month span { color: var(--muted); font-size: 12px; }
+    .topic-list { display: grid; gap: 9px; }
+    .topic-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 13px;
+      cursor: pointer;
+    }
+    .topic-row.active { border-color: var(--green); box-shadow: inset 4px 0 0 var(--green); }
+    .topic-row span { color: var(--muted); font-size: 13px; }
+    .keyword-strip { display: flex; flex-wrap: wrap; gap: 9px; }
+    .keyword {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .keyword.hot { background: #f1ddbd; border-color: #d8b778; }
+    .tweet-list, .ranked { display: grid; gap: 12px; }
+    .tweet {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      display: grid;
+      gap: 11px;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .tweet:hover { transform: translateY(-2px); border-color: #b4a48f; box-shadow: var(--shadow); }
+    .tweet .meta { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 13px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; background: #faf3e8; }
+    .tweet p { margin: 0; line-height: 1.53; word-break: keep-all; }
+    .tweet mark { background: #ffe38b; padding: 0 2px; border-radius: 2px; }
+    .tweet img { width: 100%; max-height: 330px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
+    .issues { margin: 0; padding-left: 18px; color: #3a352e; line-height: 1.5; }
+    .ranked .tweet { border-left: 4px solid var(--gold); }
+    .insight {
+      background: #fdf8ef;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .insight b { color: var(--red); }
+    .empty { padding: 24px; border: 1px dashed var(--line); color: var(--muted); }
+    footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    @media (max-width: 900px) {
+      .hero, .layout, .command { grid-template-columns: 1fr; }
+      .hero { min-height: unset; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .map { grid-template-columns: repeat(6, 1fr); }
+      h1 { font-size: 58px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <span><b>@Jaemyung_Lee</b> post-election public message monitor</span>
+      <span id="generated">loading</span>
+    </div>
+
+    <header class="hero">
+      <div class="hero-main">
+        <div>
+          <div class="eyebrow">2025.06.04 → Now</div>
+          <h1>Message Field Map</h1>
+          <p class="lede">대선 이후 X 게시글을 시간, 의제, 반응, 쟁점으로 재배열한 브리핑 페이지. 새 글 감시는 알림으로 끝나지 않고 누적된 정치 메시지의 지형을 만든다.</p>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-stat"><span>분석 트윗</span><b id="m-count">0</b></div>
+          <div class="hero-stat"><span>수집 기간</span><b id="m-days">0일</b></div>
+          <div class="hero-stat"><span>최다 유형</span><b id="m-toptype">-</b></div>
+        </div>
+      </div>
+      <aside class="lead-tweet" id="leadTweet">
+        <div class="label">Most-reacted post</div>
+        <p>데이터를 읽는 중입니다.</p>
+        <div class="lead-meta"><span id="range">loading</span></div>
+      </aside>
+    </header>
+
+    <div class="command">
+      <input id="q" placeholder="검색: 박종철, 민생, 외교, 부동산, 민주주의">
+      <select id="type"></select>
+      <select id="sort">
+        <option value="recent">최신순</option>
+        <option value="likes">좋아요순</option>
+        <option value="replies">답글순</option>
+      </select>
+      <button id="reset" class="icon-btn" type="button" title="초기화">↺</button>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <h2>시계열</h2>
+        <p id="timelineNote">월별 게시량</p>
+      </div>
+      <div id="timeline" class="map"></div>
+    </section>
+
+    <div class="layout">
+      <section>
+        <div class="section-head">
+          <h2>트윗 브리핑</h2>
+          <p id="resultCount">0개 표시</p>
+        </div>
+        <div id="tweets" class="tweet-list"></div>
+      </section>
+
+      <aside>
+        <section>
+          <div class="section-head">
+            <h2>주제 전환</h2>
+            <p>클릭하면 필터</p>
+          </div>
+          <div id="topics" class="topic-list"></div>
+        </section>
+        <section>
+          <div class="section-head">
+            <h2>핵심 키워드</h2>
+            <p>검색으로 연결</p>
+          </div>
+          <div id="keywords" class="keyword-strip"></div>
+        </section>
+        <section>
+          <div class="section-head">
+            <h2>읽을 포인트</h2>
+            <p>자동 요약</p>
+          </div>
+          <div id="insights"></div>
+        </section>
+        <section>
+          <div class="section-head">
+            <h2>반응 상위</h2>
+            <p>좋아요 기준</p>
+          </div>
+          <div id="ranked" class="ranked"></div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>Static GitHub Pages prototype. Data source: X API. Local path: jaemyung-x-briefing.</footer>
+  </main>
+
+  <script>
+    const fmt = new Intl.NumberFormat("ko-KR");
+    let data;
+
+    function $(id) { return document.getElementById(id); }
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+    function topEntry(obj) {
+      return Object.entries(obj || {}).sort((a, b) => b[1] - a[1])[0] || ["-", 0];
+    }
+    function daysBetween(a, b) {
+      return Math.max(1, Math.round((new Date(b) - new Date(a)) / 86400000));
+    }
+    function highlight(text, query) {
+      const safe = escapeHtml(text);
+      if (!query) return safe;
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      return safe.replace(new RegExp(escaped, "gi"), m => `<mark>${m}</mark>`);
+    }
+    function metricScore(t) {
+      return (t.metrics.like_count || 0) + (t.metrics.retweet_count || 0) * 2 + (t.metrics.reply_count || 0) * 3;
+    }
+    function tweetCard(t) {
+      const query = $("q").value.trim();
+      const image = t.media && t.media[0] && t.media[0].url ? `<img src="${t.media[0].url}" alt="">` : "";
+      return `<article class="tweet">
+        <div class="meta">
+          <span>${t.created_kst}</span>
+          <span class="pill">${escapeHtml(t.type)}</span>
+          <span>좋아요 ${fmt.format(t.metrics.like_count || 0)}</span>
+          <span>답글 ${fmt.format(t.metrics.reply_count || 0)}</span>
+          <a href="${t.url}" target="_blank" rel="noreferrer">원문</a>
+        </div>
+        <p>${highlight(t.text, query)}</p>
+        ${image}
+        <ul class="issues">${(t.issues || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
+      </article>`;
+    }
+    function filteredTweets() {
+      const query = $("q").value.trim().toLowerCase();
+      const selectedType = $("type").value;
+      const sorted = data.tweets.filter(t => {
+        const hay = `${t.text} ${t.type} ${(t.keywords || []).join(" ")} ${(t.issues || []).join(" ")}`.toLowerCase();
+        return (!query || hay.includes(query)) && (!selectedType || t.type === selectedType);
+      });
+      if ($("sort").value === "likes") sorted.sort((a, b) => (b.metrics.like_count || 0) - (a.metrics.like_count || 0));
+      if ($("sort").value === "replies") sorted.sort((a, b) => (b.metrics.reply_count || 0) - (a.metrics.reply_count || 0));
+      return sorted;
+    }
+    function renderTimeline() {
+      const rows = Object.entries(data.byMonth || {}).sort((a, b) => a[0].localeCompare(b[0]));
+      const max = Math.max(1, ...rows.map(([, v]) => v));
+      $("timeline").innerHTML = rows.map(([label, value]) => `<button class="month" style="border:0;background:transparent;padding:0;text-align:left;color:inherit" data-month="${label}">
+        <div class="month-bar" style="--h:${Math.max(16, value / max * 180)}px"></div>
+        <strong>${label.slice(2)}</strong>
+        <span>${value}</span>
+      </button>`).join("");
+      document.querySelectorAll(".month").forEach(el => el.addEventListener("click", () => {
+        $("q").value = el.dataset.month;
+        renderTweets();
+      }));
+    }
+    function renderTopics() {
+      const rows = Object.entries(data.byType || {}).sort((a, b) => b[1] - a[1]);
+      $("topics").innerHTML = rows.map(([label, value]) => `<button class="topic-row" data-type="${escapeHtml(label)}">
+        <div><strong>${escapeHtml(label)}</strong><br><span>${Math.round(value / data.count * 100)}% of posts</span></div>
+        <b>${value}</b>
+      </button>`).join("");
+      document.querySelectorAll(".topic-row").forEach(el => el.addEventListener("click", () => {
+        $("type").value = el.dataset.type;
+        renderTopics();
+        renderTweets();
+      }));
+      document.querySelectorAll(".topic-row").forEach(el => el.classList.toggle("active", el.dataset.type === $("type").value));
+    }
+    function renderKeywords() {
+      $("keywords").innerHTML = data.topKeywords.slice(0, 32).map((k, idx) => `<button class="keyword ${idx < 8 ? "hot" : ""}" data-keyword="${escapeHtml(k.term)}">${escapeHtml(k.term)} · ${k.count}</button>`).join("");
+      document.querySelectorAll(".keyword").forEach(el => el.addEventListener("click", () => {
+        $("q").value = el.dataset.keyword;
+        renderTweets();
+      }));
+    }
+    function renderInsights() {
+      const topType = topEntry(data.byType);
+      const topMonth = topEntry(data.byMonth);
+      const imageCount = data.tweets.filter(t => t.media && t.media.length).length;
+      $("insights").innerHTML = `
+        <div class="insight"><b>${topType[0]}</b><span>가장 많은 메시지 유형입니다. 전체 ${data.count}개 중 ${topType[1]}개입니다.</span></div>
+        <div class="insight"><b>${topMonth[0]}</b><span>게시량이 가장 집중된 달입니다. 이 구간의 이슈 전환을 먼저 보면 좋습니다.</span></div>
+        <div class="insight"><b>${fmt.format(imageCount)}개 이미지</b><span>이미지 포함 글은 논란·현장·캠페인 메시지로 분리해서 볼 가치가 있습니다.</span></div>
+      `;
+    }
+    function renderLead() {
+      const lead = [...data.tweets].sort((a, b) => metricScore(b) - metricScore(a))[0];
+      $("leadTweet").innerHTML = `<div class="label">Most-reacted post</div>
+        <p>${escapeHtml(lead.text).slice(0, 260)}${lead.text.length > 260 ? "..." : ""}</p>
+        <div class="lead-meta">
+          <span>${lead.created_kst}</span>
+          <span>${lead.type}</span>
+          <span>좋아요 ${fmt.format(lead.metrics.like_count || 0)}</span>
+          <a href="${lead.url}" target="_blank" rel="noreferrer">원문</a>
+        </div>`;
+    }
+    function renderTweets() {
+      const rows = filteredTweets();
+      $("resultCount").textContent = `${fmt.format(rows.length)}개 중 ${fmt.format(Math.min(rows.length, 48))}개 표시`;
+      $("tweets").innerHTML = rows.length ? rows.slice(0, 48).map(tweetCard).join("") : `<div class="empty">조건에 맞는 트윗이 없습니다.</div>`;
+      $("ranked").innerHTML = [...data.topTweets].slice(0, 8).map(tweetCard).join("");
+      renderTopics();
+    }
+    async function main() {
+      const res = await fetch("./data/briefing.json");
+      data = await res.json();
+      const topType = topEntry(data.byType)[0];
+      $("generated").textContent = `생성 ${new Date(data.generated_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}`;
+      $("range").textContent = `${data.oldest?.slice(0, 10)} → ${data.newest?.slice(0, 10)}`;
+      $("m-count").textContent = fmt.format(data.count);
+      $("m-days").textContent = `${fmt.format(daysBetween(data.oldest, data.newest))}일`;
+      $("m-toptype").textContent = topType;
+      $("type").innerHTML = `<option value="">전체 유형</option>` + Object.keys(data.byType).sort().map(x => `<option>${escapeHtml(x)}</option>`).join("");
+      renderLead();
+      renderTimeline();
+      renderTopics();
+      renderKeywords();
+      renderInsights();
+      renderTweets();
+      ["q", "type", "sort"].forEach(id => $(id).addEventListener(id === "q" ? "input" : "change", renderTweets));
+      $("reset").addEventListener("click", () => { $("q").value = ""; $("type").value = ""; $("sort").value = "recent"; renderTweets(); });
+    }
+    main().catch(err => {
+      document.body.innerHTML = `<pre style="padding:24px">${escapeHtml(err.stack || err.message)}</pre>`;
+    });
+  </script>
+</body>
+</html>
