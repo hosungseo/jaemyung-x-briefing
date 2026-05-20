@@ -336,6 +336,59 @@ button { font: inherit; cursor: pointer; }
 }
 .cmd select:hover, .cmd .btn:hover { background: var(--panel); }
 .cmd .btn { min-width: 70px; color: var(--amber); }
+.opsbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+  overflow-x: auto;
+}
+.ops-label {
+  flex: 0 0 auto;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: .08em;
+  margin-right: 4px;
+}
+.opsbar .op {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 26px;
+  padding: 0 10px;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  cursor: pointer;
+}
+.opsbar .op:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+  background: var(--panel);
+}
+.opsbar .op.on {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+.opsbar .op b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.ops-hint {
+  margin-left: auto;
+  flex: 0 0 auto;
+  color: var(--dim-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
 
 /* ─── PANEL ──────────────────────────────────────────────────── */
 
@@ -1064,6 +1117,50 @@ button { font: inherit; cursor: pointer; }
 }
 .drawer-kw {
   display: flex; flex-wrap: wrap; gap: 4px;
+}
+.policy-summary {
+  display: grid;
+  gap: 7px;
+}
+.policy-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  align-items: baseline;
+  padding: 9px 10px;
+  color: var(--ink-2);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--cyan);
+  text-align: left;
+  cursor: pointer;
+}
+.policy-row:hover {
+  color: var(--ink);
+  background: var(--panel-2);
+  border-color: var(--cyan);
+}
+.policy-row.active {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+.policy-row span {
+  font-size: var(--fs-sm);
+}
+.policy-row b {
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-lg);
+}
+.policy-row small {
+  grid-column: 1 / -1;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+.policy-row.compact {
+  border-left-color: var(--line);
 }
 .drawer-note {
   margin: 0;

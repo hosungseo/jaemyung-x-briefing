@@ -51,6 +51,7 @@ const state = {
   types: new Set(),   // multi-select type filter
   sort: "recent",
   view: "list",       // "list" | "grid"
+  focus: "all",
   visibleCount: 50,
   selectedId: null,
   dateRange: null,    // [startMs, endMs] | null
@@ -65,6 +66,7 @@ function readURL() {
   if (p.has("type") && !state.types.size) state.types.add(p.get("type")); // legacy
   if (p.has("sort"))  state.sort = p.get("sort");
   if (p.has("view"))  state.view = p.get("view");
+  if (p.has("focus")) state.focus = p.get("focus");
   if (p.has("dr")) {
     const parts = p.get("dr").split(",").map(Number);
     if (parts.length === 2 && parts.every(Number.isFinite)) state.dateRange = parts;
@@ -78,6 +80,7 @@ function syncURL() {
   if (state.types.size) p.set("types", [...state.types].join(","));
   if (state.sort && state.sort !== "recent") p.set("sort", state.sort);
   if (state.view && state.view !== "list") p.set("view", state.view);
+  if (state.focus && state.focus !== "all") p.set("focus", state.focus);
   if (state.dateRange) p.set("dr", state.dateRange.join(","));
   if (state.debugScores) p.set("debug", "1");
   if (state.selectedId) p.set("id", state.selectedId);
@@ -126,6 +129,8 @@ function rerenderScoped() {
   renderLead();
   renderActivity(stats);
   renderKeywords();
+  renderFocusControls();
+  renderPolicySummary();
   renderRank();
   renderTopics();
   renderFeed();
@@ -181,6 +186,36 @@ function publicStrength(items) {
   if (items.some(x => x.strength === "높음")) return "높음";
   if (items.some(x => x.strength === "중간")) return "중간";
   return "낮음";
+}
+
+function focusLabel(key = state.focus) {
+  return ({
+    all: "전체",
+    linked: "정책근거 있음",
+    strong: "강한 연결",
+    unlinked: "미연결",
+    breakout: "브레이크아웃",
+    media: "미디어",
+  })[key] || "전체";
+}
+
+function matchesFocus(t, focus = state.focus) {
+  const links = pressLinksFor(t.id);
+  if (focus === "linked") return links.length > 0;
+  if (focus === "strong") return links.some(x => x.strength === "높음");
+  if (focus === "unlinked") return links.length === 0;
+  if (focus === "breakout") return !!t._breakout;
+  if (focus === "media") return !!(t.media && t.media.length);
+  return true;
+}
+
+function setFocus(focus) {
+  state.focus = focus;
+  state.visibleCount = state.view === "grid" ? 60 : 50;
+  renderFocusControls();
+  renderPolicySummary();
+  renderFeed();
+  syncURL();
 }
 
 function highlight(text, q) {
@@ -547,6 +582,7 @@ function filtered() {
     const hay = `${t.text} ${t.type} ${(t.keywords||[]).join(" ")} ${(t.issues||[]).join(" ")} ${t.date}`.toLowerCase();
     if (q && !hay.includes(q)) return false;
     if (state.types.size && !state.types.has(t.type)) return false;
+    if (!matchesFocus(t)) return false;
     return true;
   });
   if (state.sort === "likes")   rows.sort((a,b)=>(b.metrics.like_count||0)-(a.metrics.like_count||0));
@@ -623,6 +659,7 @@ function renderFeed() {
     recent:"최신순", oldest:"오래된순", likes:"좋아요순", replies:"답글순",
     engage:"종합 반응순", impressions:"노출순", breakout:"이탈도(σ)순"
   })[state.sort];
+  $("sort-tag").textContent += ` · ${focusLabel()}`;
 
   const feed = $("feed");
   feed.classList.toggle("grid-mode", state.view === "grid");
@@ -716,6 +753,72 @@ function renderKeywords() {
       renderFeed();
       syncURL();
     });
+  });
+}
+
+function focusCounts() {
+  const tweets = state.data?.tweets || [];
+  return {
+    all: tweets.length,
+    linked: tweets.filter(t => pressLinksFor(t.id).length).length,
+    strong: tweets.filter(t => pressLinksFor(t.id).some(x => x.strength === "높음")).length,
+    unlinked: tweets.filter(t => !pressLinksFor(t.id).length).length,
+    breakout: tweets.filter(t => t._breakout).length,
+    media: tweets.filter(t => t.media && t.media.length).length,
+  };
+}
+
+function renderFocusControls() {
+  const host = $("opsbar");
+  if (!host) return;
+  const counts = focusCounts();
+  const items = [
+    ["all", "전체"],
+    ["linked", "정책근거"],
+    ["strong", "강한 연결"],
+    ["unlinked", "미연결"],
+    ["breakout", "브레이크아웃"],
+    ["media", "미디어"],
+  ];
+  host.innerHTML = `
+    <span class="ops-label">ANALYSIS MODE</span>
+    ${items.map(([key, label]) => `
+      <button class="op ${state.focus === key ? "on" : ""}" data-focus="${key}">
+        ${label}<b>${fmt.format(counts[key] || 0)}</b>
+      </button>
+    `).join("")}
+    <span class="ops-hint">패널과 피드가 같은 모드로 동기화됩니다</span>
+  `;
+  host.querySelectorAll("[data-focus]").forEach(btn => {
+    btn.addEventListener("click", () => setFocus(btn.dataset.focus));
+  });
+}
+
+function renderPolicySummary() {
+  const host = $("policy-summary");
+  if (!host) return;
+  const counts = focusCounts();
+  const totalLinks = Object.values(state.policyLinks?.links || {}).reduce((sum, arr) => sum + arr.length, 0);
+  const avg = counts.linked ? (totalLinks / counts.linked).toFixed(1) : "0.0";
+  const rows = [
+    ["linked", "근거 연결", counts.linked, `${avg} docs/post`],
+    ["strong", "강한 연결", counts.strong, "high confidence"],
+    ["unlinked", "미연결", counts.unlinked, "needs review"],
+  ];
+  host.innerHTML = `
+    ${rows.map(([key, label, value, note]) => `
+      <button class="policy-row ${state.focus === key ? "active" : ""}" data-focus="${key}">
+        <span>${label}</span>
+        <b>${fmt.format(value)}</b>
+        <small>${note}</small>
+      </button>
+    `).join("")}
+    <button class="policy-row compact" data-focus="all">
+      <span>전체 보기</span><b>${fmt.format(counts.all)}</b><small>reset mode</small>
+    </button>
+  `;
+  host.querySelectorAll("[data-focus]").forEach(btn => {
+    btn.addEventListener("click", () => setFocus(btn.dataset.focus));
   });
 }
 
@@ -1229,7 +1332,7 @@ function wireInputs() {
   });
 
   $("reset").addEventListener("click", () => {
-    state.q = ""; state.types.clear(); state.sort = "recent"; state.view = "list"; state.visibleCount = 50;
+    state.q = ""; state.types.clear(); state.sort = "recent"; state.view = "list"; state.focus = "all"; state.visibleCount = 50;
     state.dateRange = null;
     $("q").value = ""; $("sort").value = "recent";
     rerenderScoped();
@@ -1243,6 +1346,8 @@ function wireInputs() {
     renderFeed();
     syncURL();
   });
+  renderFocusControls();
+  renderPolicySummary();
   $("drawer-veil").addEventListener("click", closeDrawer);
   $("drawer-close").addEventListener("click", closeDrawer);
   document.addEventListener("keydown", e => {
@@ -1437,6 +1542,8 @@ async function main() {
   setViewButton();
 
   renderRail(state.rawData, fullStats);
+  renderFocusControls();
+  renderPolicySummary();
   renderHeadline(state.rawData, fullStats);
   renderKPIs(state.data, stats);
   renderDayHourHeat(state.data);
