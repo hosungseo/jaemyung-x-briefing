@@ -138,6 +138,7 @@ function rerenderScoped() {
   if (typeof renderCohort === "function") renderCohort();
   if (typeof renderTransition === "function") renderTransition();
   updateScopeBadge();
+  renderQuickActions();
   syncURL();
 }
 
@@ -153,6 +154,7 @@ function updateScopeBadge() {
     el.textContent = `SCOPE · ${f(s)} → ${f(e)} · ${fmt.format(state.data.count)} posts`;
     el.classList.add("active");
   }
+  updateScopeSummary();
 }
 
 const $ = id => document.getElementById(id);
@@ -188,6 +190,40 @@ function publicStrength(items) {
   return "낮음";
 }
 
+function sortLabel(key = state.sort) {
+  return ({
+    recent: "최신순",
+    oldest: "오래된순",
+    likes: "좋아요순",
+    replies: "답글순",
+    engage: "종합 반응순",
+    impressions: "노출순",
+    breakout: "이탈도(σ)순",
+  })[key] || "최신순";
+}
+
+function updateScopeSummary() {
+  const summary = $("scope-summary");
+  if (!summary || !state.data) return;
+  const rows = matchingTweets();
+  const active = [];
+  if (state.q) active.push(`Q "${state.q}"`);
+  if (state.types.size) active.push(`TYPES ${state.types.size}`);
+  if (state.dateRange) active.push("DATE RANGE");
+  if (state.focus !== "all") active.push(`MODE ${focusLabel()}`);
+  const lead = rows.length ? [...rows].sort((a, b) => metricScore(b) - metricScore(a))[0] : null;
+  const leadText = lead ? ` · LEAD ${lead.date} / ${fmtCompact.format(metricScore(lead))}` : "";
+  summary.textContent = `MATCH ${fmt.format(rows.length)} / ${fmt.format(state.data.count)} · ${active.length ? active.join(" · ") : "ALL"} · SORT ${sortLabel()}${leadText}`;
+}
+
+function flashPanel(id) {
+  const panel = $(id);
+  if (!panel) return;
+  panel.classList.remove("interaction-flash");
+  void panel.offsetWidth;
+  panel.classList.add("interaction-flash");
+}
+
 function focusLabel(key = state.focus) {
   return ({
     all: "전체",
@@ -214,6 +250,50 @@ function setFocus(focus) {
   state.visibleCount = state.view === "grid" ? 60 : 50;
   renderFilteredPanels();
   syncURL();
+  flashPanel("feed-panel");
+}
+
+function resetViewState() {
+  state.q = "";
+  state.types.clear();
+  state.sort = "recent";
+  state.view = "list";
+  state.focus = "all";
+  state.visibleCount = 50;
+  state.dateRange = null;
+  state.selectedId = null;
+  $("q").value = "";
+  $("sort").value = "recent";
+  setViewButton();
+  updateTypePopover();
+  rerenderScoped();
+  flashPanel("feed-panel");
+}
+
+function renderQuickActions() {
+  const host = $("quick-actions");
+  if (!host || !state.data) return;
+  const rows = matchingTweets();
+  const hasFilter = !!(state.q || state.types.size || state.focus !== "all" || state.dateRange || state.sort !== "recent" || state.view !== "list");
+  const lead = rows.length ? [...rows].sort((a, b) => metricScore(b) - metricScore(a))[0] : null;
+  host.innerHTML = `
+    ${lead ? `<button class="quick-action primary" data-act="open-lead">OPEN LEAD</button>` : ""}
+    <button class="quick-action" data-act="engage">SORT ENGAGE</button>
+    <button class="quick-action" data-act="policy">POLICY ONLY</button>
+    <button class="quick-action" data-act="media">MEDIA GRID</button>
+    ${hasFilter ? `<button class="quick-action danger" data-act="clear">CLEAR</button>` : ""}
+  `;
+  host.querySelectorAll("[data-act]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const act = btn.dataset.act;
+      if (act === "open-lead" && lead) openDrawer(lead.id);
+      if (act === "engage") setSort("engage");
+      if (act === "policy") setFocus("linked");
+      if (act === "media") { setView("grid"); setFocus("media"); }
+      if (act === "clear") resetViewState();
+      flashPanel("lead");
+    });
+  });
 }
 
 function highlight(text, q) {
@@ -246,6 +326,8 @@ function renderFilteredPanels() {
   renderLead();
   renderRank();
   renderFeed();
+  updateScopeSummary();
+  renderQuickActions();
 }
 
 function setSort(sort) {
@@ -443,19 +525,7 @@ function renderKPIs(data, stats) {
     card.addEventListener("click", () => {
       const action = card.dataset.action;
       if (action === "reset") {
-        state.q = "";
-        state.types.clear();
-        state.focus = "all";
-        state.view = "list";
-        state.sort = "recent";
-        state.visibleCount = 50;
-        $("q").value = "";
-        $("sort").value = "recent";
-        updateTypePopover();
-        setViewButton();
-        renderTopics();
-        renderFilteredPanels();
-        syncURL();
+        resetViewState();
         return;
       }
       if (action === "breakout" || action === "media") {
@@ -490,6 +560,7 @@ function renderTopics() {
       renderFilteredPanels();
       updateTypePopover();
       syncURL();
+      flashPanel("feed-panel");
     });
   });
 }
@@ -629,6 +700,7 @@ function renderTimeline(stats) {
       state.visibleCount = 50;
       renderFilteredPanels();
       syncURL();
+      flashPanel("feed-panel");
     },
   });
   host.appendChild(svg);
@@ -828,6 +900,7 @@ function renderKeywords() {
       state.visibleCount = 50;
       renderFilteredPanels();
       syncURL();
+      flashPanel("feed-panel");
     });
   });
 }
@@ -913,7 +986,7 @@ function renderPolicySummary() {
 function renderRank() {
   const top = [...matchingTweets()].sort((a, b) => (b.metrics.like_count || 0) - (a.metrics.like_count || 0)).slice(0, 10);
   $("rank-list").innerHTML = top.length ? top.map((t, i) => `
-    <div class="rank-row" data-id="${t.id}">
+    <div class="rank-row ${state.selectedId === t.id ? "active" : ""}" data-id="${t.id}">
       <span class="rk">${String(i + 1).padStart(2, "0")}</span>
       <div class="rk-text">${escapeHtml(stripUrls(t.text)).slice(0, 100)}${t.text.length > 100 ? "…" : ""}
         <small>${t.date} · ${escapeHtml(t.type)}</small>
@@ -1417,12 +1490,7 @@ function wireInputs() {
   });
 
   $("reset").addEventListener("click", () => {
-    state.q = ""; state.types.clear(); state.sort = "recent"; state.view = "list"; state.focus = "all"; state.visibleCount = 50;
-    state.dateRange = null;
-    $("q").value = ""; $("sort").value = "recent";
-    rerenderScoped();
-    updateTypePopover();
-    setViewButton();
+    resetViewState();
   });
   $("view-toggle").addEventListener("click", () => {
     setView(state.view === "list" ? "grid" : "list");
@@ -1642,6 +1710,7 @@ async function main() {
   wireInputs();
   updateTypePopover();
   updateScopeBadge();
+  renderQuickActions();
   applyTweaks();
   buildTweaks();
   setupTweaksProtocol();
