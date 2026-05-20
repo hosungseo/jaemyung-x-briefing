@@ -46,27 +46,149 @@ function clean(text) {
 }
 
 function normalizeTerm(word) {
-  return String(word || "")
+  const protectedWord = String(word || "")
+    .replace(/민주주의/g, "민주주의X")
+    .replace(/한반도/g, "한반도X");
+  return protectedWord
+    .replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "")
     .replace(/^(대한|국민|우리|저는|오늘|내일|이번|관련|대해|위해)/, "")
-    .replace(/(입니다|합니다|했습니다|드립니다|하겠습니다|이라는|라는|으로|에서|에게|까지|부터|처럼|보다|이며|이고|하고|하는|했다|한다|하게|들이|들의|으로서|으로써|께서|에게|에는|에도|만큼|조차|마저|부터|까지|은|는|이|가|을|를|의|와|과|도|로)$/g, "")
+    .replace(/(입니다|합니다|했습니다|드립니다|하겠습니다|이라는|라는|으로|에서|에게|까지|부터|처럼|보다|이며|이고|하고|하는|했다|한다|하게|들이|들의|으로서|으로써|께서|에게|에는|에도|만큼|조차|마저|부터|까지|한테|보다|마다|라도|이라도|님|은|는|이|가|을|를|의|와|과|도|로|에)$/g, "")
+    .replace(/민주주의X/g, "민주주의")
+    .replace(/한반도X/g, "한반도")
     .trim();
 }
 
+const STOP_TERMS = new Set([
+  "https", "t.co", "http", "co", "lt", "gt", "amp",
+  "이재명", "대통령", "대통령님", "민국", "대한민국", "대한국민", "국민", "여러분", "정부",
+  "오늘", "어제", "내일", "이번", "지난", "처음", "다시", "이제", "모두", "가장", "매우", "정말", "진심", "감사",
+  "합니다", "했습니다", "드립니다", "하겠습니다", "있습니다", "없습니다", "바랍니다", "생각", "되어", "되어야", "가졌습니다",
+  "만났습니다", "나눴습니다", "찾습니다", "모십니다", "뵙겠습니다", "관련", "위해", "대해", "통해", "함께",
+  "나라", "세계", "한국", "사람", "분들", "곳곳", "현장", "시간", "마음", "목소리", "소식", "모습", "자리",
+  "축하", "기쁘게", "따뜻한", "든든한", "오랜", "새로운", "가능한", "필요", "문제", "상황", "기준",
+  "여러분께", "아닙니다", "덕분에", "열리고", "거듭나고", "재임하시며", "주십시오", "진짜인지", "총리님", "장관님",
+]);
+
+const EVENT_PATTERNS = [
+  /5[.·ㆍ]18\s*민주화운동/g,
+  /6월\s*민주항쟁/g,
+  /박종철\s*열사/g,
+  /고문치사사건/g,
+  /국가정보자원관리원/g,
+  /대중문화교류위원회/g,
+  /대통령실/g,
+  /국정기획위원회/g,
+  /국가안전보장회의/g,
+  /비상경제점검TF회의/g,
+  /타운홀\s*미팅/g,
+  /국제인도법/g,
+  /불법\s*성착취물/g,
+  /보이스피싱/g,
+  /가짜뉴스/g,
+  /주가조작/g,
+  /설탕부담금/g,
+  /부동산투기/g,
+  /양도세중과유예/g,
+  /공공기관\s*지방이전/g,
+  /해수부\s*이전/g,
+  /해사법원/g,
+  /주권정부/g,
+  /자유민주적\s*기본질서/g,
+  /시장경제질서/g,
+  /노동권/g,
+  /기업경영권/g,
+  /산업인공지능전환/g,
+  /기후에너지환경부/g,
+  /필수의료/g,
+  /희귀질환/g,
+  /국제기구/g,
+  /한센병/g,
+  /민주당/g,
+  /국민의힘/g,
+  /국회/g,
+  /검찰/g,
+  /경찰/g,
+  /법원/g,
+  /공무원/g,
+  /공공기관/g,
+  /소상공인/g,
+  /다주택자/g,
+  /부동산/g,
+  /주택/g,
+  /노동/g,
+  /임금체불/g,
+  /산재/g,
+  /외교/g,
+  /안보/g,
+  /한반도/g,
+  /북한/g,
+  /미국/g,
+  /중국/g,
+  /일본/g,
+  /베트남/g,
+  /튀르키예/g,
+  /이집트/g,
+  /UAE/g,
+  /APEC/g,
+  /G20/g,
+  /AI/g,
+  /반도체/g,
+  /바이오/g,
+  /방산/g,
+  /인공지능/g,
+  /데이터센터/g,
+  /문화/g,
+  /영화/g,
+  /케이팝/g,
+];
+
+function addCandidate(scores, term, score) {
+  const k = normalizeTerm(term).replace(/\s+/g, " ").trim();
+  if (!k || STOP_TERMS.has(k)) return;
+  if (k.length < 2 || /^[0-9]+$/.test(k)) return;
+  if (/^[A-Za-z0-9]{8,}$/.test(k) && !/^(APEC|G20|UAE|AI|AWS|IMF|WHO|WBC|KF-21|RE100)$/i.test(k)) return;
+  if (/[A-Za-z0-9]{7,}[A-Za-z0-9]*$/.test(k) && !/[가-힣]/.test(k)) return;
+  if (/(습니다|습니까|했습|됩니다|됩니다만|되기|되었|되어야|되어|한다면|하시기|하셨|하신|해주시|했는데|이라니|인데|면서|지만|네요|군요|까요|런지)$/.test(k)) return;
+  if (/(입니다|합니다|했습니다|드립니다|하겠습니다|있습니다|없습니다|바랍니다|생각합니다|전합니다|감사합니다|감사드립니다|기대합니다)$/.test(k)) return;
+  if (/(하시며|하며|하며서|받은|받고|받아|하게|하고|하며|하며서|되는|된다고|되도록|되길|하기|하길|위한|위해|싶습니다)$/.test(k)) return;
+  if (/^(무슨|어떤|이런|저런|그런|얼마|혹시|바로|일단|조금|많이|너무|아직|언제|어디|누구|이게|그간)$/.test(k)) return;
+  scores.set(k, Math.max(scores.get(k) || 0, score));
+}
+
 function keywords(text) {
-  const stop = new Set([
-    "https", "t.co", "http", "co", "lt", "gt", "amp", "입니다", "하는", "에서", "으로", "그리고", "하지만", "있습니다", "드립니다", "합니다", "함께",
-    "오늘", "우리", "국민", "여러분", "대한민국", "대한국민", "관련", "위해", "대해", "통해", "것입니다", "하겠습니다", "있도록", "없도록",
-  ]);
-  const seen = new Set();
-  return Array.from(String(text || "").matchAll(/[가-힣A-Za-z0-9·]{2,}/g))
-    .map((m) => normalizeTerm(m[0]))
-    .filter((w) => w.length >= 2 && !stop.has(w) && !w.startsWith("http") && !/^t$/.test(w))
-    .filter((w) => {
-      if (seen.has(w)) return false;
-      seen.add(w);
-      return true;
-    })
-    .slice(0, 12);
+  const source = String(text || "").replace(/https?:\/\/\S+/g, " ");
+  const scores = new Map();
+
+  for (const pattern of EVENT_PATTERNS) {
+    for (const m of source.matchAll(pattern)) addCandidate(scores, m[0], 120);
+  }
+
+  const tokens = Array.from(source.matchAll(/[가-힣A-Za-z0-9·.-]{2,}/g)).map((m) => m[0]);
+  tokens.forEach((raw, index) => {
+    const k = normalizeTerm(raw);
+    let score = 10;
+    if (/[·.-]/.test(k)) score += 8;
+    if (k.length >= 4) score += 6;
+    if (/(정책|제도|개혁|법안|법|세제|세금|예산|추경|시장|투자|산업|기술|의료|교육|노동|안전|범죄|수사|재판|외교|안보|협력|문화|지역|민주|인권|평화|경제|금융|부동산|주택|에너지|기후|복지|돌봄|청년|소상공|공공기관|위원회|장관|총리|대통령|국회|검찰|경찰)$/.test(k)) score += 18;
+    if (/^(故|전|현|신임)$/.test(raw)) score -= 6;
+    if (index > 10) score -= Math.min(8, Math.floor((index - 10) / 4));
+    addCandidate(scores, k, score);
+  });
+
+  for (let i = 0; i < tokens.length - 1; i += 1) {
+    const a = normalizeTerm(tokens[i]);
+    const b = normalizeTerm(tokens[i + 1]);
+    if (!a || !b || STOP_TERMS.has(a) || STOP_TERMS.has(b)) continue;
+    if (a.length + b.length < 5) continue;
+    if (/(정책|제도|개혁|법안|세제|투자|산업|기술|의료|교육|노동|범죄|외교|안보|문화|민주|경제|금융|부동산|주택|에너지|기후|복지|돌봄|청년|공공기관|위원회|민주화운동|항쟁|질서)$/.test(b)) {
+      addCandidate(scores, `${a} ${b}`, 55);
+    }
+  }
+
+  return [...scores.entries()]
+    .sort((a, b) => b[1] - a[1] || b[0].length - a[0].length)
+    .map(([term]) => term)
+    .slice(0, 8);
 }
 
 function classify(text) {
@@ -219,6 +341,31 @@ function writeReports(tweets) {
 async function main() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
   fs.mkdirSync(REPORT_DIR, { recursive: true });
+  if (process.env.REBUILD_FROM_DATA === "1") {
+    const existing = JSON.parse(fs.readFileSync(path.join(DATA_DIR, "briefing.json"), "utf8"));
+    const mediaByTweet = new Map((existing.tweets || []).map((t) => [t.id, t.media || []]));
+    const tweets = existing.tweets.map((t) => ({
+      id: t.id,
+      text: t.text,
+      created_at: t.created_at,
+      public_metrics: t.metrics || {},
+      attachments: {},
+    }));
+    const briefing = summarize(tweets, new Map());
+    briefing.tweets.forEach((t) => {
+      t.media = mediaByTweet.get(t.id) || [];
+    });
+    briefing.topTweets.forEach((t) => {
+      t.media = mediaByTweet.get(t.id) || [];
+    });
+    briefing.recent.forEach((t) => {
+      t.media = mediaByTweet.get(t.id) || [];
+    });
+    fs.writeFileSync(path.join(DATA_DIR, "briefing.json"), JSON.stringify(briefing, null, 2), "utf8");
+    writeReports(briefing.tweets);
+    console.log(JSON.stringify({ count: briefing.count, newest: briefing.newest, oldest: briefing.oldest }, null, 2));
+    return;
+  }
   const { tweets, mediaByKey } = await fetchTweets();
   const briefing = summarize(tweets, mediaByKey);
   fs.writeFileSync(path.join(DATA_DIR, "briefing.json"), JSON.stringify(briefing, null, 2), "utf8");
