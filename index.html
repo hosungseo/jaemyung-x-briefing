@@ -88,6 +88,7 @@
     <span id="scope-summary" class="scope-summary">MATCH — · MODE 전체 · SORT 최신순</span>
     <div id="quick-actions" class="quick-actions" aria-label="빠른 조작"></div>
   </div>
+  <div class="flowbar" id="flowbar" aria-label="분석 흐름"></div>
 
   <!-- WORKSPACE -->
   <main class="workspace">
@@ -98,7 +99,7 @@
         <div class="panel-head">
           <span class="tag">N1</span>
           <span>주제 분포 · TOPIC DIST</span>
-          <span class="right">CLICK → FILTER</span>
+          <span class="right">ROLE · FILTER SOURCE</span>
         </div>
         <div class="panel-body">
           <div id="topic-list"></div>
@@ -133,7 +134,7 @@
         <div class="panel-head">
           <span class="tag">LEAD</span>
           <span>최다 반응 게시글 · MOST-REACTED POST</span>
-          <span class="right">SCORE = LIKES + RT×2 + RPL×3</span>
+          <span class="right">ROLE · CURRENT REPRESENTATIVE</span>
         </div>
         <div class="panel-body flush">
           <div id="lead" class="lead"></div>
@@ -212,7 +213,7 @@
         <div class="panel-head">
           <span class="tag" style="background:var(--violet)">F4</span>
           <span>반응 상위 10 · TOP REACTIONS</span>
-          <span class="right">LIKES</span>
+          <span class="right">ROLE · CANDIDATE LIST</span>
         </div>
         <div class="panel-body flush">
           <div id="rank-list"></div>
@@ -223,7 +224,7 @@
         <div class="panel-head">
           <span class="tag" style="background:var(--yellow); color:#000">KW</span>
           <span>핵심 키워드 · KEYWORDS</span>
-          <span class="right">TOP 28</span>
+          <span class="right">ROLE · QUERY SHORTCUT</span>
         </div>
         <div class="panel-body">
           <div id="keywords" class="kw-list"></div>
@@ -234,7 +235,7 @@
         <div class="panel-head">
           <span class="tag" style="background:var(--cyan)">PX</span>
           <span>정책근거 연결 · POLICY EVIDENCE</span>
-          <span class="right">CLICK → FILTER</span>
+          <span class="right">ROLE · MODE SWITCH</span>
         </div>
         <div class="panel-body">
           <div id="policy-summary" class="policy-summary"></div>
@@ -247,10 +248,10 @@
           <span>읽는 법 · HOW TO READ</span>
         </div>
         <div class="panel-body" style="font-size:11px; color:var(--dim); line-height:1.6; font-family:var(--font-mono); letter-spacing:.02em;">
-          <p style="margin:0 0 8px"><span class="amber">[N1]</span> 주제 분포를 클릭하면 해당 유형으로 피드가 필터됩니다.</p>
-          <p style="margin:0 0 8px"><span class="amber">[F1]</span> 월별 막대를 클릭하면 그 달 게시글만 검색합니다.</p>
-          <p style="margin:0 0 8px"><span class="amber">[F2]</span> 피드 행을 클릭하면 우측 패널로 단일 메시지 상세 화면이 열립니다.</p>
-          <p style="margin:0 0 8px"><span class="amber">[KW]</span> 키워드 → 검색어로 연결. <span class="amber">[/]</span> 키로 검색창 포커스.</p>
+          <p style="margin:0 0 8px"><span class="amber">[FLOW]</span> 관점 선택 → 대표 게시글 확인 → 후보 비교 → 상세 읽기 순서로 봅니다.</p>
+          <p style="margin:0 0 8px"><span class="amber">[LEAD]</span> 고정 카드가 아니라 현재 조건에서 반응 점수가 가장 높은 대표 게시글입니다.</p>
+          <p style="margin:0 0 8px"><span class="amber">[F4]</span> TOP REACTIONS는 대표 후보군입니다. 행을 누르면 같은 상세 패널이 열립니다.</p>
+          <p style="margin:0 0 8px"><span class="amber">[N1/KW/F1]</span> 주제·키워드·월 막대는 모두 조건을 바꾸며 LEAD/F4/F2를 다시 계산합니다.</p>
           <p style="margin:0 0 0"><span class="amber">[ESC]</span> 상세 패널 닫기.</p>
         </div>
       </section>

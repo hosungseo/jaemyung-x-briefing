@@ -131,6 +131,7 @@ function rerenderScoped() {
   renderKeywords();
   renderFocusControls();
   renderPolicySummary();
+  renderFlowbar();
   renderRank();
   renderTopics();
   renderFeed();
@@ -214,6 +215,43 @@ function updateScopeSummary() {
   const lead = rows.length ? [...rows].sort((a, b) => metricScore(b) - metricScore(a))[0] : null;
   const leadText = lead ? ` · LEAD ${lead.date} / ${fmtCompact.format(metricScore(lead))}` : "";
   summary.textContent = `MATCH ${fmt.format(rows.length)} / ${fmt.format(state.data.count)} · ${active.length ? active.join(" · ") : "ALL"} · SORT ${sortLabel()}${leadText}`;
+}
+
+function currentScopeLabel() {
+  const parts = [];
+  if (state.q) parts.push(`검색 "${state.q}"`);
+  if (state.types.size) parts.push(`유형 ${state.types.size}개`);
+  if (state.dateRange) parts.push("기간 선택");
+  if (state.focus !== "all") parts.push(focusLabel());
+  return parts.length ? parts.join(" · ") : "전체 데이터";
+}
+
+function renderFlowbar() {
+  const host = $("flowbar");
+  if (!host || !state.data) return;
+  const rows = matchingTweets();
+  const lead = rows.length ? [...rows].sort((a, b) => metricScore(b) - metricScore(a))[0] : null;
+  const selected = state.selectedId ? state.data.tweets.find(t => t.id === state.selectedId) : null;
+  const steps = [
+    ["01", "관점", currentScopeLabel(), "opsbar"],
+    ["02", "대표", lead ? `${lead.date} · ${fmtCompact.format(metricScore(lead))}` : "대표 없음", "lead"],
+    ["03", "후보", `${fmt.format(rows.length)}건 재정렬`, "rank"],
+    ["04", "상세", selected ? selected.date : "행 클릭", "feed-panel"],
+  ];
+  host.innerHTML = steps.map(([num, label, value, jump], i) => `
+    <button class="flow-step ${i === 1 && lead ? "hot" : ""} ${i === 3 && selected ? "on" : ""}" data-jump="${jump}">
+      <span>${num}</span>
+      <b>${label}</b>
+      <small>${escapeHtml(value)}</small>
+    </button>
+  `).join("");
+  host.querySelectorAll("[data-jump]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const target = $(btn.dataset.jump);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      flashPanel(btn.dataset.jump);
+    });
+  });
 }
 
 function flashPanel(id) {
@@ -324,6 +362,7 @@ function renderFilteredPanels() {
   renderFocusControls();
   renderPolicySummary();
   renderLead();
+  renderFlowbar();
   renderRank();
   renderFeed();
   updateScopeSummary();
@@ -629,7 +668,7 @@ function renderLead() {
   if (!rows.length) {
     host.innerHTML = `
       <div class="lead-body">
-        <div class="lead-tag">MOST-REACTED · ${escapeHtml(focusLabel())} · 0 MATCHES</div>
+        <div class="lead-tag">CURRENT SCOPE · ${escapeHtml(currentScopeLabel())} · 0 MATCHES</div>
         <p class="lead-text">현재 조건에 맞는 게시글이 없습니다.</p>
         <div class="lead-meta">
           <span class="mono">검색어, 타입, 포커스 조건을 조정해보세요.</span>
@@ -646,12 +685,23 @@ function renderLead() {
     return;
   }
 
-  const lead = [...rows].sort((a, b) => metricScore(b) - metricScore(a))[0];
+  const candidates = [...rows].sort((a, b) => metricScore(b) - metricScore(a));
+  const lead = candidates[0];
+  const runnerUps = candidates.slice(1, 4);
   const m = lead.metrics || {};
   const text = stripUrls(lead.text);
+  const shortText = t => {
+    const s = stripUrls(t.text);
+    return `${escapeHtml(s).slice(0, 48)}${s.length > 48 ? "…" : ""}`;
+  };
   host.innerHTML = `
     <div class="lead-body">
-      <div class="lead-tag">MOST-REACTED · ${escapeHtml(focusLabel())} · ${fmt.format(rows.length)} MATCHES</div>
+      <div class="lead-tag">CURRENT SCOPE · ${escapeHtml(currentScopeLabel())} · ${fmt.format(rows.length)} MATCHES</div>
+      <div class="lead-context">
+        <span>현재 조건에서 재계산된 대표 게시글</span>
+        <b>MOST-REACTED</b>
+        <span>반응 점수 기준</span>
+      </div>
       <p class="lead-text">${escapeHtml(text)}</p>
       <div class="lead-meta">
         <span class="mono">${escapeHtml(lead.created_kst)} KST</span>
@@ -666,10 +716,19 @@ function renderLead() {
       <div class="lead-stat"><span class="lbl">REPOSTS</span><span class="val">${fmt.format(m.retweet_count || 0)}</span></div>
       <div class="lead-stat"><span class="lbl">REPLIES</span><span class="val">${fmt.format(m.reply_count || 0)}</span></div>
       <div class="lead-stat"><span class="lbl">IMPRESSIONS</span><span class="val">${fmtCompact.format(m.impression_count || 0)}</span></div>
+      ${runnerUps.length ? `<div class="lead-runners">
+        <span class="lbl">NEXT CANDIDATES</span>
+        ${runnerUps.map((t, i) => `<button data-id="${t.id}"><b>${i + 2}</b><span>${shortText(t)}</span><em>${fmtCompact.format(metricScore(t))}</em></button>`).join("")}
+      </div>` : ""}
     </div>
   `;
   host.onclick = e => {
     if (e.target.tagName === "A") return;
+    const runner = e.target.closest(".lead-runners button");
+    if (runner) {
+      openDrawer(runner.dataset.id);
+      return;
+    }
     openDrawer(lead.id);
   };
 }
@@ -985,6 +1044,8 @@ function renderPolicySummary() {
 
 function renderRank() {
   const top = [...matchingTweets()].sort((a, b) => (b.metrics.like_count || 0) - (a.metrics.like_count || 0)).slice(0, 10);
+  const rankRight = $("rank")?.querySelector(".panel-head .right");
+  if (rankRight) rankRight.textContent = `CURRENT SCOPE · ${currentScopeLabel()} · LIKES`;
   $("rank-list").innerHTML = top.length ? top.map((t, i) => `
     <div class="rank-row ${state.selectedId === t.id ? "active" : ""}" data-id="${t.id}">
       <span class="rk">${String(i + 1).padStart(2, "0")}</span>
@@ -1078,6 +1139,7 @@ function openDrawer(id) {
     img.style.cursor = "zoom-in";
     img.addEventListener("click", () => openLightbox(img.dataset.url));
   });
+  renderFlowbar();
   renderFeed(); // refresh active state
 }
 
@@ -1497,6 +1559,7 @@ function wireInputs() {
   });
   renderFocusControls();
   renderPolicySummary();
+  renderFlowbar();
   $("drawer-veil").addEventListener("click", closeDrawer);
   $("drawer-close").addEventListener("click", closeDrawer);
   document.addEventListener("keydown", e => {
@@ -1693,6 +1756,7 @@ async function main() {
   renderRail(state.rawData, fullStats);
   renderFocusControls();
   renderPolicySummary();
+  renderFlowbar();
   renderHeadline(state.rawData, fullStats);
   renderKPIs(state.data, stats);
   renderDayHourHeat(state.data);
