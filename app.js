@@ -212,11 +212,7 @@ function matchesFocus(t, focus = state.focus) {
 function setFocus(focus) {
   state.focus = focus;
   state.visibleCount = state.view === "grid" ? 60 : 50;
-  renderFocusControls();
-  renderPolicySummary();
-  renderLead();
-  renderRank();
-  renderFeed();
+  renderFilteredPanels();
   syncURL();
 }
 
@@ -242,6 +238,30 @@ function matchingTweets() {
     if (!matchesFocus(t)) return false;
     return true;
   });
+}
+
+function renderFilteredPanels() {
+  renderFocusControls();
+  renderPolicySummary();
+  renderLead();
+  renderRank();
+  renderFeed();
+}
+
+function setSort(sort) {
+  state.sort = sort;
+  $("sort").value = sort;
+  state.visibleCount = state.view === "grid" ? 60 : 50;
+  renderFilteredPanels();
+  syncURL();
+}
+
+function setView(view) {
+  state.view = view;
+  state.visibleCount = state.view === "grid" ? 60 : 50;
+  setViewButton();
+  renderFeed();
+  syncURL();
 }
 
 function kstDate(iso) {
@@ -392,22 +412,23 @@ function renderKPIs(data, stats) {
   const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#ffa028";
 
   const kpis = [
-    { lbl: "POSTS",          val: fmt.format(data.count),                hint: `${postsPerDay} / DAY`,        series: stats.series.posts },
-    { lbl: "ACTIVE DAYS",    val: fmt.format(stats.activeDays),          hint: `OF ${stats.totalDays}일 (${Math.round(stats.activeDays/stats.totalDays*100)}%)`, series: stats.series.activeDays },
-    { lbl: "STREAK MAX",     val: `${stats.longest}<small>일</small>`,   hint: `LATEST ${monthDelta}`,        series: null, badge: `★ ${breakoutCount} BREAKOUT` },
-    { lbl: "AVG ENGAGEMENT", val: fmtCompact.format(avgEng),             hint: `${fmtCompact.format(stats.eng)} TOTAL`, series: stats.series.avgEng },
-    { lbl: "IMPRESSIONS",    val: fmtCompact.format(stats.imp),          hint: `AVG ${fmtCompact.format(Math.round(stats.imp/Math.max(1,data.count)))} / POST`, series: stats.series.impressions },
-    { lbl: "MEDIA POSTS",    val: `${mediaRatio}<small>%</small>`,       hint: `${stats.mediaCount} OF ${data.count} · PEAK ${String(topHour).padStart(2,"0")}시`, series: stats.series.mediaPct },
+    { lbl: "POSTS",          val: fmt.format(data.count),                hint: `${postsPerDay} / DAY`,        series: stats.series.posts, action: "reset", note: "RESET VIEW" },
+    { lbl: "ACTIVE DAYS",    val: fmt.format(stats.activeDays),          hint: `OF ${stats.totalDays}일 (${Math.round(stats.activeDays/stats.totalDays*100)}%)`, series: stats.series.activeDays, action: "recent", note: "SORT RECENT" },
+    { lbl: "STREAK MAX",     val: `${stats.longest}<small>일</small>`,   hint: `LATEST ${monthDelta}`,        series: null, badge: `★ ${breakoutCount} BREAKOUT`, action: "breakout", note: "FOCUS BREAKOUT" },
+    { lbl: "AVG ENGAGEMENT", val: fmtCompact.format(avgEng),             hint: `${fmtCompact.format(stats.eng)} TOTAL`, series: stats.series.avgEng, action: "engage", note: "SORT ENGAGE" },
+    { lbl: "IMPRESSIONS",    val: fmtCompact.format(stats.imp),          hint: `AVG ${fmtCompact.format(Math.round(stats.imp/Math.max(1,data.count)))} / POST`, series: stats.series.impressions, action: "impressions", note: "SORT IMP" },
+    { lbl: "MEDIA POSTS",    val: `${mediaRatio}<small>%</small>`,       hint: `${stats.mediaCount} OF ${data.count} · PEAK ${String(topHour).padStart(2,"0")}시`, series: stats.series.mediaPct, action: "media", note: "FOCUS MEDIA" },
   ];
 
   $("kpis").innerHTML = kpis.map((k, i) => `
-    <div class="kpi" data-i="${i}">
+    <button class="kpi" data-i="${i}" data-action="${k.action}" type="button">
       <div class="lbl">${k.lbl}</div>
       <div class="val">${k.val}</div>
       <div class="hint">${k.hint}</div>
+      <div class="kpi-action">${k.note}</div>
       <div class="spark"></div>
       ${k.badge ? `<div class="kpi-badge">${k.badge}</div>` : ""}
-    </div>
+    </button>
   `).join("");
 
   kpis.forEach((k, i) => {
@@ -416,6 +437,34 @@ function renderKPIs(data, stats) {
     if (host && window.JMNGCharts) {
       host.appendChild(JMNGCharts.sparkline(k.series, { w: 160, h: 24, color: accent }));
     }
+  });
+
+  $("kpis").querySelectorAll(".kpi[data-action]").forEach(card => {
+    card.addEventListener("click", () => {
+      const action = card.dataset.action;
+      if (action === "reset") {
+        state.q = "";
+        state.types.clear();
+        state.focus = "all";
+        state.view = "list";
+        state.sort = "recent";
+        state.visibleCount = 50;
+        $("q").value = "";
+        $("sort").value = "recent";
+        updateTypePopover();
+        setViewButton();
+        renderTopics();
+        renderFilteredPanels();
+        syncURL();
+        return;
+      }
+      if (action === "breakout" || action === "media") {
+        if (action === "media") setView("grid");
+        setFocus(action);
+        return;
+      }
+      setSort(action);
+    });
   });
 }
 
@@ -438,9 +487,7 @@ function renderTopics() {
       if (state.types.has(t)) state.types.delete(t); else state.types.add(t);
       state.visibleCount = 50;
       renderTopics();
-      renderLead();
-      renderRank();
-      renderFeed();
+      renderFilteredPanels();
       updateTypePopover();
       syncURL();
     });
@@ -580,9 +627,7 @@ function renderTimeline(stats) {
       state.q = m;
       $("q").value = m;
       state.visibleCount = 50;
-      renderLead();
-      renderRank();
-      renderFeed();
+      renderFilteredPanels();
       syncURL();
     },
   });
@@ -781,9 +826,7 @@ function renderKeywords() {
       state.q = b.dataset.k;
       $("q").value = state.q;
       state.visibleCount = 50;
-      renderLead();
-      renderRank();
-      renderFeed();
+      renderFilteredPanels();
       syncURL();
     });
   });
@@ -805,6 +848,10 @@ function renderFocusControls() {
   const host = $("opsbar");
   if (!host) return;
   const counts = focusCounts();
+  const matches = matchingTweets();
+  const matchEng = matches.reduce((sum, t) => sum + metricScore(t), 0);
+  const matchImp = matches.reduce((sum, t) => sum + (t.metrics?.impression_count || 0), 0);
+  const matchMedia = matches.filter(t => t.media && t.media.length).length;
   const items = [
     ["all", "전체"],
     ["linked", "정책근거"],
@@ -821,6 +868,12 @@ function renderFocusControls() {
       </button>
     `).join("")}
     <span class="ops-hint">패널과 피드가 같은 모드로 동기화됩니다</span>
+    <span class="ops-snapshot">
+      MATCH <b>${fmt.format(matches.length)}</b>
+      · ENG <b>${fmtCompact.format(matchEng)}</b>
+      · IMP <b>${fmtCompact.format(matchImp)}</b>
+      · MEDIA <b>${fmt.format(matchMedia)}</b>
+    </span>
   `;
   host.querySelectorAll("[data-focus]").forEach(btn => {
     btn.addEventListener("click", () => setFocus(btn.dataset.focus));
@@ -959,9 +1012,7 @@ function closeDrawer() {
   state.selectedId = null;
   $("drawer").classList.remove("open");
   $("drawer-veil").classList.remove("open");
-  renderLead();
-  renderRank();
-  renderFeed();
+  renderFilteredPanels();
   syncURL();
 }
 
@@ -970,9 +1021,7 @@ window.__kwSearch = (k) => {
   $("q").value = k;
   state.visibleCount = 50;
   closeDrawer();
-  renderLead();
-  renderRank();
-  renderFeed();
+  renderFilteredPanels();
   syncURL();
   document.querySelector(".feed").scrollIntoView({ behavior: "smooth", block: "start" });
 };
@@ -1279,9 +1328,7 @@ function renderCohort() {
       state.q = b.dataset.kw;
       $("q").value = state.q;
       state.visibleCount = 50;
-      renderLead();
-      renderRank();
-      renderFeed();
+      renderFilteredPanels();
       syncURL();
     });
   });
@@ -1352,12 +1399,10 @@ function wireInputs() {
   $("q").addEventListener("input", (e) => {
     state.q = e.target.value;
     state.visibleCount = 50;
-    renderLead();
-    renderRank();
-    renderFeed();
+    renderFilteredPanels();
     syncURL();
   });
-  $("sort").addEventListener("change", e => { state.sort = e.target.value; renderFeed(); syncURL(); });
+  $("sort").addEventListener("change", e => setSort(e.target.value));
 
   // Type filter popover
   $("type-filter-btn").addEventListener("click", e => {
@@ -1380,11 +1425,7 @@ function wireInputs() {
     setViewButton();
   });
   $("view-toggle").addEventListener("click", () => {
-    state.view = state.view === "list" ? "grid" : "list";
-    state.visibleCount = state.view === "grid" ? 60 : 50;
-    setViewButton();
-    renderFeed();
-    syncURL();
+    setView(state.view === "list" ? "grid" : "list");
   });
   renderFocusControls();
   renderPolicySummary();
@@ -1425,9 +1466,7 @@ function updateTypePopover() {
       const t = cb.dataset.t;
       if (cb.checked) state.types.add(t); else state.types.delete(t);
       state.visibleCount = 50;
-      renderLead();
-      renderRank();
-      renderFeed();
+      renderFilteredPanels();
       renderTopics();
       $("type-filter-btn").textContent = state.types.size
         ? `TYPES · ${state.types.size} SELECTED`
@@ -1437,9 +1476,7 @@ function updateTypePopover() {
   });
   $("pop-clear").onclick = () => {
     state.types.clear();
-    renderLead();
-    renderRank();
-    renderFeed();
+    renderFilteredPanels();
     renderTopics();
     updateTypePopover();
     $("type-filter-btn").textContent = "TYPES · ALL";
@@ -1555,9 +1592,7 @@ function renderGraphPanel() {
     state.q = kw;
     $("q").value = kw;
     state.visibleCount = 50;
-    renderLead();
-    renderRank();
-    renderFeed();
+    renderFilteredPanels();
     syncURL();
     document.getElementById("feed-panel").scrollIntoView({ behavior: "smooth", block: "start" });
   });
