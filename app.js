@@ -214,6 +214,8 @@ function setFocus(focus) {
   state.visibleCount = state.view === "grid" ? 60 : 50;
   renderFocusControls();
   renderPolicySummary();
+  renderLead();
+  renderRank();
   renderFeed();
   syncURL();
 }
@@ -228,6 +230,18 @@ function highlight(text, q) {
 function metricScore(t) {
   const m = t.metrics || {};
   return (m.like_count || 0) + (m.retweet_count || 0) * 2 + (m.reply_count || 0) * 3;
+}
+
+function matchingTweets() {
+  const data = state.data;
+  const q = state.q.trim().toLowerCase();
+  return data.tweets.filter(t => {
+    const hay = `${t.text} ${t.type} ${(t.keywords||[]).join(" ")} ${(t.issues||[]).join(" ")} ${t.date}`.toLowerCase();
+    if (q && !hay.includes(q)) return false;
+    if (state.types.size && !state.types.has(t.type)) return false;
+    if (!matchesFocus(t)) return false;
+    return true;
+  });
 }
 
 function kstDate(iso) {
@@ -424,6 +438,8 @@ function renderTopics() {
       if (state.types.has(t)) state.types.delete(t); else state.types.add(t);
       state.visibleCount = 50;
       renderTopics();
+      renderLead();
+      renderRank();
       renderFeed();
       updateTypePopover();
       syncURL();
@@ -490,13 +506,34 @@ function renderDayHourHeat(data) {
 /* ─── LEAD POST ─────────────────────────────────────────────── */
 
 function renderLead() {
-  const data = state.data;
-  const lead = [...data.tweets].sort((a, b) => metricScore(b) - metricScore(a))[0];
+  const rows = matchingTweets();
+  const host = $("lead");
+  if (!rows.length) {
+    host.innerHTML = `
+      <div class="lead-body">
+        <div class="lead-tag">MOST-REACTED · ${escapeHtml(focusLabel())} · 0 MATCHES</div>
+        <p class="lead-text">현재 조건에 맞는 게시글이 없습니다.</p>
+        <div class="lead-meta">
+          <span class="mono">검색어, 타입, 포커스 조건을 조정해보세요.</span>
+        </div>
+      </div>
+      <div class="lead-stats">
+        <div class="lead-stat"><span class="lbl">LIKES</span><span class="val">0</span></div>
+        <div class="lead-stat"><span class="lbl">REPOSTS</span><span class="val">0</span></div>
+        <div class="lead-stat"><span class="lbl">REPLIES</span><span class="val">0</span></div>
+        <div class="lead-stat"><span class="lbl">IMPRESSIONS</span><span class="val">0</span></div>
+      </div>
+    `;
+    host.onclick = null;
+    return;
+  }
+
+  const lead = [...rows].sort((a, b) => metricScore(b) - metricScore(a))[0];
   const m = lead.metrics || {};
   const text = stripUrls(lead.text);
-  $("lead").innerHTML = `
+  host.innerHTML = `
     <div class="lead-body">
-      <div class="lead-tag">MOST-REACTED · POST ${lead.date}</div>
+      <div class="lead-tag">MOST-REACTED · ${escapeHtml(focusLabel())} · ${fmt.format(rows.length)} MATCHES</div>
       <p class="lead-text">${escapeHtml(text)}</p>
       <div class="lead-meta">
         <span class="mono">${escapeHtml(lead.created_kst)} KST</span>
@@ -513,10 +550,10 @@ function renderLead() {
       <div class="lead-stat"><span class="lbl">IMPRESSIONS</span><span class="val">${fmtCompact.format(m.impression_count || 0)}</span></div>
     </div>
   `;
-  $("lead").addEventListener("click", e => {
+  host.onclick = e => {
     if (e.target.tagName === "A") return;
     openDrawer(lead.id);
-  });
+  };
 }
 
 /* ─── MONTHLY TIMELINE ──────────────────────────────────────── */
@@ -543,6 +580,8 @@ function renderTimeline(stats) {
       state.q = m;
       $("q").value = m;
       state.visibleCount = 50;
+      renderLead();
+      renderRank();
       renderFeed();
       syncURL();
     },
@@ -576,15 +615,7 @@ function renderTimeline(stats) {
 /* ─── FEED ──────────────────────────────────────────────────── */
 
 function filtered() {
-  const data = state.data;
-  const q = state.q.trim().toLowerCase();
-  let rows = data.tweets.filter(t => {
-    const hay = `${t.text} ${t.type} ${(t.keywords||[]).join(" ")} ${(t.issues||[]).join(" ")} ${t.date}`.toLowerCase();
-    if (q && !hay.includes(q)) return false;
-    if (state.types.size && !state.types.has(t.type)) return false;
-    if (!matchesFocus(t)) return false;
-    return true;
-  });
+  let rows = matchingTweets();
   if (state.sort === "likes")   rows.sort((a,b)=>(b.metrics.like_count||0)-(a.metrics.like_count||0));
   if (state.sort === "replies") rows.sort((a,b)=>(b.metrics.reply_count||0)-(a.metrics.reply_count||0));
   if (state.sort === "engage")  rows.sort((a,b)=>metricScore(b)-metricScore(a));
@@ -750,6 +781,8 @@ function renderKeywords() {
       state.q = b.dataset.k;
       $("q").value = state.q;
       state.visibleCount = 50;
+      renderLead();
+      renderRank();
       renderFeed();
       syncURL();
     });
@@ -825,9 +858,8 @@ function renderPolicySummary() {
 /* ─── TOP REACTIONS ─────────────────────────────────────────── */
 
 function renderRank() {
-  const data = state.data;
-  const top = [...data.tweets].sort((a, b) => (b.metrics.like_count || 0) - (a.metrics.like_count || 0)).slice(0, 10);
-  $("rank-list").innerHTML = top.map((t, i) => `
+  const top = [...matchingTweets()].sort((a, b) => (b.metrics.like_count || 0) - (a.metrics.like_count || 0)).slice(0, 10);
+  $("rank-list").innerHTML = top.length ? top.map((t, i) => `
     <div class="rank-row" data-id="${t.id}">
       <span class="rk">${String(i + 1).padStart(2, "0")}</span>
       <div class="rk-text">${escapeHtml(stripUrls(t.text)).slice(0, 100)}${t.text.length > 100 ? "…" : ""}
@@ -835,7 +867,7 @@ function renderRank() {
       </div>
       <div class="rk-val">${fmtCompact.format(t.metrics.like_count || 0)}<small>likes</small></div>
     </div>
-  `).join("");
+  `).join("") : `<div class="rank-empty mono dim">NO MATCHES</div>`;
   $("rank-list").querySelectorAll(".rank-row").forEach(r => {
     r.addEventListener("click", () => openDrawer(r.dataset.id));
   });
@@ -927,6 +959,8 @@ function closeDrawer() {
   state.selectedId = null;
   $("drawer").classList.remove("open");
   $("drawer-veil").classList.remove("open");
+  renderLead();
+  renderRank();
   renderFeed();
   syncURL();
 }
@@ -936,6 +970,8 @@ window.__kwSearch = (k) => {
   $("q").value = k;
   state.visibleCount = 50;
   closeDrawer();
+  renderLead();
+  renderRank();
   renderFeed();
   syncURL();
   document.querySelector(".feed").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1243,6 +1279,8 @@ function renderCohort() {
       state.q = b.dataset.kw;
       $("q").value = state.q;
       state.visibleCount = 50;
+      renderLead();
+      renderRank();
       renderFeed();
       syncURL();
     });
@@ -1314,6 +1352,8 @@ function wireInputs() {
   $("q").addEventListener("input", (e) => {
     state.q = e.target.value;
     state.visibleCount = 50;
+    renderLead();
+    renderRank();
     renderFeed();
     syncURL();
   });
@@ -1385,6 +1425,8 @@ function updateTypePopover() {
       const t = cb.dataset.t;
       if (cb.checked) state.types.add(t); else state.types.delete(t);
       state.visibleCount = 50;
+      renderLead();
+      renderRank();
       renderFeed();
       renderTopics();
       $("type-filter-btn").textContent = state.types.size
@@ -1395,6 +1437,8 @@ function updateTypePopover() {
   });
   $("pop-clear").onclick = () => {
     state.types.clear();
+    renderLead();
+    renderRank();
     renderFeed();
     renderTopics();
     updateTypePopover();
@@ -1511,6 +1555,8 @@ function renderGraphPanel() {
     state.q = kw;
     $("q").value = kw;
     state.visibleCount = 50;
+    renderLead();
+    renderRank();
     renderFeed();
     syncURL();
     document.getElementById("feed-panel").scrollIntoView({ behavior: "smooth", block: "start" });
