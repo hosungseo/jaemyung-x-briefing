@@ -1,609 +1,293 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-accent="amber" data-density="regular" data-theme="black">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jaemyung X Briefing</title>
-  <style>
-    :root {
-      --ink: #f6f2ea;
-      --muted: #9c978f;
-      --line: #31312f;
-      --paper: #171716;
-      --panel: #222220;
-      --panel-2: #292927;
-      --field: #1d1d1b;
-      --green: #2f6ff1;
-      --red: #f06b5f;
-      --blue: #7da2ff;
-      --gold: #f0ba57;
-      --shadow: 0 18px 45px rgba(0, 0, 0, .28);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 16% 0%, rgba(47, 111, 241, .16), transparent 30%),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 54px 54px,
-        linear-gradient(0deg, rgba(255,255,255,.028) 1px, transparent 1px) 0 0 / 54px 54px,
-        var(--paper);
-      color: var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      letter-spacing: 0;
-    }
-    a { color: inherit; }
-    .shell { width: min(1240px, calc(100vw - 36px)); margin: 0 auto; padding: 24px 0 54px; }
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      padding: 12px 0 20px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .topbar b { color: var(--green); }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
-      gap: 28px;
-      align-items: stretch;
-      min-height: 620px;
-      border-top: 1px solid #4b4b47;
-      border-bottom: 1px solid var(--line);
-      padding: 28px 0 34px;
-    }
-    .hero-main {
-      display: grid;
-      align-content: space-between;
-      gap: 28px;
-      min-width: 0;
-    }
-    .eyebrow {
-      color: var(--green);
-      font-weight: 900;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
-    h1 {
-      font-size: clamp(52px, 9vw, 124px);
-      line-height: .87;
-      margin: 14px 0 18px;
-      max-width: 900px;
-      letter-spacing: -1px;
-    }
-    .lede {
-      font-size: clamp(18px, 2vw, 24px);
-      line-height: 1.5;
-      max-width: 780px;
-      color: #d4cec2;
-      margin: 0;
-    }
-    .usage-panel {
-      background: #242423;
-      color: #f7f0e5;
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-      border: 1px solid #393936;
-      min-width: 0;
-    }
-    .usage-tabs {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      color: #c9c1b5;
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .usage-tabs div { display: flex; gap: 6px; align-items: center; }
-    .usage-tabs span { padding: 5px 8px; border-radius: 4px; }
-    .usage-tabs .active { background: #f4efe5; color: #191918; }
-    .usage-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 5px;
-    }
-    .usage-stat {
-      background: #373736;
-      border: 1px solid rgba(255,255,255,.04);
-      border-radius: 4px;
-      padding: 9px;
-      min-height: 76px;
-      display: grid;
-      align-content: space-between;
-    }
-    .usage-stat span { color: #aaa39a; font-size: 11px; font-weight: 800; }
-    .usage-stat b { font-size: 21px; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .activity-grid {
-      display: grid;
-      grid-template-columns: repeat(39, 1fr);
-      gap: 3px;
-      margin-top: 12px;
-    }
-    .activity-cell {
-      aspect-ratio: 1;
-      border-radius: 2px;
-      background: #373736;
-      border: 1px solid rgba(255,255,255,.035);
-    }
-    .activity-cell.l1 { background: #6d7d9e; }
-    .activity-cell.l2 { background: #4f7fda; }
-    .activity-cell.l3 { background: #2f6ff1; }
-    .usage-note {
-      margin: 9px 0 0;
-      color: #aaa39a;
-      font-size: 12px;
-    }
-    .lead-tweet {
-      background: #242423;
-      color: #f6f2ea;
-      border-radius: 8px;
-      padding: 22px;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 18px;
-      box-shadow: var(--shadow);
-      border: 1px solid #393936;
-      min-width: 0;
-    }
-    .lead-tweet .label { color: #d3c4a8; font-size: 13px; font-weight: 800; }
-    .lead-tweet p {
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.42;
-      word-break: keep-all;
-    }
-    .lead-meta { display: flex; flex-wrap: wrap; gap: 8px; color: #d8d0c3; font-size: 13px; }
-    .lead-meta span, .lead-meta a { border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 6px 9px; }
-    .command {
-      display: grid;
-      grid-template-columns: minmax(220px, 1fr) 180px 150px 44px;
-      gap: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      background: rgba(23,23,22,.86);
-      backdrop-filter: blur(10px);
-      padding: 16px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    input, select, button {
-      min-height: 44px;
-      border: 1px solid var(--line);
-      border-radius: 7px;
-      background: var(--field);
-      color: var(--ink);
-      padding: 0 13px;
-      font: inherit;
-    }
-    button {
-      cursor: pointer;
-      background: var(--green);
-      color: var(--panel);
-      border-color: var(--green);
-      font-weight: 800;
-    }
-    .icon-btn { font-size: 18px; padding: 0; }
-    section { margin-top: 34px; }
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 16px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 10px;
-      margin-bottom: 14px;
-    }
-    h2 { margin: 0; font-size: 25px; }
-    .section-head p { margin: 0; color: var(--muted); font-size: 14px; }
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr);
-      gap: 26px;
-      align-items: start;
-    }
-    .map {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 8px;
-      min-height: 210px;
-      align-items: end;
-      padding: 18px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-    }
-    .month {
-      display: grid;
-      align-content: end;
-      gap: 8px;
-      min-width: 0;
-    }
-    .month-bar {
-      height: var(--h);
-      min-height: 16px;
-      background: linear-gradient(180deg, #80a2ff, var(--green));
-      border-radius: 3px 3px 0 0;
-      position: relative;
-    }
-    .month strong { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .month span { color: var(--muted); font-size: 12px; }
-    .topic-list { display: grid; gap: 9px; }
-    .topic-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: center;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 13px;
-      cursor: pointer;
-    }
-    .topic-row.active { border-color: var(--green); box-shadow: inset 4px 0 0 var(--green); }
-    .topic-row span { color: var(--muted); font-size: 13px; }
-    .keyword-strip { display: flex; flex-wrap: wrap; gap: 9px; }
-    .keyword {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      border-radius: 999px;
-      padding: 8px 11px;
-      font-size: 13px;
-      cursor: pointer;
-    }
-    .keyword.hot { background: #303a55; border-color: #456fdf; color: #dbe6ff; }
-    .tweet-list, .ranked { display: grid; gap: 12px; }
-    .tweet {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 15px;
-      display: grid;
-      gap: 11px;
-      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-    }
-    .tweet:hover { transform: translateY(-2px); border-color: #b4a48f; box-shadow: var(--shadow); }
-    .tweet .meta { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 13px; }
-    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; background: #1b1b19; }
-    .tweet p { margin: 0; line-height: 1.53; word-break: keep-all; }
-    .tweet mark { background: #775f1c; color: #fff3c4; padding: 0 2px; border-radius: 2px; }
-    .tweet img { width: 100%; max-height: 330px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
-    .issues { margin: 0; padding-left: 18px; color: #d7d0c3; line-height: 1.5; }
-    .ranked .tweet { border-left: 4px solid var(--gold); }
-    .insight {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 16px;
-      display: grid;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .insight b { color: var(--red); }
-    .empty { padding: 24px; border: 1px dashed var(--line); color: var(--muted); }
-    footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-    @media (max-width: 900px) {
-      .shell { width: min(100% - 28px, 1240px); }
-      .topbar { align-items: flex-start; flex-wrap: wrap; }
-      .hero, .layout, .command { grid-template-columns: 1fr; }
-      .hero { min-height: unset; }
-      .usage-grid { grid-template-columns: repeat(2, 1fr); }
-      .activity-grid { grid-template-columns: repeat(13, 1fr); }
-      .map { grid-template-columns: repeat(6, 1fr); }
-      h1 { max-width: 100%; font-size: 44px; line-height: .96; overflow-wrap: break-word; }
-      .lede { font-size: 18px; overflow-wrap: anywhere; }
-    }
-  </style>
+  <title>JMNG · POST FLOW MONITOR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="shell">
-    <div class="topbar">
-      <span><b>@Jaemyung_Lee</b> post-election public message monitor</span>
-      <span id="generated">loading</span>
+
+  <!-- STATUS RAIL -->
+  <div class="rail">
+    <span class="pulse" aria-hidden="true"></span>
+    <span><b class="amber">JMNG</b> <span class="dim">&lt;GO&gt;</span></span>
+    <span class="sep">│</span>
+    <span id="rail-source">SRC</span>
+    <span class="sep">│</span>
+    <span id="rail-range">RUN —</span>
+    <span class="sep">│</span>
+    <span id="rail-last">LAST —</span>
+    <span class="sep">│</span>
+    <span id="rail-count">N=—</span>
+    <span class="sep">│</span>
+    <span id="rail-eng">ENG —</span>
+    <span class="sep">│</span>
+    <span id="rail-imp">IMP —</span>
+    <div class="fnkeys">
+      <button class="fnkey" data-jump="timeline" style="--c:var(--green)"><b>F1</b>시계열</button>
+      <button class="fnkey" data-jump="feed-panel" style="--c:var(--red)"><b>F2</b>피드</button>
+      <button class="fnkey" data-jump="topics" style="--c:var(--yellow)"><b>F3</b>주제</button>
+      <button class="fnkey" data-jump="rank" style="--c:var(--violet)"><b>F4</b>반응 상위</button>
+      <button class="fnkey" data-jump="graph-panel" style="--c:var(--magenta)"><b>F6</b>네트워크</button>
+      <button class="fnkey" data-jump="activity-panel" style="--c:var(--cyan)"><b>F5</b>활동</button>
     </div>
+    <span id="rail-clock" style="margin-left:14px"><span class="dim">KST</span> <b class="mono">—</b></span>
+  </div>
 
-    <header class="hero">
-      <div class="hero-main">
-        <div>
-          <div class="eyebrow">2025.06.04 → Now</div>
-          <h1>Message Field Map</h1>
-          <p class="lede">대선 이후 X 게시글을 시간, 의제, 반응, 쟁점으로 재배열한 브리핑 페이지. 새 글 감시는 알림으로 끝나지 않고 누적된 정치 메시지의 지형을 만든다.</p>
-        </div>
-        <div class="usage-panel" aria-label="활동 요약">
-          <div class="usage-tabs">
-            <div><span class="active">개요</span><span>모델</span></div>
-            <div><span class="active">전체</span><span>30d</span><span>7d</span></div>
-          </div>
-          <div class="usage-grid">
-            <div class="usage-stat"><span>세션</span><b id="m-sessions">0</b></div>
-            <div class="usage-stat"><span>메시지</span><b id="m-count">0</b></div>
-            <div class="usage-stat"><span>총 반응</span><b id="m-engagement">0</b></div>
-            <div class="usage-stat"><span>활성 일수</span><b id="m-active-days">0</b></div>
-            <div class="usage-stat"><span>현재 연속 일수</span><b id="m-current-streak">0일</b></div>
-            <div class="usage-stat"><span>최장 연속 일수</span><b id="m-longest-streak">0일</b></div>
-            <div class="usage-stat"><span>최다 게시 시간</span><b id="m-top-hour">-</b></div>
-            <div class="usage-stat"><span>즐겨 사용한 유형</span><b id="m-toptype">-</b></div>
-          </div>
-          <div id="activityGrid" class="activity-grid"></div>
-          <p class="usage-note" id="activityNote">활동 밀도를 계산하는 중입니다.</p>
-        </div>
-      </div>
-      <aside class="lead-tweet" id="leadTweet">
-        <div class="label">Most-reacted post</div>
-        <p>데이터를 읽는 중입니다.</p>
-        <div class="lead-meta"><span id="range">loading</span></div>
-      </aside>
-    </header>
-
-    <div class="command">
-      <input id="q" placeholder="검색: 박종철, 민생, 외교, 부동산, 민주주의">
-      <select id="type"></select>
-      <select id="sort">
-        <option value="recent">최신순</option>
-        <option value="likes">좋아요순</option>
-        <option value="replies">답글순</option>
-      </select>
-      <button id="reset" class="icon-btn" type="button" title="초기화">↺</button>
+  <!-- HEADLINE -->
+  <header class="headline">
+    <div class="ticker">JMNG<sup>KR</sup></div>
+    <div class="lede">
+      <h1 class="title">@Jaemyung_Lee 메시지 흐름 모니터</h1>
+      <p class="sub">대선 이후 X 게시글을 시간·의제·반응·쟁점으로 재배열한 분석가용 워크스페이스.
+        새 글 감시를 알림에서 멈추지 않고, 누적된 정치 메시지의 지형으로 펼쳐 봅니다.</p>
     </div>
+    <div class="meta">
+      <span class="lbl">SYMBOL</span><b>JMNG / @Jaemyung_Lee</b>
+      <span class="lbl">CLASS</span><b>POLITICAL · SOCIAL MEDIA</b>
+      <span class="lbl">RANGE</span><b><span id="h-range-start">—</span> → <span id="h-range-end">—</span></b>
+      <span class="lbl">SPAN</span><b id="h-days">— 일</b>
+      <span class="lbl">POSTS</span><b id="h-count">—</b>
+      <span class="lbl">BUILT</span><b id="h-generated">—</b>
+    </div>
+  </header>
 
-    <section>
-      <div class="section-head">
-        <h2>시계열</h2>
-        <p id="timelineNote">월별 게시량</p>
-      </div>
-      <div id="timeline" class="map"></div>
-    </section>
+  <!-- KPI ROW -->
+  <section class="kpis" id="kpis"></section>
 
-    <div class="layout">
-      <section>
-        <div class="section-head">
-          <h2>트윗 브리핑</h2>
-          <p id="resultCount">0개 표시</p>
+  <!-- COMMAND BAR -->
+  <div class="cmd">
+    <span class="slash">/</span>
+    <input id="q" type="search" autocomplete="off" placeholder="검색: 박종철, 민생, 외교, 부동산, 민주주의 · 단축키 [/]">
+    <button class="btn" id="type-filter-btn" style="color:var(--amber); min-width:160px">TYPES · ALL</button>
+    <select id="sort" aria-label="정렬">
+      <option value="recent">SORT · RECENT</option>
+      <option value="oldest">SORT · OLDEST</option>
+      <option value="likes">SORT · LIKES</option>
+      <option value="replies">SORT · REPLIES</option>
+      <option value="engage">SORT · ENGAGEMENT</option>
+      <option value="impressions">SORT · IMPRESSIONS</option>
+      <option value="breakout">SORT · BREAKOUT σ</option>
+    </select>
+    <button class="btn" id="view-toggle" style="color:var(--cyan)">VIEW · LIST ☰</button>
+    <button class="btn" id="reset">RESET ↺</button>
+    <button class="btn" id="tweaks-open" style="color:var(--cyan)">TWEAKS ⚙</button>
+  </div>
+
+  <!-- TYPE FILTER POPOVER -->
+  <div id="type-filter-pop" class="popover"></div>
+
+  <!-- SCOPE BADGE -->
+  <div class="scope-bar">
+    <span id="scope-badge" class="scope-badge">SCOPE · ALL</span>
+    <span class="dim mono" style="margin-left:auto">DRAG BRUSH BELOW STACKED AREA TO SET RANGE</span>
+  </div>
+
+  <!-- WORKSPACE -->
+  <main class="workspace">
+
+    <!-- LEFT COLUMN -->
+    <div class="col left">
+      <section class="panel" id="topics">
+        <div class="panel-head">
+          <span class="tag">N1</span>
+          <span>주제 분포 · TOPIC DIST</span>
+          <span class="right">CLICK → FILTER</span>
         </div>
-        <div id="tweets" class="tweet-list"></div>
+        <div class="panel-body">
+          <div id="topic-list"></div>
+        </div>
       </section>
 
-      <aside>
-        <section>
-          <div class="section-head">
-            <h2>주제 전환</h2>
-            <p>클릭하면 필터</p>
-          </div>
-          <div id="topics" class="topic-list"></div>
-        </section>
-        <section>
-          <div class="section-head">
-            <h2>핵심 키워드</h2>
-            <p>검색으로 연결</p>
-          </div>
-          <div id="keywords" class="keyword-strip"></div>
-        </section>
-        <section>
-          <div class="section-head">
-            <h2>읽을 포인트</h2>
-            <p>자동 요약</p>
-          </div>
-          <div id="insights"></div>
-        </section>
-        <section>
-          <div class="section-head">
-            <h2>반응 상위</h2>
-            <p>좋아요 기준</p>
-          </div>
-          <div id="ranked" class="ranked"></div>
-        </section>
-      </aside>
+      <section class="panel">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--cyan)">N2</span>
+          <span>요일 × 시간 · POSTING RHYTHM</span>
+          <span class="right" id="dh-peak">PEAK —</span>
+        </div>
+        <div class="panel-body">
+          <div id="dh-heat"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="activity-panel">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--green)">N5</span>
+          <span>활동 그리드 · ACTIVITY HEATMAP</span>
+        </div>
+        <div class="panel-body flush">
+          <div class="act-wrap" id="activity"></div>
+        </div>
+      </section>
     </div>
 
-    <footer>Static GitHub Pages prototype. Data source: X API. Local path: jaemyung-x-briefing.</footer>
+    <!-- CENTER COLUMN -->
+    <div class="col center">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="tag">LEAD</span>
+          <span>최다 반응 게시글 · MOST-REACTED POST</span>
+          <span class="right">SCORE = LIKES + RT×2 + RPL×3</span>
+        </div>
+        <div class="panel-body flush">
+          <div id="lead" class="lead"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="timeline">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--green)">F1</span>
+          <span>월별 게시량 · MONTHLY VOLUME</span>
+          <span class="right" id="tl-peak">PEAK —</span>
+        </div>
+        <div class="panel-body flush">
+          <div class="timeline">
+            <div id="tl-host"></div>
+            <div id="tl-brush" class="tl-brush"></div>
+            <div id="tl-legend" class="tl-legend"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="cohort-panel">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--green)">F7</span>
+          <span>코호트 비교 · COHORT COMPARE</span>
+          <span class="right" id="cohort-split-info">MID-SPLIT —</span>
+        </div>
+        <div class="panel-body flush">
+          <div id="cohort"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="graph-panel">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--magenta)">F6</span>
+          <span>메시지 네트워크 · KEYWORD CO-OCCURRENCE</span>
+          <span class="right" id="graph-meta">— NODES · — EDGES</span>
+        </div>
+        <div class="panel-body flush">
+          <div id="graph" class="graph"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="feed-panel">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--red)">F2</span>
+          <span>게시 스트림 · POST STREAM</span>
+          <span class="right">
+            <span id="sort-tag">최신순</span> · <span id="feed-shown">0</span> / <span id="feed-count">0</span>
+          </span>
+        </div>
+        <div class="panel-body flush">
+          <div class="feed-head">
+            <span class="dim">CLICK ROW → DEEP READ</span>
+            <span class="right dim">[ESC] CLOSE</span>
+          </div>
+          <div id="feed" class="feed"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col right">
+      <section class="panel" id="transition-panel">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--yellow); color:#000">TM</span>
+          <span>주제 전이 · TRANSITION MATRIX</span>
+          <span class="right">FROM↓ TO→</span>
+        </div>
+        <div class="panel-body flush">
+          <div id="transition"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="rank">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--violet)">F4</span>
+          <span>반응 상위 10 · TOP REACTIONS</span>
+          <span class="right">LIKES</span>
+        </div>
+        <div class="panel-body flush">
+          <div id="rank-list"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--yellow); color:#000">KW</span>
+          <span>핵심 키워드 · KEYWORDS</span>
+          <span class="right">TOP 28</span>
+        </div>
+        <div class="panel-body">
+          <div id="keywords" class="kw-list"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="tag" style="background:var(--cyan)">NOTE</span>
+          <span>읽는 법 · HOW TO READ</span>
+        </div>
+        <div class="panel-body" style="font-size:11px; color:var(--dim); line-height:1.6; font-family:var(--font-mono); letter-spacing:.02em;">
+          <p style="margin:0 0 8px"><span class="amber">[N1]</span> 주제 분포를 클릭하면 해당 유형으로 피드가 필터됩니다.</p>
+          <p style="margin:0 0 8px"><span class="amber">[F1]</span> 월별 막대를 클릭하면 그 달 게시글만 검색합니다.</p>
+          <p style="margin:0 0 8px"><span class="amber">[F2]</span> 피드 행을 클릭하면 우측 패널로 단일 메시지 상세 화면이 열립니다.</p>
+          <p style="margin:0 0 8px"><span class="amber">[KW]</span> 키워드 → 검색어로 연결. <span class="amber">[/]</span> 키로 검색창 포커스.</p>
+          <p style="margin:0 0 0"><span class="amber">[ESC]</span> 상세 패널 닫기.</p>
+        </div>
+      </section>
+    </div>
+
   </main>
 
-  <script>
-    const fmt = new Intl.NumberFormat("ko-KR");
-    let data;
+  <footer>
+    <span>JMNG TERMINAL · POST FLOW MONITOR</span>
+    <span>SRC: X API</span>
+    <span>RUN: Asia/Seoul KST</span>
+    <span>STATIC BUILD · NO LIVE STREAM</span>
+    <span style="margin-left:auto">A REDESIGN OF jaemyung-x-briefing</span>
+  </footer>
 
-    function $(id) { return document.getElementById(id); }
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    }
-    function topEntry(obj) {
-      return Object.entries(obj || {}).sort((a, b) => b[1] - a[1])[0] || ["-", 0];
-    }
-    function daysBetween(a, b) {
-      return Math.max(1, Math.round((new Date(b) - new Date(a)) / 86400000));
-    }
-    function dateKey(d) {
-      return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(d);
-    }
-    function addDays(d, n) {
-      const next = new Date(d);
-      next.setUTCDate(next.getUTCDate() + n);
-      return next;
-    }
-    function usageStats() {
-      const dayCounts = new Map();
-      const hourCounts = new Map();
-      let totalEngagement = 0;
-      data.tweets.forEach(t => {
-        const d = new Date(t.created_at);
-        const day = dateKey(d);
-        const hour = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Seoul", hour: "numeric", hour12: false }).format(d);
-        dayCounts.set(day, (dayCounts.get(day) || 0) + 1);
-        hourCounts.set(hour, (hourCounts.get(hour) || 0) + 1);
-        totalEngagement += (t.metrics.like_count || 0) + (t.metrics.retweet_count || 0) + (t.metrics.reply_count || 0) + (t.metrics.quote_count || 0);
-      });
-      const days = [...dayCounts.keys()].sort();
-      let longest = 0;
-      let run = 0;
-      let previous = null;
-      days.forEach(day => {
-        if (!previous || dateKey(addDays(new Date(`${previous}T00:00:00Z`), 1)) === day) run += 1;
-        else run = 1;
-        longest = Math.max(longest, run);
-        previous = day;
-      });
-      let current = 0;
-      if (days.length) {
-        const newestDay = days[days.length - 1];
-        for (let cursor = new Date(`${newestDay}T00:00:00Z`); dayCounts.has(dateKey(cursor)); cursor = addDays(cursor, -1)) current += 1;
-      }
-      return {
-        activeDays: dayCounts.size,
-        current,
-        longest,
-        totalEngagement,
-        topHour: topEntry(Object.fromEntries(hourCounts))[0],
-        dayCounts
-      };
-    }
-    function renderActivityGrid(stats) {
-      const oldest = new Date(`${dateKey(new Date(data.oldest))}T00:00:00Z`);
-      const newest = new Date(`${dateKey(new Date(data.newest))}T00:00:00Z`);
-      const span = Math.max(1, Math.round((newest - oldest) / 86400000));
-      const cells = 156;
-      const step = Math.max(1, Math.ceil(span / cells));
-      const buckets = [];
-      for (let i = 0; i < cells; i += 1) {
-        let value = 0;
-        for (let j = 0; j < step; j += 1) {
-          value += stats.dayCounts.get(dateKey(addDays(oldest, i * step + j))) || 0;
-        }
-        buckets.push(value);
-      }
-      const max = Math.max(1, ...buckets);
-      $("activityGrid").innerHTML = buckets.map(v => {
-        const level = v === 0 ? "" : v >= max * .66 ? "l3" : v >= max * .33 ? "l2" : "l1";
-        return `<span class="activity-cell ${level}" title="${v} posts"></span>`;
-      }).join("");
-      $("activityNote").textContent = `${data.startDate}부터 ${fmt.format(stats.activeDays)}일 동안 ${fmt.format(data.count)}개의 메시지를 남겼습니다.`;
-    }
-    function highlight(text, query) {
-      const safe = escapeHtml(text);
-      if (!query) return safe;
-      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      return safe.replace(new RegExp(escaped, "gi"), m => `<mark>${m}</mark>`);
-    }
-    function metricScore(t) {
-      return (t.metrics.like_count || 0) + (t.metrics.retweet_count || 0) * 2 + (t.metrics.reply_count || 0) * 3;
-    }
-    function tweetCard(t) {
-      const query = $("q").value.trim();
-      const image = t.media && t.media[0] && t.media[0].url ? `<img src="${t.media[0].url}" alt="">` : "";
-      return `<article class="tweet">
-        <div class="meta">
-          <span>${t.created_kst}</span>
-          <span class="pill">${escapeHtml(t.type)}</span>
-          <span>좋아요 ${fmt.format(t.metrics.like_count || 0)}</span>
-          <span>답글 ${fmt.format(t.metrics.reply_count || 0)}</span>
-          <a href="${t.url}" target="_blank" rel="noreferrer">원문</a>
-        </div>
-        <p>${highlight(t.text, query)}</p>
-        ${image}
-        <ul class="issues">${(t.issues || []).map(x => `<li>${escapeHtml(x)}</li>`).join("")}</ul>
-      </article>`;
-    }
-    function filteredTweets() {
-      const query = $("q").value.trim().toLowerCase();
-      const selectedType = $("type").value;
-      const sorted = data.tweets.filter(t => {
-        const hay = `${t.text} ${t.type} ${(t.keywords || []).join(" ")} ${(t.issues || []).join(" ")}`.toLowerCase();
-        return (!query || hay.includes(query)) && (!selectedType || t.type === selectedType);
-      });
-      if ($("sort").value === "likes") sorted.sort((a, b) => (b.metrics.like_count || 0) - (a.metrics.like_count || 0));
-      if ($("sort").value === "replies") sorted.sort((a, b) => (b.metrics.reply_count || 0) - (a.metrics.reply_count || 0));
-      return sorted;
-    }
-    function renderTimeline() {
-      const rows = Object.entries(data.byMonth || {}).sort((a, b) => a[0].localeCompare(b[0]));
-      const max = Math.max(1, ...rows.map(([, v]) => v));
-      $("timeline").innerHTML = rows.map(([label, value]) => `<button class="month" style="border:0;background:transparent;padding:0;text-align:left;color:inherit" data-month="${label}">
-        <div class="month-bar" style="--h:${Math.max(16, value / max * 180)}px"></div>
-        <strong>${label.slice(2)}</strong>
-        <span>${value}</span>
-      </button>`).join("");
-      document.querySelectorAll(".month").forEach(el => el.addEventListener("click", () => {
-        $("q").value = el.dataset.month;
-        renderTweets();
-      }));
-    }
-    function renderTopics() {
-      const rows = Object.entries(data.byType || {}).sort((a, b) => b[1] - a[1]);
-      $("topics").innerHTML = rows.map(([label, value]) => `<button class="topic-row" data-type="${escapeHtml(label)}">
-        <div><strong>${escapeHtml(label)}</strong><br><span>${Math.round(value / data.count * 100)}% of posts</span></div>
-        <b>${value}</b>
-      </button>`).join("");
-      document.querySelectorAll(".topic-row").forEach(el => el.addEventListener("click", () => {
-        $("type").value = el.dataset.type;
-        renderTopics();
-        renderTweets();
-      }));
-      document.querySelectorAll(".topic-row").forEach(el => el.classList.toggle("active", el.dataset.type === $("type").value));
-    }
-    function renderKeywords() {
-      $("keywords").innerHTML = data.topKeywords.slice(0, 32).map((k, idx) => `<button class="keyword ${idx < 8 ? "hot" : ""}" data-keyword="${escapeHtml(k.term)}">${escapeHtml(k.term)} · ${k.count}</button>`).join("");
-      document.querySelectorAll(".keyword").forEach(el => el.addEventListener("click", () => {
-        $("q").value = el.dataset.keyword;
-        renderTweets();
-      }));
-    }
-    function renderInsights() {
-      const topType = topEntry(data.byType);
-      const topMonth = topEntry(data.byMonth);
-      const imageCount = data.tweets.filter(t => t.media && t.media.length).length;
-      $("insights").innerHTML = `
-        <div class="insight"><b>${topType[0]}</b><span>가장 많은 메시지 유형입니다. 전체 ${data.count}개 중 ${topType[1]}개입니다.</span></div>
-        <div class="insight"><b>${topMonth[0]}</b><span>게시량이 가장 집중된 달입니다. 이 구간의 이슈 전환을 먼저 보면 좋습니다.</span></div>
-        <div class="insight"><b>${fmt.format(imageCount)}개 이미지</b><span>이미지 포함 글은 논란·현장·캠페인 메시지로 분리해서 볼 가치가 있습니다.</span></div>
-      `;
-    }
-    function renderLead() {
-      const lead = [...data.tweets].sort((a, b) => metricScore(b) - metricScore(a))[0];
-      $("leadTweet").innerHTML = `<div class="label">Most-reacted post</div>
-        <p>${escapeHtml(lead.text).slice(0, 260)}${lead.text.length > 260 ? "..." : ""}</p>
-        <div class="lead-meta">
-          <span>${lead.created_kst}</span>
-          <span>${lead.type}</span>
-          <span>좋아요 ${fmt.format(lead.metrics.like_count || 0)}</span>
-          <a href="${lead.url}" target="_blank" rel="noreferrer">원문</a>
-        </div>`;
-    }
-    function renderTweets() {
-      const rows = filteredTweets();
-      $("resultCount").textContent = `${fmt.format(rows.length)}개 중 ${fmt.format(Math.min(rows.length, 48))}개 표시`;
-      $("tweets").innerHTML = rows.length ? rows.slice(0, 48).map(tweetCard).join("") : `<div class="empty">조건에 맞는 트윗이 없습니다.</div>`;
-      $("ranked").innerHTML = [...data.topTweets].slice(0, 8).map(tweetCard).join("");
-      renderTopics();
-    }
-    async function main() {
-      const res = await fetch("./data/briefing.json");
-      data = await res.json();
-      const topType = topEntry(data.byType)[0];
-      $("generated").textContent = `생성 ${new Date(data.generated_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}`;
-      $("range").textContent = `${data.oldest?.slice(0, 10)} → ${data.newest?.slice(0, 10)}`;
-      const stats = usageStats();
-      $("m-count").textContent = fmt.format(data.count);
-      $("m-sessions").textContent = fmt.format(Object.keys(data.byMonth || {}).length);
-      $("m-engagement").textContent = fmt.format(stats.totalEngagement);
-      $("m-active-days").textContent = fmt.format(stats.activeDays);
-      $("m-current-streak").textContent = `${fmt.format(stats.current)}일`;
-      $("m-longest-streak").textContent = `${fmt.format(stats.longest)}일`;
-      $("m-top-hour").textContent = `${stats.topHour}시`;
-      $("m-toptype").textContent = topType;
-      $("type").innerHTML = `<option value="">전체 유형</option>` + Object.keys(data.byType).sort().map(x => `<option>${escapeHtml(x)}</option>`).join("");
-      renderActivityGrid(stats);
-      renderLead();
-      renderTimeline();
-      renderTopics();
-      renderKeywords();
-      renderInsights();
-      renderTweets();
-      ["q", "type", "sort"].forEach(id => $(id).addEventListener(id === "q" ? "input" : "change", renderTweets));
-      $("reset").addEventListener("click", () => { $("q").value = ""; $("type").value = ""; $("sort").value = "recent"; renderTweets(); });
-    }
-    main().catch(err => {
-      document.body.innerHTML = `<pre style="padding:24px">${escapeHtml(err.stack || err.message)}</pre>`;
+  <!-- DEEP-READ DRAWER -->
+  <div id="drawer-veil" class="drawer-veil"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="tag">DR</span>
+      <span>단일 메시지 분석 · DEEP READ</span>
+      <button id="drawer-close" class="x" type="button">CLOSE  ✕</button>
+    </div>
+    <div id="drawer-body" class="drawer-body"></div>
+  </aside>
+
+  <!-- TWEAKS -->
+  <div id="tweaks" class="tweaks">
+    <div class="tweaks-head">
+      Tweaks
+      <button id="tweaks-close">✕</button>
+    </div>
+    <div id="tweaks-body" class="tweaks-body"></div>
+  </div>
+
+  <script src="charts.js"></script>
+  <script src="graph.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // F-key jump buttons
+    document.querySelectorAll(".fnkey[data-jump]").forEach(b => b.addEventListener("click", () => {
+      const el = document.getElementById(b.dataset.jump);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }));
+    // Manual tweaks-open also flips host state
+    document.getElementById("tweaks-open").addEventListener("click", () => {
+      const t = document.getElementById("tweaks");
+      const willOpen = !t.classList.contains("open");
+      t.classList.toggle("open");
+      if (!willOpen) window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*");
     });
   </script>
 </body>
