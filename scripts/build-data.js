@@ -247,7 +247,7 @@ async function fetchTweets() {
     const url = new URL(`https://api.twitter.com/2/users/${USER_ID}/tweets`);
     url.searchParams.set("max_results", "100");
     url.searchParams.set("exclude", "retweets");
-    url.searchParams.set("tweet.fields", "created_at,public_metrics,attachments,referenced_tweets,entities");
+    url.searchParams.set("tweet.fields", "created_at,lang,public_metrics,attachments,referenced_tweets,entities");
     url.searchParams.set("expansions", "attachments.media_keys");
     url.searchParams.set("media.fields", "type,url,preview_image_url,width,height,alt_text");
     if (next) url.searchParams.set("pagination_token", next);
@@ -273,6 +273,7 @@ function summarize(tweets, mediaByKey) {
       created_at: tweet.created_at,
       created_kst: kst(tweet.created_at),
       date: dateKey(tweet.created_at),
+      lang: tweet.lang || "unknown",
       text,
       type: classify(text),
       keywords: keywords(text),
