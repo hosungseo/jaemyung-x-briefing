@@ -18,6 +18,16 @@ START_DATE=2025-06-04 node scripts/build-data.js
 
 Open `index.html` directly, or serve the folder with any static server.
 
+## Policy Press Matching
+
+```bash
+node scripts/link-policy-press.js
+```
+
+Tweet-to-press matching keeps at most two public matches per tweet, sorted by
+the final match score. Low-strength candidates are dropped, so tweets with no
+high- or medium-confidence press match remain unlinked.
+
 ## X Watch Alerts
 
 The Telegram watcher uses the X API response text as the source of truth and

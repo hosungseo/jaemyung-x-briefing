@@ -7,7 +7,7 @@ const PRESS_ROOT = process.env.PRESS_ROOT || path.resolve(ROOT, "..", "gov-press
 const DATA_PATH = path.join(ROOT, "data", "briefing.json");
 const OUT_PATH = path.join(ROOT, "data", "policy-links.json");
 const WINDOW_DAYS = Number(process.env.WINDOW_DAYS || 14);
-const TOP_N = Number(process.env.TOP_N || 5);
+const TOP_N = Number(process.env.TOP_N || 2);
 
 const STOP = new Set([
   "오늘", "이번", "관련", "위해", "대해", "통해", "있는", "없는", "한다", "했다", "합니다", "했습니다",
@@ -153,6 +153,10 @@ function strength(finalScore, overlap) {
   return "낮음";
 }
 
+function isPublicMatch(item) {
+  return item.strength === "높음" || item.strength === "중간";
+}
+
 function reason(tweet, doc, shared, delta) {
   const bits = [];
   if (shared.length) bits.push(`공통 의제: ${shared.slice(0, 3).join(", ")}`);
@@ -212,6 +216,7 @@ function main() {
     }
     links[tweet.id] = candidates
       .sort((a, b) => b.debug.final_score - a.debug.final_score)
+      .filter(isPublicMatch)
       .slice(0, TOP_N);
   }
 
