@@ -20,9 +20,6 @@ WORKSPACE = HOME / ".openclaw" / "workspace"
 NAVER_ENV = HOME / "Documents" / "codex" / "question-forecast" / ".env"
 REPORT_DIR = WORKSPACE / "x-watch" / "jaemyung-lee" / "reports"
 POLICY_ADAPTER = WORKSPACE / "tools" / "public_adapters" / "policy_briefing_press.py"
-MOLEG_ADAPTER = WORKSPACE / "kgov-ready-demo" / "scripts" / "moleg-law.mjs"
-ASSEMBLY_BILL_ADAPTER = WORKSPACE / "kgov-ready-demo" / "scripts" / "assembly-bill.mjs"
-KGOV_ENV = WORKSPACE / "kgov-ready-demo" / ".env.local"
 
 
 def clean(s: str) -> str:
@@ -133,15 +130,6 @@ def run_json(cmd: list[str], env: dict[str, str] | None = None, timeout: int = 3
         return {"error": "json_parse_failed", "raw": p.stdout[:500]}
 
 
-def adapter_env() -> dict[str, str]:
-    env = load_env(KGOV_ENV)
-    allowed = {
-        "ASSEMBLY_API_KEY", "OPEN_ASSEMBLY_API_KEY", "NA_API_KEY",
-        "MOLEG_OC", "LAW_GO_KR_OC", "LAW_API_OC",
-    }
-    return {k: v for k, v in env.items() if k in allowed}
-
-
 def fetch_policy(keywords: list[str]) -> list[dict[str, Any]]:
     if not POLICY_ADAPTER.exists():
         return [{"error": "missing_policy_adapter"}]
@@ -161,73 +149,6 @@ def fetch_policy(keywords: list[str]) -> list[dict[str, Any]]:
             it["keyword"] = keyword
             items.append(it)
             if len(items) >= 5:
-                return items
-    return items
-
-
-def fetch_laws(keywords: list[str]) -> list[dict[str, Any]]:
-    if not MOLEG_ADAPTER.exists():
-        return [{"error": "missing_moleg_adapter"}]
-    items: list[dict[str, Any]] = []
-    seen: set[str] = set()
-    queries = []
-    if any("민주" in k or "항쟁" in k for k in keywords):
-        queries.extend(["민주화운동", "5·18민주화운동", "민주유공자"])
-    if any("모욕" in k or "조롱" in k for k in keywords):
-        queries.extend(["형법", "정보통신망 이용촉진 및 정보보호 등에 관한 법률"])
-    queries.extend(keywords[:3])
-    base_env = adapter_env()
-    base_env["MOLEG_OC"] = os.environ.get("MOLEG_OC", base_env.get("MOLEG_OC", "openclaw"))
-    for q in dict.fromkeys([x for x in queries if x]):
-        payload = run_json(["node", str(MOLEG_ADAPTER), "search", "--query", q, "--limit", "3"],
-                           env=base_env)
-        if payload.get("error"):
-            items.append({"query": q, "error": payload["error"]})
-            continue
-        for it in payload.get("items", []):
-            key = it.get("law_id") or it.get("law_name", "")
-            if not key or key in seen:
-                continue
-            seen.add(key)
-            it["query"] = q
-            items.append(it)
-            if len(items) >= 6:
-                return items
-    return items
-
-
-def fetch_assembly_bills(keywords: list[str]) -> list[dict[str, Any]]:
-    if not ASSEMBLY_BILL_ADAPTER.exists():
-        return [{"error": "missing_assembly_adapter"}]
-    env = adapter_env()
-    has_key = any(env.get(k) or os.environ.get(k) for k in ("ASSEMBLY_API_KEY", "OPEN_ASSEMBLY_API_KEY", "NA_API_KEY"))
-    if not has_key:
-        return [{"error": "missing_assembly_api_key"}]
-    queries: list[str] = []
-    if any("민주" in k or "항쟁" in k for k in keywords):
-        queries.extend(["민주화운동", "5·18민주화운동", "민주유공자"])
-    if any("박종철" in k or "고문치사" in k for k in keywords):
-        queries.extend(["인권", "국가폭력"])
-    queries.extend([k for k in keywords[:4] if len(k) >= 3])
-    items: list[dict[str, Any]] = []
-    seen: set[str] = set()
-    for q in dict.fromkeys(queries):
-        payload = run_json([
-            "node", str(ASSEMBLY_BILL_ADAPTER), "search",
-            "--endpoint", "ALLBILLV2", "--eraco", "제22대",
-            "--query", q, "--limit", "3",
-        ], env=env)
-        if payload.get("error"):
-            items.append({"query": q, "error": payload["error"]})
-            continue
-        for it in payload.get("items", []):
-            key = it.get("bill_id") or it.get("title", "")
-            if not key or key in seen:
-                continue
-            seen.add(key)
-            it["query"] = q
-            items.append(it)
-            if len(items) >= 6:
                 return items
     return items
 
@@ -263,8 +184,7 @@ def infer_issues(text: str) -> list[str]:
 
 
 def build_report(tweet: dict[str, Any], media_urls: list[str], news: list[dict[str, Any]],
-                 policies: list[dict[str, Any]], laws: list[dict[str, Any]],
-                 assembly_bills: list[dict[str, Any]], keywords: list[str]) -> str:
+                 policies: list[dict[str, Any]], keywords: list[str]) -> str:
     text = tweet.get("text", "")
     url = tweet.get("url") or f"https://x.com/Jaemyung_Lee/status/{tweet.get('id', '')}"
     lang = tweet.get("lang") or "unknown"
@@ -323,40 +243,13 @@ def build_report(tweet: dict[str, Any], media_urls: list[str], news: list[dict[s
                 lines.append(f"   - 링크: {it.get('source_url', '')}")
     else:
         lines.append("- 직접 관련 정부 보도자료를 찾지 못함")
-    lines += ["", "## 법령 검색", ""]
-    if laws:
-        for i, it in enumerate(laws[:6], 1):
-            if it.get("error"):
-                lines.append(f"{i}. 검색 오류({it.get('query', '')}): {it['error']}")
-            else:
-                lines.append(f"{i}. {it.get('law_name', '')} ({it.get('law_type', '')})")
-                lines.append(f"   - 소관: {it.get('ministry', '')}, 시행: {it.get('enforcement_date', '')}")
-                lines.append(f"   - 링크: {it.get('detail_url', '')}")
-    else:
-        lines.append("- 관련 법령 후보를 찾지 못함")
-    lines += [
-        "",
-        "## 국회/입법 API",
-        "",
-    ]
-    if assembly_bills:
-        for i, it in enumerate(assembly_bills[:6], 1):
-            if it.get("error"):
-                lines.append(f"{i}. 검색 오류({it.get('query', '')}): {it['error']}")
-            else:
-                lines.append(f"{i}. {it.get('title', '')}")
-                lines.append(f"   - 제안: {it.get('proposer', '')} / {it.get('proposed_date', '')}")
-                lines.append(f"   - 소관/상태: {it.get('committee', '')} / {it.get('status', '')}")
-                lines.append(f"   - 링크: {it.get('source_url', '')}")
-    else:
-        lines.append("- 관련 법안 후보를 찾지 못함")
     lines += [
         "",
         "## 후속 관찰 포인트",
         "",
         "- 해당 광고가 실제 집행된 것인지, 원 제작·게시 주체가 누구인지 확인",
         "- 기업 측 공식 해명·삭제·사과 여부",
-        "- 여야 논평과 입법 발의 여부",
+        "- 여야 논평과 정부·기업 후속 대응 여부",
         "- 역사적 사건 비하 표현을 어디까지 제재할 수 있는지에 대한 표현의 자유 쟁점",
         "",
     ]
@@ -364,15 +257,12 @@ def build_report(tweet: dict[str, Any], media_urls: list[str], news: list[dict[s
 
 
 def telegram_summary(tweet: dict[str, Any], report_path: pathlib.Path, news: list[dict[str, Any]],
-                     laws: list[dict[str, Any]], assembly_bills: list[dict[str, Any]],
                      media_urls: list[str]) -> str:
     text = tweet.get("text", "")
     url = tweet.get("url") or f"https://x.com/Jaemyung_Lee/status/{tweet.get('id', '')}"
     safe_url = preview_safe_x_url(url)
     lang = tweet.get("lang") or "unknown"
     title_news = [n for n in news if not n.get("error")][:5]
-    law_names = [l.get("law_name", "") for l in laws if not l.get("error") and l.get("law_name")][:4]
-    bill_titles = [b.get("title", "") for b in assembly_bills if not b.get("error") and b.get("title")][:3]
     issues = infer_issues(text)
     one_line = "새 X 게시글은 역사적 사건 비하 논란을 제기하며 사실확인을 요청한 내용입니다."
     if "박종철" not in text and "민주" not in text:
@@ -395,16 +285,12 @@ def telegram_summary(tweet: dict[str, Any], report_path: pathlib.Path, news: lis
     if title_news:
         parts += ["", "- 관련 기사:"]
         parts.extend([f"  {i}. {n['title']}" for i, n in enumerate(title_news, 1)])
-    if law_names:
-        parts += ["", "- 법령 후보:", *[f"  {i}. {name}" for i, name in enumerate(law_names, 1)]]
-    if bill_titles:
-        parts += ["", "- 국회 법안 후보:", *[f"  {i}. {title}" for i, title in enumerate(bill_titles, 1)]]
     parts += [
         "",
         "- 후속 관찰:",
         "  1. 광고 실제 집행 여부와 원 제작·게시 주체",
         "  2. 기업 측 해명·삭제·사과 여부",
-        "  3. 여야 논평과 입법 발의 여부",
+        "  3. 여야 논평과 정부·기업 후속 대응 여부",
         "",
         f"상세 리포트: {report_path}",
     ]
@@ -428,16 +314,14 @@ def main() -> int:
     queries = build_queries(keywords)
     news = fetch_naver_news(queries)
     policies = fetch_policy(keywords)
-    laws = fetch_laws(keywords)
-    assembly_bills = fetch_assembly_bills(keywords)
 
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
     day = dt.datetime.now().strftime("%Y-%m-%d")
     report_path = REPORT_DIR / f"{day}-{tweet.get('id', 'unknown')}.md"
-    report = build_report(tweet, media_urls, news, policies, laws, assembly_bills, keywords)
+    report = build_report(tweet, media_urls, news, policies, keywords)
     report_path.write_text(report, encoding="utf-8")
 
-    summary = telegram_summary(tweet, report_path, news, laws, assembly_bills, media_urls)
+    summary = telegram_summary(tweet, report_path, news, media_urls)
     if args.send and not args.no_send:
         subprocess.run(["openclaw", "message", "send", "--channel", "telegram", "--target", args.target, "--message", summary],
                        check=False)
