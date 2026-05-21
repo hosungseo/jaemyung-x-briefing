@@ -26,7 +26,7 @@
   };
 
   function sparkline(values, opts = {}) {
-    const { w = 96, h = 22, color = "#ffa028", fill = true } = opts;
+    const { w = 96, h = 22, color = "#ffa028", fill = true, labels = [], valueFormatter = v => String(v), name = "" } = opts;
     const svg = document.createElementNS(NS, "svg");
     svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
     svg.setAttribute("width", w);
@@ -60,6 +60,14 @@
     line.setAttribute("stroke-linejoin", "round");
     svg.appendChild(line);
 
+    const hoverLine = document.createElementNS(NS, "line");
+    hoverLine.setAttribute("y1", 1);
+    hoverLine.setAttribute("y2", h - 1);
+    hoverLine.setAttribute("stroke", color);
+    hoverLine.setAttribute("stroke-width", "1");
+    hoverLine.setAttribute("stroke-opacity", "0");
+    svg.appendChild(hoverLine);
+
     const last = pts[pts.length - 1];
     const dot = document.createElementNS(NS, "circle");
     dot.setAttribute("cx", last[0]);
@@ -67,6 +75,31 @@
     dot.setAttribute("r", "2");
     dot.setAttribute("fill", color);
     svg.appendChild(dot);
+
+    pts.forEach(([x, y], i) => {
+      const hit = document.createElementNS(NS, "circle");
+      hit.setAttribute("cx", x);
+      hit.setAttribute("cy", y);
+      hit.setAttribute("r", "5.5");
+      hit.setAttribute("fill", color);
+      hit.setAttribute("fill-opacity", "0");
+      hit.style.cursor = "crosshair";
+      const title = document.createElementNS(NS, "title");
+      const label = labels[i] || `#${i + 1}`;
+      title.textContent = `${label} · ${name ? `${name} ` : ""}${valueFormatter(values[i])}`;
+      hit.appendChild(title);
+      hit.addEventListener("mouseenter", () => {
+        hoverLine.setAttribute("x1", x);
+        hoverLine.setAttribute("x2", x);
+        hoverLine.setAttribute("stroke-opacity", "0.65");
+        hit.setAttribute("fill-opacity", "0.95");
+      });
+      hit.addEventListener("mouseleave", () => {
+        hoverLine.setAttribute("stroke-opacity", "0");
+        hit.setAttribute("fill-opacity", "0");
+      });
+      svg.appendChild(hit);
+    });
 
     return svg;
   }
@@ -192,6 +225,14 @@
         click.setAttribute("height", innerH);
         click.setAttribute("fill", "transparent");
         click.style.cursor = "pointer";
+        const title = document.createElementNS(NS, "title");
+        const topTypes = Object.entries(monthly[i][1] || {})
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 3)
+          .map(([type, count]) => `${type} ${count}`)
+          .join(" · ");
+        title.textContent = `${month} · 총 ${totals[i]}건${topTypes ? ` · ${topTypes}` : ""}`;
+        click.appendChild(title);
         click.addEventListener("click", () => onMonthClick(month));
         svg.appendChild(click);
       }

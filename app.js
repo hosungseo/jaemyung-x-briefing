@@ -534,13 +534,35 @@ function buildStats(data) {
     w.impressions += m.impression_count || 0;
     if (t.media && t.media.length) w.media += 1;
   });
+  const weekStreak = daysSet => {
+    const xs = [...daysSet].sort();
+    let best = 0, run = 0, prevDay = null;
+    xs.forEach(d => {
+      if (prevDay) {
+        const next = new Date(prevDay + "T00:00:00Z");
+        next.setUTCDate(next.getUTCDate() + 1);
+        run = next.toISOString().slice(0, 10) === d ? run + 1 : 1;
+      } else {
+        run = 1;
+      }
+      best = Math.max(best, run);
+      prevDay = d;
+    });
+    return best;
+  };
   const series = {
     posts:       weekly.map(w => w.posts),
     activeDays:  weekly.map(w => w.days.size),
+    streak:      weekly.map(w => weekStreak(w.days)),
     avgEng:      weekly.map(w => (w.posts ? Math.round(w.engagement / w.posts) : 0)),
     impressions: weekly.map(w => w.impressions),
     mediaPct:    weekly.map(w => (w.posts ? Math.round(w.media / w.posts * 100) : 0)),
   };
+  const seriesLabels = weekly.map((_, i) => {
+    const s = new Date(startMs + i * weekMs);
+    const e = new Date(Math.min(endMs, startMs + (i + 1) * weekMs - 1));
+    return `${s.toISOString().slice(0, 10)} → ${e.toISOString().slice(0, 10)}`;
+  });
 
   // Monthly by type — for stacked area
   const monthlyByType = new Map();
@@ -574,7 +596,7 @@ function buildStats(data) {
     dayCounts, hourCounts, eng, imp, mediaCount,
     activeDays: dayCounts.size, longest,
     totalDays: Math.max(1, Math.round((new Date(data.newest) - new Date(data.oldest)) / 86400000)),
-    series, monthly, baselines,
+    series, seriesLabels, monthly, baselines,
   };
 }
 
@@ -628,12 +650,12 @@ function renderKPIs(data, stats) {
   const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#ffa028";
 
   const kpis = [
-    { lbl: "POSTS",          val: fmt.format(data.count),                hint: `${postsPerDay} / DAY`,        series: stats.series.posts, action: "reset", note: "RESET VIEW" },
-    { lbl: "ACTIVE DAYS",    val: fmt.format(stats.activeDays),          hint: `OF ${stats.totalDays}일 (${Math.round(stats.activeDays/stats.totalDays*100)}%)`, series: stats.series.activeDays, action: "recent", note: "SORT RECENT" },
-    { lbl: "STREAK MAX",     val: `${stats.longest}<small>일</small>`,   hint: `LATEST ${monthDelta}`,        series: null, badge: `★ ${breakoutCount} BREAKOUT`, action: "breakout", note: "FOCUS BREAKOUT" },
-    { lbl: "AVG ENGAGEMENT", val: fmtCompact.format(avgEng),             hint: `${fmtCompact.format(stats.eng)} TOTAL`, series: stats.series.avgEng, action: "engage", note: "SORT ENGAGE" },
-    { lbl: "IMPRESSIONS",    val: fmtCompact.format(stats.imp),          hint: `AVG ${fmtCompact.format(Math.round(stats.imp/Math.max(1,data.count)))} / POST`, series: stats.series.impressions, action: "impressions", note: "SORT IMP" },
-    { lbl: "MEDIA POSTS",    val: `${mediaRatio}<small>%</small>`,       hint: `${stats.mediaCount} OF ${data.count} · PEAK ${String(topHour).padStart(2,"0")}시`, series: stats.series.mediaPct, action: "media", note: "FOCUS MEDIA" },
+    { lbl: "POSTS",          val: fmt.format(data.count),                hint: `${postsPerDay} / DAY`,        series: stats.series.posts, action: "reset", note: "RESET VIEW", unit: "건" },
+    { lbl: "ACTIVE DAYS",    val: fmt.format(stats.activeDays),          hint: `OF ${stats.totalDays}일 (${Math.round(stats.activeDays/stats.totalDays*100)}%)`, series: stats.series.activeDays, action: "recent", note: "SORT RECENT", unit: "일" },
+    { lbl: "STREAK MAX",     val: `${stats.longest}<small>일</small>`,   hint: `LATEST ${monthDelta}`,        series: stats.series.streak, badge: `★ ${breakoutCount} BREAKOUT`, action: "breakout", note: "FOCUS BREAKOUT", unit: "일" },
+    { lbl: "AVG ENGAGEMENT", val: fmtCompact.format(avgEng),             hint: `${fmtCompact.format(stats.eng)} TOTAL`, series: stats.series.avgEng, action: "engage", note: "SORT ENGAGE", unit: "" },
+    { lbl: "IMPRESSIONS",    val: fmtCompact.format(stats.imp),          hint: `AVG ${fmtCompact.format(Math.round(stats.imp/Math.max(1,data.count)))} / POST`, series: stats.series.impressions, action: "impressions", note: "SORT IMP", unit: "회" },
+    { lbl: "MEDIA POSTS",    val: `${mediaRatio}<small>%</small>`,       hint: `${stats.mediaCount} OF ${data.count} · PEAK ${String(topHour).padStart(2,"0")}시`, series: stats.series.mediaPct, action: "media", note: "FOCUS MEDIA", unit: "%" },
   ];
 
   $("kpis").innerHTML = kpis.map((k, i) => `
@@ -651,7 +673,14 @@ function renderKPIs(data, stats) {
     if (!k.series) return;
     const host = document.querySelector(`.kpi[data-i="${i}"] .spark`);
     if (host && window.JMNGCharts) {
-      host.appendChild(JMNGCharts.sparkline(k.series, { w: 160, h: 24, color: accent }));
+      host.appendChild(JMNGCharts.sparkline(k.series, {
+        w: 160,
+        h: 24,
+        color: accent,
+        labels: stats.seriesLabels,
+        name: k.lbl,
+        valueFormatter: v => `${fmtCompact.format(v)}${k.unit || ""}`,
+      }));
     }
   });
 
