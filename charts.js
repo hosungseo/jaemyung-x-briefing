@@ -68,6 +68,24 @@
     hoverLine.setAttribute("stroke-opacity", "0");
     svg.appendChild(hoverLine);
 
+    const tip = document.createElementNS(NS, "g");
+    tip.setAttribute("opacity", "0");
+    tip.style.pointerEvents = "none";
+    const tipBg = document.createElementNS(NS, "rect");
+    tipBg.setAttribute("height", "15");
+    tipBg.setAttribute("rx", "1");
+    tipBg.setAttribute("fill", "#0b0e10");
+    tipBg.setAttribute("stroke", color);
+    tipBg.setAttribute("stroke-width", "0.8");
+    const tipText = document.createElementNS(NS, "text");
+    tipText.setAttribute("y", "10.5");
+    tipText.setAttribute("fill", "#e8ebee");
+    tipText.setAttribute("font-family", "'IBM Plex Mono', monospace");
+    tipText.setAttribute("font-size", "8");
+    tip.appendChild(tipBg);
+    tip.appendChild(tipText);
+    svg.appendChild(tip);
+
     const last = pts[pts.length - 1];
     const dot = document.createElementNS(NS, "circle");
     dot.setAttribute("cx", last[0]);
@@ -89,12 +107,22 @@
       title.textContent = `${label} · ${name ? `${name} ` : ""}${valueFormatter(values[i])}`;
       hit.appendChild(title);
       hit.addEventListener("mouseenter", () => {
+        const labelText = `${label} · ${valueFormatter(values[i])}`;
+        const approxW = Math.min(154, Math.max(54, labelText.length * 4.8 + 10));
+        const tx = Math.max(0, Math.min(w - approxW, x - approxW / 2));
+        tipText.textContent = labelText;
+        tipText.setAttribute("x", tx + 5);
+        tipBg.setAttribute("x", tx);
+        tipBg.setAttribute("y", 0);
+        tipBg.setAttribute("width", approxW);
+        tip.setAttribute("opacity", "1");
         hoverLine.setAttribute("x1", x);
         hoverLine.setAttribute("x2", x);
         hoverLine.setAttribute("stroke-opacity", "0.65");
         hit.setAttribute("fill-opacity", "0.95");
       });
       hit.addEventListener("mouseleave", () => {
+        tip.setAttribute("opacity", "0");
         hoverLine.setAttribute("stroke-opacity", "0");
         hit.setAttribute("fill-opacity", "0");
       });
@@ -183,6 +211,36 @@
     });
 
     // X-axis: month labels + totals + click targets
+    const hover = document.createElementNS(NS, "g");
+    hover.setAttribute("opacity", "0");
+    hover.style.pointerEvents = "none";
+    const hoverLine = document.createElementNS(NS, "line");
+    hoverLine.setAttribute("y1", pad.top);
+    hoverLine.setAttribute("y2", height - pad.bottom + 4);
+    hoverLine.setAttribute("stroke", "#e8ebee");
+    hoverLine.setAttribute("stroke-width", "1");
+    hoverLine.setAttribute("stroke-dasharray", "2,2");
+    const hoverBg = document.createElementNS(NS, "rect");
+    hoverBg.setAttribute("height", "38");
+    hoverBg.setAttribute("rx", "2");
+    hoverBg.setAttribute("fill", "#0b0e10");
+    hoverBg.setAttribute("stroke", "#ffa028");
+    hoverBg.setAttribute("stroke-width", "1");
+    const hoverT1 = document.createElementNS(NS, "text");
+    hoverT1.setAttribute("fill", "#ffa028");
+    hoverT1.setAttribute("font-family", "'IBM Plex Mono', monospace");
+    hoverT1.setAttribute("font-size", "10");
+    hoverT1.setAttribute("font-weight", "700");
+    const hoverT2 = document.createElementNS(NS, "text");
+    hoverT2.setAttribute("fill", "#e8ebee");
+    hoverT2.setAttribute("font-family", "'IBM Plex Sans KR', sans-serif");
+    hoverT2.setAttribute("font-size", "10");
+    hover.appendChild(hoverLine);
+    hover.appendChild(hoverBg);
+    hover.appendChild(hoverT1);
+    hover.appendChild(hoverT2);
+    svg.appendChild(hover);
+
     monthly.forEach(([month], i) => {
       const x = xFor(i);
       const [y, m] = month.split("-");
@@ -233,6 +291,23 @@
           .join(" · ");
         title.textContent = `${month} · 총 ${totals[i]}건${topTypes ? ` · ${topTypes}` : ""}`;
         click.appendChild(title);
+        click.addEventListener("mouseenter", () => {
+          const tipW = 270;
+          const bx = Math.max(pad.left, Math.min(width - pad.right - tipW, x - tipW / 2));
+          hoverLine.setAttribute("x1", x);
+          hoverLine.setAttribute("x2", x);
+          hoverBg.setAttribute("x", bx);
+          hoverBg.setAttribute("y", pad.top + 6);
+          hoverBg.setAttribute("width", tipW);
+          hoverT1.setAttribute("x", bx + 8);
+          hoverT1.setAttribute("y", pad.top + 21);
+          hoverT1.textContent = `${month} · 총 ${totals[i]}건`;
+          hoverT2.setAttribute("x", bx + 8);
+          hoverT2.setAttribute("y", pad.top + 38);
+          hoverT2.textContent = topTypes || "유형 데이터 없음";
+          hover.setAttribute("opacity", "1");
+        });
+        click.addEventListener("mouseleave", () => hover.setAttribute("opacity", "0"));
         click.addEventListener("click", () => onMonthClick(month));
         svg.appendChild(click);
       }
