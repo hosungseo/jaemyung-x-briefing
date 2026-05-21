@@ -85,9 +85,13 @@
   <!-- SCOPE BADGE -->
   <div class="scope-bar">
     <span id="scope-badge" class="scope-badge">SCOPE · ALL</span>
-    <span id="scope-summary" class="scope-summary">MATCH — · MODE 전체 · SORT 최신순</span>
+    <div class="scope-main">
+      <span id="scope-summary" class="scope-summary">MATCH — · MODE 전체 · SORT 최신순</span>
+      <div id="filter-chips" class="filter-chips" aria-label="적용된 조건"></div>
+    </div>
     <div id="quick-actions" class="quick-actions" aria-label="빠른 조작"></div>
   </div>
+  <div id="recalc-banner" class="recalc-banner" aria-live="polite"></div>
   <div class="flowbar" id="flowbar" aria-label="분석 흐름"></div>
 
   <!-- WORKSPACE -->
@@ -99,14 +103,14 @@
         <div class="panel-head">
           <span class="tag">N1</span>
           <span>주제 분포 · TOPIC DIST</span>
-          <span class="right">ROLE · FILTER SOURCE</span>
+          <span class="right impact">AFFECTS · LEAD/RANK/FEED</span>
         </div>
         <div class="panel-body">
           <div id="topic-list"></div>
         </div>
       </section>
 
-      <section class="panel">
+      <section class="panel" id="lead-panel">
         <div class="panel-head">
           <span class="tag" style="background:var(--cyan)">N2</span>
           <span>요일 × 시간 · POSTING RHYTHM</span>
@@ -134,7 +138,7 @@
         <div class="panel-head">
           <span class="tag">LEAD</span>
           <span>최다 반응 게시글 · MOST-REACTED POST</span>
-          <span class="right">ROLE · CURRENT REPRESENTATIVE</span>
+          <span class="right impact">SOURCE · CURRENT SCOPE</span>
         </div>
         <div class="panel-body flush">
           <div id="lead" class="lead"></div>
@@ -145,7 +149,7 @@
         <div class="panel-head">
           <span class="tag" style="background:var(--green)">F1</span>
           <span>월별 게시량 · MONTHLY VOLUME</span>
-          <span class="right" id="tl-peak">PEAK —</span>
+          <span class="right impact" id="tl-peak">AFFECTS · LEAD/RANK/FEED</span>
         </div>
         <div class="panel-body flush">
           <div class="timeline">
@@ -213,7 +217,7 @@
         <div class="panel-head">
           <span class="tag" style="background:var(--violet)">F4</span>
           <span>반응 상위 10 · TOP REACTIONS</span>
-          <span class="right">ROLE · CANDIDATE LIST</span>
+          <span class="right impact">SOURCE · CURRENT SCOPE</span>
         </div>
         <div class="panel-body flush">
           <div id="rank-list"></div>
@@ -224,7 +228,7 @@
         <div class="panel-head">
           <span class="tag" style="background:var(--yellow); color:#000">KW</span>
           <span>핵심 키워드 · KEYWORDS</span>
-          <span class="right">ROLE · QUERY SHORTCUT</span>
+          <span class="right impact">AFFECTS · LEAD/RANK/FEED</span>
         </div>
         <div class="panel-body">
           <div id="keywords" class="kw-list"></div>
@@ -235,7 +239,7 @@
         <div class="panel-head">
           <span class="tag" style="background:var(--cyan)">PX</span>
           <span>정책근거 연결 · POLICY EVIDENCE</span>
-          <span class="right">ROLE · MODE SWITCH</span>
+          <span class="right impact">AFFECTS · LEAD/RANK/FEED</span>
         </div>
         <div class="panel-body">
           <div id="policy-summary" class="policy-summary"></div>

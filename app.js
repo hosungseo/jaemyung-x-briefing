@@ -54,6 +54,7 @@ const state = {
   focus: "all",
   visibleCount: 50,
   selectedId: null,
+  leadOverrideId: null,
   dateRange: null,    // [startMs, endMs] | null
   policyLinks: null,
   debugScores: false,
@@ -215,6 +216,69 @@ function updateScopeSummary() {
   const lead = rows.length ? [...rows].sort((a, b) => metricScore(b) - metricScore(a))[0] : null;
   const leadText = lead ? ` · LEAD ${lead.date} / ${fmtCompact.format(metricScore(lead))}` : "";
   summary.textContent = `MATCH ${fmt.format(rows.length)} / ${fmt.format(state.data.count)} · ${active.length ? active.join(" · ") : "ALL"} · SORT ${sortLabel()}${leadText}`;
+  renderFilterChips(rows);
+}
+
+function renderFilterChips(rows = matchingTweets()) {
+  const host = $("filter-chips");
+  if (!host || !state.data) return;
+  const chips = [];
+  if (state.q) chips.push(["q", `검색 ${state.q}`]);
+  [...state.types].forEach(t => chips.push([`type:${t}`, t]));
+  if (state.dateRange) {
+    const f = ms => new Date(ms).toISOString().slice(0, 10);
+    chips.push(["date", `${f(state.dateRange[0])} → ${f(state.dateRange[1])}`]);
+  }
+  if (state.focus !== "all") chips.push(["focus", focusLabel()]);
+  if (state.sort !== "recent") chips.push(["sort", sortLabel()]);
+  if (state.view !== "list") chips.push(["view", state.view === "grid" ? "미디어 그리드" : state.view]);
+
+  host.innerHTML = chips.length ? chips.map(([key, label]) => `
+    <button class="filter-chip" data-chip="${escapeHtml(key)}">
+      <span>${escapeHtml(label)}</span><b>×</b>
+    </button>
+  `).join("") : `<span class="filter-chip ghost">조건 없음 · 전체 ${fmt.format(rows.length)}건</span>`;
+
+  host.querySelectorAll("[data-chip]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const chip = btn.dataset.chip;
+      if (chip === "q") {
+        state.q = "";
+        $("q").value = "";
+      } else if (chip.startsWith("type:")) {
+        state.types.delete(chip.slice(5));
+        updateTypePopover();
+      } else if (chip === "date") {
+        state.dateRange = null;
+      } else if (chip === "focus") {
+        state.focus = "all";
+      } else if (chip === "sort") {
+        state.sort = "recent";
+        $("sort").value = "recent";
+      } else if (chip === "view") {
+        state.view = "list";
+        setViewButton();
+      }
+      state.leadOverrideId = null;
+      state.visibleCount = state.view === "grid" ? 60 : 50;
+      rerenderScoped();
+      notifyRecalculation("조건 제거");
+    });
+  });
+}
+
+function notifyRecalculation(action = "조건 변경") {
+  const banner = $("recalc-banner");
+  if (!banner || !state.data) return;
+  const rows = matchingTweets();
+  const lead = rows.length ? [...rows].sort((a, b) => metricScore(b) - metricScore(a))[0] : null;
+  banner.textContent = `${action} · LEAD/RANK/FEED 재계산 · ${fmt.format(rows.length)}건${lead ? ` · 대표 ${lead.date}` : ""}`;
+  banner.classList.remove("show");
+  void banner.offsetWidth;
+  banner.classList.add("show");
+  clearTimeout(notifyRecalculation._timer);
+  notifyRecalculation._timer = setTimeout(() => banner.classList.remove("show"), 2400);
+  ["lead-panel", "rank", "feed-panel"].forEach(flashPanel);
 }
 
 function currentScopeLabel() {
@@ -285,9 +349,11 @@ function matchesFocus(t, focus = state.focus) {
 
 function setFocus(focus) {
   state.focus = focus;
+  state.leadOverrideId = null;
   state.visibleCount = state.view === "grid" ? 60 : 50;
   renderFilteredPanels();
   syncURL();
+  notifyRecalculation(`모드 ${focusLabel()}`);
   flashPanel("feed-panel");
 }
 
@@ -300,11 +366,13 @@ function resetViewState() {
   state.visibleCount = 50;
   state.dateRange = null;
   state.selectedId = null;
+  state.leadOverrideId = null;
   $("q").value = "";
   $("sort").value = "recent";
   setViewButton();
   updateTypePopover();
   rerenderScoped();
+  notifyRecalculation("전체 초기화");
   flashPanel("feed-panel");
 }
 
@@ -371,18 +439,25 @@ function renderFilteredPanels() {
 
 function setSort(sort) {
   state.sort = sort;
+  state.leadOverrideId = null;
   $("sort").value = sort;
   state.visibleCount = state.view === "grid" ? 60 : 50;
   renderFilteredPanels();
   syncURL();
+  notifyRecalculation(`정렬 ${sortLabel()}`);
 }
 
 function setView(view) {
   state.view = view;
+  state.leadOverrideId = null;
   state.visibleCount = state.view === "grid" ? 60 : 50;
   setViewButton();
   renderFeed();
+  updateScopeSummary();
+  renderFlowbar();
+  renderQuickActions();
   syncURL();
+  notifyRecalculation(view === "grid" ? "미디어 그리드" : "리스트 보기");
 }
 
 function kstDate(iso) {
@@ -594,11 +669,13 @@ function renderTopics() {
     r.addEventListener("click", () => {
       const t = r.dataset.type;
       if (state.types.has(t)) state.types.delete(t); else state.types.add(t);
+      state.leadOverrideId = null;
       state.visibleCount = 50;
       renderTopics();
       renderFilteredPanels();
       updateTypePopover();
       syncURL();
+      notifyRecalculation(`유형 ${t}`);
       flashPanel("feed-panel");
     });
   });
@@ -686,8 +763,10 @@ function renderLead() {
   }
 
   const candidates = [...rows].sort((a, b) => metricScore(b) - metricScore(a));
-  const lead = candidates[0];
-  const runnerUps = candidates.slice(1, 4);
+  let lead = candidates.find(t => t.id === state.leadOverrideId) || candidates[0];
+  if (!candidates.some(t => t.id === state.leadOverrideId)) state.leadOverrideId = null;
+  const isPreview = !!state.leadOverrideId;
+  const runnerUps = candidates.filter(t => t.id !== lead.id).slice(0, 3);
   const m = lead.metrics || {};
   const text = stripUrls(lead.text);
   const shortText = t => {
@@ -698,8 +777,8 @@ function renderLead() {
     <div class="lead-body">
       <div class="lead-tag">CURRENT SCOPE · ${escapeHtml(currentScopeLabel())} · ${fmt.format(rows.length)} MATCHES</div>
       <div class="lead-context">
-        <span>현재 조건에서 재계산된 대표 게시글</span>
-        <b>MOST-REACTED</b>
+        <span>${isPreview ? "후보 미리보기" : "현재 조건에서 재계산된 대표 게시글"}</span>
+        <b>${isPreview ? "CANDIDATE PREVIEW" : "MOST-REACTED"}</b>
         <span>반응 점수 기준</span>
       </div>
       <p class="lead-text">${escapeHtml(text)}</p>
@@ -717,8 +796,11 @@ function renderLead() {
       <div class="lead-stat"><span class="lbl">REPLIES</span><span class="val">${fmt.format(m.reply_count || 0)}</span></div>
       <div class="lead-stat"><span class="lbl">IMPRESSIONS</span><span class="val">${fmtCompact.format(m.impression_count || 0)}</span></div>
       ${runnerUps.length ? `<div class="lead-runners">
-        <span class="lbl">NEXT CANDIDATES</span>
-        ${runnerUps.map((t, i) => `<button data-id="${t.id}"><b>${i + 2}</b><span>${shortText(t)}</span><em>${fmtCompact.format(metricScore(t))}</em></button>`).join("")}
+        <span class="lbl">${isPreview ? "OTHER CANDIDATES" : "NEXT CANDIDATES"}</span>
+        ${runnerUps.map((t) => {
+          const rank = candidates.findIndex(x => x.id === t.id) + 1;
+          return `<button data-id="${t.id}" title="LEAD 슬롯에서 미리보기"><b>${rank}</b><span>${shortText(t)}</span><em>${fmtCompact.format(metricScore(t))}</em></button>`;
+        }).join("")}
       </div>` : ""}
     </div>
   `;
@@ -726,7 +808,10 @@ function renderLead() {
     if (e.target.tagName === "A") return;
     const runner = e.target.closest(".lead-runners button");
     if (runner) {
-      openDrawer(runner.dataset.id);
+      state.leadOverrideId = runner.dataset.id;
+      renderLead();
+      renderFlowbar();
+      notifyRecalculation("후보 미리보기");
       return;
     }
     openDrawer(lead.id);
@@ -755,10 +840,12 @@ function renderTimeline(stats) {
     events: TIMELINE_EVENTS,
     onMonthClick: (m) => {
       state.q = m;
+      state.leadOverrideId = null;
       $("q").value = m;
       state.visibleCount = 50;
       renderFilteredPanels();
       syncURL();
+      notifyRecalculation(`월 ${m}`);
       flashPanel("feed-panel");
     },
   });
@@ -950,15 +1037,17 @@ function renderKeywords() {
   const data = state.data;
   const list = data.topKeywords.slice(0, 28);
   $("keywords").innerHTML = list.map((k, i) => `
-    <button class="kw ${i < 6 ? "hot" : ""}" data-k="${escapeHtml(k.term)}">${escapeHtml(k.term)}<span class="n">${k.count}</span></button>
+    <button class="kw ${i < 6 ? "hot" : ""} ${state.q === k.term ? "active" : ""}" data-k="${escapeHtml(k.term)}">${escapeHtml(k.term)}<span class="n">${k.count}</span></button>
   `).join("");
   $("keywords").querySelectorAll(".kw").forEach(b => {
     b.addEventListener("click", () => {
       state.q = b.dataset.k;
+      state.leadOverrideId = null;
       $("q").value = state.q;
       state.visibleCount = 50;
       renderFilteredPanels();
       syncURL();
+      notifyRecalculation(`키워드 ${state.q}`);
       flashPanel("feed-panel");
     });
   });
@@ -1325,7 +1414,9 @@ function renderBrush() {
   function apply() {
     const isFull = Math.abs(range[0] - fullStart) < 86400000 && Math.abs(range[1] - fullEnd) < 86400000;
     state.dateRange = isFull ? null : [range[0], range[1]];
+    state.leadOverrideId = null;
     rerenderScoped();
+    notifyRecalculation("기간 선택");
   }
 
   host.appendChild(svg);
@@ -1533,9 +1624,11 @@ function openLightbox(url) {
 function wireInputs() {
   $("q").addEventListener("input", (e) => {
     state.q = e.target.value;
+    state.leadOverrideId = null;
     state.visibleCount = 50;
     renderFilteredPanels();
     syncURL();
+    notifyRecalculation(state.q ? `검색 ${state.q}` : "검색 해제");
   });
   $("sort").addEventListener("change", e => setSort(e.target.value));
 
@@ -1596,6 +1689,7 @@ function updateTypePopover() {
     cb.addEventListener("change", () => {
       const t = cb.dataset.t;
       if (cb.checked) state.types.add(t); else state.types.delete(t);
+      state.leadOverrideId = null;
       state.visibleCount = 50;
       renderFilteredPanels();
       renderTopics();
@@ -1603,15 +1697,18 @@ function updateTypePopover() {
         ? `TYPES · ${state.types.size} SELECTED`
         : "TYPES · ALL";
       syncURL();
+      notifyRecalculation(`유형 ${t}`);
     });
   });
   $("pop-clear").onclick = () => {
     state.types.clear();
+    state.leadOverrideId = null;
     renderFilteredPanels();
     renderTopics();
     updateTypePopover();
     $("type-filter-btn").textContent = "TYPES · ALL";
     syncURL();
+    notifyRecalculation("유형 초기화");
   };
   $("pop-close").onclick = () => pop.classList.remove("open");
   $("type-filter-btn").textContent = state.types.size
