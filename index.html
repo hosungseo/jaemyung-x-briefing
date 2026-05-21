@@ -93,6 +93,12 @@
   </div>
   <div id="recalc-banner" class="recalc-banner" aria-live="polite"></div>
   <div class="flowbar" id="flowbar" aria-label="분석 흐름"></div>
+  <nav class="mobile-tabs" aria-label="모바일 대시보드 섹션">
+    <button class="on" data-mobile-jump="lead-panel">대표</button>
+    <button data-mobile-jump="rank">후보</button>
+    <button data-mobile-jump="topics">탐색</button>
+    <button data-mobile-jump="feed-panel">피드</button>
+  </nav>
 
   <!-- WORKSPACE -->
   <main class="workspace">
@@ -110,7 +116,7 @@
         </div>
       </section>
 
-      <section class="panel" id="lead-panel">
+      <section class="panel">
         <div class="panel-head">
           <span class="tag" style="background:var(--cyan)">N2</span>
           <span>요일 × 시간 · POSTING RHYTHM</span>
@@ -134,7 +140,7 @@
 
     <!-- CENTER COLUMN -->
     <div class="col center">
-      <section class="panel">
+      <section class="panel" id="lead-panel">
         <div class="panel-head">
           <span class="tag">LEAD</span>
           <span>최다 반응 게시글 · MOST-REACTED POST</span>

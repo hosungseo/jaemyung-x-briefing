@@ -279,6 +279,7 @@ function notifyRecalculation(action = "조건 변경") {
   clearTimeout(notifyRecalculation._timer);
   notifyRecalculation._timer = setTimeout(() => banner.classList.remove("show"), 2400);
   ["lead-panel", "rank", "feed-panel"].forEach(flashPanel);
+  setMobileTab("lead-panel");
 }
 
 function currentScopeLabel() {
@@ -314,7 +315,14 @@ function renderFlowbar() {
       const target = $(btn.dataset.jump);
       if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
       flashPanel(btn.dataset.jump);
+      setMobileTab(btn.dataset.jump);
     });
+  });
+}
+
+function setMobileTab(targetId) {
+  document.querySelectorAll("[data-mobile-jump]").forEach(btn => {
+    btn.classList.toggle("on", btn.dataset.mobileJump === targetId);
   });
 }
 
@@ -324,6 +332,18 @@ function flashPanel(id) {
   panel.classList.remove("interaction-flash");
   void panel.offsetWidth;
   panel.classList.add("interaction-flash");
+}
+
+function wireMobileTabs() {
+  document.querySelectorAll("[data-mobile-jump]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const target = $(btn.dataset.mobileJump);
+      if (!target) return;
+      setMobileTab(btn.dataset.mobileJump);
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      flashPanel(btn.dataset.mobileJump);
+    });
+  });
 }
 
 function focusLabel(key = state.focus) {
@@ -1650,6 +1670,7 @@ function wireInputs() {
   $("view-toggle").addEventListener("click", () => {
     setView(state.view === "list" ? "grid" : "list");
   });
+  wireMobileTabs();
   renderFocusControls();
   renderPolicySummary();
   renderFlowbar();
