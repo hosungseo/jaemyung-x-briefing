@@ -9,6 +9,7 @@ TOKEN_FILE="${HOME}/.openclaw/secrets/x-api-bearer-token"
 TARGET="${TELEGRAM_TARGET:-5089905038}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ANALYZER="${SCRIPT_DIR}/analyze-jaemyung-tweet.py"
+GITHUB_UPDATER="${SCRIPT_DIR}/update-github-pages.sh"
 
 mkdir -p "$STATE_DIR"
 
@@ -57,6 +58,7 @@ if [[ "$latest_id" == "$last_id" ]]; then
 fi
 
 new_items="$(jq --arg last "$last_id" '[.data[] | select(.id != $last)] | reverse' <<<"$json")"
+new_count="$(jq 'length' <<<"$new_items")"
 
 jq -c '.[]' <<<"$new_items" | while IFS= read -r item; do
   id="$(jq -r '.id' <<<"$item")"
@@ -92,6 +94,22 @@ ${text}
     echo "missing analyzer: $ANALYZER" >&2
   fi
 done
+
+if [[ "$new_count" -gt 0 ]]; then
+  if [[ -x "$GITHUB_UPDATER" || -f "$GITHUB_UPDATER" ]]; then
+    if update_output="$(bash "$GITHUB_UPDATER" 2>&1)"; then
+      openclaw message send --channel telegram --target "$TARGET" --message "GitHub Pages 데이터 업데이트 완료
+
+${update_output}" >/dev/null
+    else
+      openclaw message send --channel telegram --target "$TARGET" --message "GitHub Pages 데이터 업데이트 실패
+
+${update_output}" >/dev/null
+    fi
+  else
+    openclaw message send --channel telegram --target "$TARGET" --message "GitHub Pages 업데이트 스크립트 없음: ${GITHUB_UPDATER}" >/dev/null
+  fi
+fi
 
 printf '%s' "$latest_id" > "$STATE_FILE"
 echo "sent new tweet alert(s), latest_id=${latest_id}"

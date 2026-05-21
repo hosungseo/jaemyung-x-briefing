@@ -38,3 +38,7 @@ X links as `x[.]com/...` and include the API original text inline.
 ```bash
 scripts/watch-jaemyung-lee-tweets.sh
 ```
+
+When the watcher successfully observes a new post, it also rebuilds the GitHub
+Pages data, refreshes policy-press links, commits changed `data/` and
+`reports/` files, and pushes the update.
