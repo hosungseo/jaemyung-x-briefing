@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T11:31:11.452Z",
+  "generated_at": "2026-05-22T16:31:12.442Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,33 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 528,
-  "total_tweets": 589,
+  "linked_tweets": 539,
+  "total_tweets": 603,
   "links": {
+    "2057857389026841042": [
+      {
+        "title": "상가 깜깜이 관리비 사라진다..세부 내역 공개 의무화",
+        "ministry": "법무부",
+        "date": "2026-05-12",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761035&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-12/043_법무부_상가_깜깜이_관리비_사라진다_세부_내역_공개_의무화.md",
+        "strength": "높음",
+        "reason": "공통 의제: 건물, 관리비, 내역 · 법무부 자료",
+        "debug": {
+          "bm25_score": 26.5228,
+          "keyword_overlap": 3,
+          "shared_terms": [
+            "건물",
+            "관리비",
+            "내역"
+          ],
+          "date_delta_days": -10,
+          "date_score": 1,
+          "soft_match_score": 1.75,
+          "final_score": 32.7228
+        }
+      }
+    ],
     "2057779672591876573": [
       {
         "title": "국방부, 「국방 정보화 신기술 제안발표회」 개최",
@@ -712,6 +736,489 @@
           "date_score": 1.6,
           "soft_match_score": 2.45,
           "final_score": 22.4144
+        }
+      }
+    ],
+    "2054869198401405251": [
+      {
+        "title": "EU 철강 TRQ 협의 및 한-멕 FTA 위한 정재계 아웃리치 강화",
+        "ministry": "산업통상부",
+        "date": "2026-05-14",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761630&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-14/122_산업통상부_EU_철강_TRQ_협의_및_한_멕_FTA_위한_정재계_아웃리치_강화.md",
+        "strength": "높음",
+        "reason": "공통 의제: 멕시코, 대한, 관심 · 산업통상부 자료 · 게시일 당일",
+        "debug": {
+          "bm25_score": 14.6593,
+          "keyword_overlap": 3,
+          "shared_terms": [
+            "멕시코",
+            "대한",
+            "관심"
+          ],
+          "date_delta_days": 0,
+          "date_score": 2.2,
+          "soft_match_score": 2.1,
+          "final_score": 22.4093
+        }
+      },
+      {
+        "title": "대한민국은 지금 창업 열풍, 「모두의 창업」 최종 6.2만명 신청, 역대 최대 기록",
+        "ministry": "중소벤처기업부",
+        "date": "2026-05-19",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762419&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-19/074_중소벤처기업부_대한민국은_지금_창업_열풍_모두의_창업_최종_6_2만명_신청_역대_최대_기록.md",
+        "strength": "높음",
+        "reason": "공통 의제: 문화, 확인할, 모인 · 중소벤처기업부 자료",
+        "debug": {
+          "bm25_score": 11.2587,
+          "keyword_overlap": 5,
+          "shared_terms": [
+            "문화",
+            "확인할",
+            "모인",
+            "대한",
+            "관심"
+          ],
+          "date_delta_days": 5,
+          "date_score": 1.6,
+          "soft_match_score": 3.5,
+          "final_score": 21.3587
+        }
+      }
+    ],
+    "2054856301369557095": [
+      {
+        "title": "국방부장관, 美 해군성 장관대행 접견",
+        "ministry": "국방부",
+        "date": "2026-05-13",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761209&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-13/019_국방부_국방부장관_해군성_장관대행_접견.md",
+        "strength": "높음",
+        "reason": "공통 의제: 미국, 협력, 양국 · 국방부 자료 · 게시일 1일 전",
+        "debug": {
+          "bm25_score": 21.0578,
+          "keyword_overlap": 5,
+          "shared_terms": [
+            "미국",
+            "협력",
+            "양국",
+            "중요한",
+            "파트너"
+          ],
+          "date_delta_days": -1,
+          "date_score": 2.08,
+          "soft_match_score": 3.5,
+          "final_score": 31.6378
+        }
+      },
+      {
+        "title": "[보도참고자료] 김지형 위원장, 한국노사협력 대상 시상식 축사",
+        "ministry": "경제사회발전노사정위원회",
+        "date": "2026-05-15",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761914&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-15/115_경제사회발전노사정위원회_보도참고자료_김지형_위원장_한국노사협력_대상_시상식_축사.md",
+        "strength": "높음",
+        "reason": "공통 의제: 협력, 신뢰, 서로 · 경제사회발전노사정위원회 자료 · 게시일 1일 후",
+        "debug": {
+          "bm25_score": 20.1399,
+          "keyword_overlap": 5,
+          "shared_terms": [
+            "협력",
+            "신뢰",
+            "서로",
+            "성장",
+            "파트너"
+          ],
+          "date_delta_days": 1,
+          "date_score": 2.08,
+          "soft_match_score": 3.5,
+          "final_score": 30.7199
+        }
+      }
+    ],
+    "2054778869148946580": [
+      {
+        "title": "｢미래를 채우는 첫 시작, 청년미래적금 언박싱 토크콘서트｣ 개최",
+        "ministry": "금융위원회",
+        "date": "2026-05-14",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761623&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-13/121_금융위원회_미래를_채우는_첫_시작_청년미래적금_언박싱_토크콘서트_개최.md",
+        "strength": "높음",
+        "reason": "공통 의제: 금융, 원금 · 금융위원회 자료 · 게시일 당일",
+        "debug": {
+          "bm25_score": 12.7129,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "금융",
+            "원금"
+          ],
+          "date_delta_days": 0,
+          "date_score": 2.2,
+          "soft_match_score": 1.4,
+          "final_score": 18.6129
+        }
+      },
+      {
+        "title": "이달 15~22일 '가축인공수정사 면허시험' 원서 접수",
+        "ministry": "농촌진흥청",
+        "date": "2026-05-07",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760342&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-07/151_농촌진흥청_이달_15_22일_가축인공수정사_면허시험_원서_접수.md",
+        "strength": "높음",
+        "reason": "공통 의제: 이상이면, 필요 · 농촌진흥청 자료",
+        "debug": {
+          "bm25_score": 12.5618,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "이상이면",
+            "필요"
+          ],
+          "date_delta_days": -7,
+          "date_score": 1.36,
+          "soft_match_score": 1.9,
+          "final_score": 18.1218
+        }
+      }
+    ],
+    "2054532147218882655": [
+      {
+        "title": "(참고자료)K-조선! 모두의 힘으로, 더 큰 미래로",
+        "ministry": "산업통상부",
+        "date": "2026-05-13",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761380&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-13/116_산업통상부_참고자료_K_조선_모두의_힘으로_더_큰_미래로.md",
+        "strength": "높음",
+        "reason": "공통 의제: 산업, 협력, K-조선 · 산업통상부 자료 · 게시일 당일",
+        "debug": {
+          "bm25_score": 26.3345,
+          "keyword_overlap": 9,
+          "shared_terms": [
+            "산업",
+            "협력",
+            "K-조선",
+            "기적",
+            "울산",
+            "조선",
+            "미래",
+            "협력하",
+            "성장"
+          ],
+          "date_delta_days": 0,
+          "date_score": 2.2,
+          "soft_match_score": 5.75,
+          "final_score": 39.2845
+        }
+      },
+      {
+        "title": "(참고자료)민·관 협업 기반, 16조원 상생 무역금융 공급",
+        "ministry": "산업통상부",
+        "date": "2026-05-13",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761334&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-13/090_산업통상부_참고자료_민_관_협업_기반_16조원_상생_무역금융_공급.md",
+        "strength": "높음",
+        "reason": "공통 의제: 산업, 협력, K-조선 · 산업통상부 자료 · 게시일 당일",
+        "debug": {
+          "bm25_score": 22.664,
+          "keyword_overlap": 6,
+          "shared_terms": [
+            "산업",
+            "협력",
+            "K-조선",
+            "울산",
+            "조선",
+            "성장"
+          ],
+          "date_delta_days": 0,
+          "date_score": 2.2,
+          "soft_match_score": 4.35,
+          "final_score": 34.214
+        }
+      }
+    ],
+    "2054400336681677149": [
+      {
+        "title": "[보도자료] 김민석 국무총리 주재 공명선거 관계장관회의",
+        "ministry": "국무조정실",
+        "date": "2026-05-20",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762751&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-20/143_국무조정실_보도자료_김민석_국무총리_주재_공명선거_관계장관회의.md",
+        "strength": "높음",
+        "reason": "공통 의제: 가짜뉴스, AI, 실장 · 국무조정실 자료",
+        "debug": {
+          "bm25_score": 17.414,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "가짜뉴스",
+            "AI",
+            "실장",
+            "방안"
+          ],
+          "date_delta_days": 7,
+          "date_score": 1.36,
+          "soft_match_score": 2.95,
+          "final_score": 26.324
+        }
+      },
+      {
+        "title": "민주주의 훼손하는 허위·가짜뉴스 엄단 6.3 지방선거 대비 총력 대응",
+        "ministry": "행정안전부",
+        "date": "2026-05-08",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760571&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-08/091_행정안전부_민주주의_훼손하는_허위_가짜뉴스_엄단_6_3_지방선거_대비_총력_대응.md",
+        "strength": "높음",
+        "reason": "공통 의제: 가짜뉴스, 방안, 이고 · 행정안전부 자료",
+        "debug": {
+          "bm25_score": 14.5198,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "가짜뉴스",
+            "방안",
+            "이고",
+            "일부"
+          ],
+          "date_delta_days": -5,
+          "date_score": 1.6,
+          "soft_match_score": 2.6,
+          "final_score": 23.3198
+        }
+      }
+    ],
+    "2054150730706276549": [
+      {
+        "title": "'시민사회가 바라본 국민권익위의 정책은 어떤가요?'",
+        "ministry": "국민권익위원회",
+        "date": "2026-05-15",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761707&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-15/016_국민권익위원회_시민사회가_바라본_국민권익위의_정책은_어떤가요.md",
+        "strength": "높음",
+        "reason": "공통 의제: 권익위원회, 정일연, 국민권익위원회 · 국민권익위원회 자료 · 게시일 3일 후",
+        "debug": {
+          "bm25_score": 18.1528,
+          "keyword_overlap": 5,
+          "shared_terms": [
+            "권익위원회",
+            "정일연",
+            "국민권익위원회",
+            "대한",
+            "https"
+          ],
+          "date_delta_days": 3,
+          "date_score": 1.84,
+          "soft_match_score": 4.7,
+          "final_score": 29.6928
+        }
+      },
+      {
+        "title": "'시민고충처리위 활성화를 위한 발빠른 행보!' 갈등관리 공동연수회·영남권 설명회 개최한다",
+        "ministry": "국민권익위원회",
+        "date": "2026-05-12",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760962&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-12/020_국민권익위원회_시민고충처리위_활성화를_위한_발빠른_행보_갈등관리_공동연수회_영남권_설명회_개최한다.md",
+        "strength": "높음",
+        "reason": "공통 의제: 권익위원회, 정일연, 기대 · 국민권익위원회 자료 · 게시일 당일",
+        "debug": {
+          "bm25_score": 15.699,
+          "keyword_overlap": 5,
+          "shared_terms": [
+            "권익위원회",
+            "정일연",
+            "기대",
+            "국민권익위원회",
+            "https"
+          ],
+          "date_delta_days": 0,
+          "date_score": 2.2,
+          "soft_match_score": 4.7,
+          "final_score": 27.599
+        }
+      }
+    ],
+    "2054128601268687166": [],
+    "2054121792630067702": [
+      {
+        "title": "경찰청, 동남아 스캠 범죄 대응 위해 라오스·캄보디아 경찰 초청 케이(K)-치안 연수 실시",
+        "ministry": "경찰청",
+        "date": "2026-05-11",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760863&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-11/092_경찰청_경찰청_동남아_스캠_범죄_대응_위해_라오스_캄보디아_경찰_초청_케이_K_치안_연수_실시.md",
+        "strength": "높음",
+        "reason": "공통 의제: 경찰, 범죄 · 경찰청 자료 · 게시일 1일 전",
+        "debug": {
+          "bm25_score": 17.9045,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "경찰",
+            "범죄"
+          ],
+          "date_delta_days": -1,
+          "date_score": 2.08,
+          "soft_match_score": 1.4,
+          "final_score": 23.6845
+        }
+      },
+      {
+        "title": "관계성 범죄 피해자 보호 강화를 위한 경찰-성평등부(상담소) 공동대응체계 구축",
+        "ministry": "성평등가족부",
+        "date": "2026-05-17",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762035&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-16/006_성평등가족부_관계성_범죄_피해자_보호_강화를_위한_경찰_성평등부_상담소_공동대응체계_구축.md",
+        "strength": "높음",
+        "reason": "공통 의제: 경찰, 범죄 · 성평등가족부 자료",
+        "debug": {
+          "bm25_score": 17.2669,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "경찰",
+            "범죄"
+          ],
+          "date_delta_days": 5,
+          "date_score": 1.6,
+          "soft_match_score": 1.4,
+          "final_score": 22.5669
+        }
+      }
+    ],
+    "2054093157055472015": [
+      {
+        "title": "[보도자료] 김민석 국무총리 주재 공명선거 관계장관회의",
+        "ministry": "국무조정실",
+        "date": "2026-05-20",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762751&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-20/143_국무조정실_보도자료_김민석_국무총리_주재_공명선거_관계장관회의.md",
+        "strength": "높음",
+        "reason": "공통 의제: 가짜뉴스, 범죄, 유포하 · 국무조정실 자료",
+        "debug": {
+          "bm25_score": 24.4267,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "가짜뉴스",
+            "범죄",
+            "유포하",
+            "아니라"
+          ],
+          "date_delta_days": 8,
+          "date_score": 1.24,
+          "soft_match_score": 3.3,
+          "final_score": 33.5667
+        }
+      },
+      {
+        "title": "민주주의 훼손하는 허위·가짜뉴스 엄단 6.3 지방선거 대비 총력 대응",
+        "ministry": "행정안전부",
+        "date": "2026-05-08",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760571&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-08/091_행정안전부_민주주의_훼손하는_허위_가짜뉴스_엄단_6_3_지방선거_대비_총력_대응.md",
+        "strength": "높음",
+        "reason": "공통 의제: 가짜뉴스, 범죄, 합리적인 · 행정안전부 자료",
+        "debug": {
+          "bm25_score": 21.2777,
+          "keyword_overlap": 5,
+          "shared_terms": [
+            "가짜뉴스",
+            "범죄",
+            "합리적인",
+            "아니라",
+            "자유"
+          ],
+          "date_delta_days": -4,
+          "date_score": 1.72,
+          "soft_match_score": 4.15,
+          "final_score": 32.1477
+        }
+      }
+    ],
+    "2054090595359199458": [
+      {
+        "title": "재외국민, 국내 휴대전화 없어도 '재외국민 인증서'로 공공 웹사이트 이용한다",
+        "ministry": "행정안전부",
+        "date": "2026-05-06",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156759984&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-06/081_행정안전부_재외국민_국내_휴대전화_없어도_재외국민_인증서_로_공공_웹사이트_이용한다.md",
+        "strength": "높음",
+        "reason": "공통 의제: 사이트, 해외, 이제 · 행정안전부 자료",
+        "debug": {
+          "bm25_score": 13.6067,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "사이트",
+            "해외",
+            "이제",
+            "하고"
+          ],
+          "date_delta_days": -6,
+          "date_score": 1.48,
+          "soft_match_score": 2.45,
+          "final_score": 22.1367
+        }
+      },
+      {
+        "title": "재외국민, 국내 휴대전화 없어도 '재외국민 인증서'로 공공 웹사이트 이용한다",
+        "ministry": "재외동포청",
+        "date": "2026-05-06",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156759992&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-06/092_재외동포청_재외국민_국내_휴대전화_없어도_재외국민_인증서_로_공공_웹사이트_이용한다.md",
+        "strength": "높음",
+        "reason": "공통 의제: 사이트, 해외, 이제 · 재외동포청 자료",
+        "debug": {
+          "bm25_score": 12.8231,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "사이트",
+            "해외",
+            "이제",
+            "하고"
+          ],
+          "date_delta_days": -6,
+          "date_score": 1.48,
+          "soft_match_score": 2.45,
+          "final_score": 21.3531
+        }
+      }
+    ],
+    "2053974965792444629": [],
+    "2053727635721838998": [],
+    "2053496317226172703": [
+      {
+        "title": "세입자 있는 주택 전체로 토지거래허가구역 실거주 유예 확대",
+        "ministry": "국토교통부",
+        "date": "2026-05-12",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761060&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-12/058_국토교통부_세입자_있는_주택_전체로_토지거래허가구역_실거주_유예_확대.md",
+        "strength": "높음",
+        "reason": "공통 의제: 주택, 세입자 · 국토교통부 자료 · 게시일 2일 후",
+        "debug": {
+          "bm25_score": 26.5186,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "주택",
+            "세입자"
+          ],
+          "date_delta_days": 2,
+          "date_score": 1.96,
+          "soft_match_score": 1.4,
+          "final_score": 32.1786
+        }
+      },
+      {
+        "title": "대출규제 밖 현금부자, 시세차익을 노린 다주택자 등 부동산 탈세혐의자 127명 자금형성과정 철저히 검증",
+        "ministry": "국세청",
+        "date": "2026-05-19",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762401&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-19/057_국세청_대출규제_밖_현금부자_시세차익을_노린_다주택자_등_부동산_탈세혐의자_127명_자금형성과정_철저히_검증.md",
+        "strength": "높음",
+        "reason": "공통 의제: 다주택자, 주택 · 국세청 자료",
+        "debug": {
+          "bm25_score": 14.8029,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "다주택자",
+            "주택"
+          ],
+          "date_delta_days": 9,
+          "date_score": 1.12,
+          "soft_match_score": 1.55,
+          "final_score": 19.7729
         }
       }
     ],
