@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T09:21:06.076Z",
+  "generated_at": "2026-05-22T00:31:08.578Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,154 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 534,
-  "total_tweets": 598,
+  "linked_tweets": 537,
+  "total_tweets": 601,
   "links": {
+    "2057615152657375509": [
+      {
+        "title": "'기업이 가진 힘, 사회가 필요한 곳으로 연결합니다' 2026 사회공헌 포럼 개최",
+        "ministry": "보건복지부",
+        "date": "2026-05-15",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761787&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-15/047_보건복지부_기업이_가진_힘_사회가_필요한_곳으로_연결합니다_2026_사회공헌_포럼_개최.md",
+        "strength": "높음",
+        "reason": "공통 의제: 국무총리, 김민석, 노고 · 보건복지부 자료",
+        "debug": {
+          "bm25_score": 17.789,
+          "keyword_overlap": 6,
+          "shared_terms": [
+            "국무총리",
+            "김민석",
+            "노고",
+            "성과",
+            "감사",
+            "https"
+          ],
+          "date_delta_days": -7,
+          "date_score": 1.36,
+          "soft_match_score": 5.2,
+          "final_score": 29.349
+        }
+      },
+      {
+        "title": "[보도자료] 삼청동 오픈하우스",
+        "ministry": "국무조정실",
+        "date": "2026-05-09",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760638&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-09/003_국무조정실_보도자료_삼청동_오픈하우스.md",
+        "strength": "높음",
+        "reason": "공통 의제: 국무총리, 김민석, 노고 · 국무조정실 자료",
+        "debug": {
+          "bm25_score": 18.7341,
+          "keyword_overlap": 5,
+          "shared_terms": [
+            "국무총리",
+            "김민석",
+            "노고",
+            "감사",
+            "https"
+          ],
+          "date_delta_days": -13,
+          "date_score": 0.64,
+          "soft_match_score": 4.15,
+          "final_score": 28.5241
+        }
+      }
+    ],
+    "2057361287173361708": [
+      {
+        "title": "[보도자료] 김민석 국무총리 주재 공명선거 관계장관회의",
+        "ministry": "국무조정실",
+        "date": "2026-05-20",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762751&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-20/143_국무조정실_보도자료_김민석_국무총리_주재_공명선거_관계장관회의.md",
+        "strength": "높음",
+        "reason": "공통 의제: 가짜뉴스, 서울, 가짜 · 국무조정실 자료 · 게시일 1일 전",
+        "debug": {
+          "bm25_score": 19.3032,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "가짜뉴스",
+            "서울",
+            "가짜",
+            "삭제"
+          ],
+          "date_delta_days": -1,
+          "date_score": 2.08,
+          "soft_match_score": 2.6,
+          "final_score": 28.5832
+        }
+      },
+      {
+        "title": "민주주의 훼손하는 허위·가짜뉴스 엄단 6.3 지방선거 대비 총력 대응",
+        "ministry": "행정안전부",
+        "date": "2026-05-08",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760571&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-08/091_행정안전부_민주주의_훼손하는_허위_가짜뉴스_엄단_6_3_지방선거_대비_총력_대응.md",
+        "strength": "높음",
+        "reason": "공통 의제: 가짜뉴스, 서울, 가짜 · 행정안전부 자료",
+        "debug": {
+          "bm25_score": 17.2123,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "가짜뉴스",
+            "서울",
+            "가짜",
+            "삭제"
+          ],
+          "date_delta_days": -13,
+          "date_score": 0.64,
+          "soft_match_score": 2.6,
+          "final_score": 25.0523
+        }
+      }
+    ],
+    "2057253452988985549": [
+      {
+        "title": "[보도자료] 김민석 국무총리 주재 공명선거 관계장관회의",
+        "ministry": "국무조정실",
+        "date": "2026-05-20",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762751&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-20/143_국무조정실_보도자료_김민석_국무총리_주재_공명선거_관계장관회의.md",
+        "strength": "높음",
+        "reason": "공통 의제: 가짜뉴스, 아니라, 언론 · 국무조정실 자료 · 게시일 1일 전",
+        "debug": {
+          "bm25_score": 19.475,
+          "keyword_overlap": 3,
+          "shared_terms": [
+            "가짜뉴스",
+            "아니라",
+            "언론"
+          ],
+          "date_delta_days": -1,
+          "date_score": 2.08,
+          "soft_match_score": 2.6,
+          "final_score": 27.605
+        }
+      },
+      {
+        "title": "(참고) 임금체불 및 불법파견 의혹 등이제기된 유명 아동복 브랜드 업체 기획감독 착수",
+        "ministry": "고용노동부",
+        "date": "2026-05-12",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761115&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-12/095_고용노동부_참고_임금체불_및_불법파견_의혹_등이제기된_유명_아동복_브랜드_업체_기획감독_착수.md",
+        "strength": "높음",
+        "reason": "공통 의제: 주장, 아니라, 언론 · 고용노동부 자료",
+        "debug": {
+          "bm25_score": 14.7282,
+          "keyword_overlap": 3,
+          "shared_terms": [
+            "주장",
+            "아니라",
+            "언론"
+          ],
+          "date_delta_days": -9,
+          "date_score": 1.12,
+          "soft_match_score": 2.1,
+          "final_score": 21.3982
+        }
+      }
+    ],
     "2056899225225658622": [],
     "2056889224960655712": [
       {
