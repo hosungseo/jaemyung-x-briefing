@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T16:31:12.442Z",
+  "generated_at": "2026-05-23T11:01:10.631Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,32 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 539,
-  "total_tweets": 603,
+  "linked_tweets": 540,
+  "total_tweets": 604,
   "links": {
+    "2058135894432079941": [
+      {
+        "title": "[보도참고자료] 김지형 위원장, 한국노사협력 대상 시상식 축사",
+        "ministry": "경제사회발전노사정위원회",
+        "date": "2026-05-15",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761914&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-15/115_경제사회발전노사정위원회_보도참고자료_김지형_위원장_한국노사협력_대상_시상식_축사.md",
+        "strength": "높음",
+        "reason": "공통 의제: 여러분께, 축하 · 경제사회발전노사정위원회 자료",
+        "debug": {
+          "bm25_score": 16.0952,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "여러분께",
+            "축하"
+          ],
+          "date_delta_days": -8,
+          "date_score": 1.24,
+          "soft_match_score": 1.9,
+          "final_score": 21.5352
+        }
+      }
+    ],
     "2057857389026841042": [
       {
         "title": "상가 깜깜이 관리비 사라진다..세부 내역 공개 의무화",
