@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T11:01:10.631Z",
+  "generated_at": "2026-05-23T11:31:09.347Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -8,8 +8,9 @@
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
   "linked_tweets": 540,
-  "total_tweets": 604,
+  "total_tweets": 605,
   "links": {
+    "2058146587407487264": [],
     "2058135894432079941": [
       {
         "title": "[보도참고자료] 김지형 위원장, 한국노사협력 대상 시상식 축사",
