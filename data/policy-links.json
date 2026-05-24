@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T11:31:09.347Z",
+  "generated_at": "2026-05-24T00:01:05.306Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,55 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 540,
-  "total_tweets": 605,
+  "linked_tweets": 541,
+  "total_tweets": 606,
   "links": {
+    "2058330881304166859": [
+      {
+        "title": "'허위조작정보 대응과 표현의 자유, 균형 찾아야'",
+        "ministry": "방송미디어통신위원회",
+        "date": "2026-05-18",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762101&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-18/043_방송미디어통신위원회_허위조작정보_대응과_표현의_자유_균형_찾아야.md",
+        "strength": "높음",
+        "reason": "공통 의제: 표현, 자유 · 방송미디어통신위원회 자료",
+        "debug": {
+          "bm25_score": 22.5443,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "표현",
+            "자유"
+          ],
+          "date_delta_days": -5,
+          "date_score": 1.6,
+          "soft_match_score": 1.4,
+          "final_score": 27.8443
+        }
+      },
+      {
+        "title": "[보도자료] 사회대개혁위원회, 방송장악 진상규명 특별법 제정 촉구 기자회견",
+        "ministry": "국무조정실",
+        "date": "2026-05-12",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761116&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-12/094_국무조정실_보도자료_사회대개혁위원회_방송장악_진상규명_특별법_제정_촉구_기자회견.md",
+        "strength": "높음",
+        "reason": "공통 의제: 필요하다, 표현, 자유 · 국무조정실 자료",
+        "debug": {
+          "bm25_score": 7.7405,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "필요하다",
+            "표현",
+            "자유",
+            "주장"
+          ],
+          "date_delta_days": -11,
+          "date_score": 0.88,
+          "soft_match_score": 2.65,
+          "final_score": 15.8705
+        }
+      }
+    ],
     "2058146587407487264": [],
     "2058135894432079941": [
       {
