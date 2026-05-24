@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T00:01:05.306Z",
+  "generated_at": "2026-05-24T09:31:04.815Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,56 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 541,
-  "total_tweets": 606,
+  "linked_tweets": 542,
+  "total_tweets": 607,
   "links": {
+    "2058479816769503639": [
+      {
+        "title": "삼킴·질식 안전사고에 대한 소비자안전주의보 발령",
+        "ministry": "공정거래위원회",
+        "date": "2026-05-11",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760806&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-11/057_공정거래위원회_삼킴_질식_안전사고에_대한_소비자안전주의보_발령.md",
+        "strength": "높음",
+        "reason": "공통 의제: 발생, 사고, 발생했다 · 공정거래위원회 자료",
+        "debug": {
+          "bm25_score": 15.2235,
+          "keyword_overlap": 3,
+          "shared_terms": [
+            "발생",
+            "사고",
+            "발생했다"
+          ],
+          "date_delta_days": -13,
+          "date_score": 0.64,
+          "soft_match_score": 2.6,
+          "final_score": 21.9135
+        }
+      },
+      {
+        "title": "영산강 수질오염사고 실전 대응체계를 강화하여 안전한 물환경 확보",
+        "ministry": "기후에너지환경부",
+        "date": "2026-05-13",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761306&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-13/073_기후에너지환경부_영산강_수질오염사고_실전_대응체계를_강화하여_안전한_물환경_확보.md",
+        "strength": "높음",
+        "reason": "공통 의제: 발생, 대규모, 사고 · 기후에너지환경부 자료",
+        "debug": {
+          "bm25_score": 13.1581,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "발생",
+            "대규모",
+            "사고",
+            "관계"
+          ],
+          "date_delta_days": -11,
+          "date_score": 0.88,
+          "soft_match_score": 2.45,
+          "final_score": 21.0881
+        }
+      }
+    ],
     "2058330881304166859": [
       {
         "title": "'허위조작정보 대응과 표현의 자유, 균형 찾아야'",
