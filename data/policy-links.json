@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T09:31:04.815Z",
+  "generated_at": "2026-05-26T05:31:43.146Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,60 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 542,
-  "total_tweets": 607,
+  "linked_tweets": 543,
+  "total_tweets": 608,
   "links": {
+    "2059138189550633278": [
+      {
+        "title": "장관, 가정의 달 맞이 북향민 아동 청소년 및 교직원 격려",
+        "ministry": "통일부",
+        "date": "2026-05-14",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761584&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-14/043_통일부_장관_가정의_달_맞이_북향민_아동_청소년_및_교직원_격려.md",
+        "strength": "높음",
+        "reason": "공통 의제: 청소년들, 가정, 5월 · 통일부 자료",
+        "debug": {
+          "bm25_score": 36.8499,
+          "keyword_overlap": 7,
+          "shared_terms": [
+            "청소년들",
+            "가정",
+            "5월",
+            "이들",
+            "배움",
+            "조금",
+            "미래"
+          ],
+          "date_delta_days": -12,
+          "date_score": 0.76,
+          "soft_match_score": 5.4,
+          "final_score": 48.0099
+        }
+      },
+      {
+        "title": "가족이 함께 배우는 기술, 함께 준비하는 내일",
+        "ministry": "고용노동부",
+        "date": "2026-05-14",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761594&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-14/099_고용노동부_가족이_함께_배우는_기술_함께_준비하는_내일.md",
+        "strength": "높음",
+        "reason": "공통 의제: 가정, 5월, 배움 · 고용노동부 자료",
+        "debug": {
+          "bm25_score": 20.0649,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "가정",
+            "5월",
+            "배움",
+            "미래"
+          ],
+          "date_delta_days": -12,
+          "date_score": 0.76,
+          "soft_match_score": 2.8,
+          "final_score": 28.2249
+        }
+      }
+    ],
     "2058479816769503639": [
       {
         "title": "삼킴·질식 안전사고에 대한 소비자안전주의보 발령",
