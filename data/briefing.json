@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-05-26T05:31:24.987Z",
+  "generated_at": "2026-05-26T11:31:19.554Z",
   "source": "@Jaemyung_Lee",
   "startDate": "2025-06-04",
-  "count": 608,
-  "newest": "2026-05-26T05:02:55.000Z",
+  "count": 609,
+  "newest": "2026-05-26T11:00:45.000Z",
   "oldest": "2025-06-08T13:47:58.000Z",
   "byType": {
+    "기후·에너지": 27,
     "교육·돌봄": 10,
     "외교·안보": 111,
     "역사·민주주의": 51,
@@ -16,7 +17,6 @@
     "정당·국회": 33,
     "국정운영·행정": 26,
     "보건·의료": 9,
-    "기후·에너지": 26,
     "민생·경제": 105,
     "사법·권력기관": 15,
     "지역": 7,
@@ -24,7 +24,7 @@
     "언론·여론대응": 3
   },
   "byMonth": {
-    "2026-05": 49,
+    "2026-05": 50,
     "2026-04": 57,
     "2026-03": 91,
     "2026-02": 69,
@@ -71,12 +71,12 @@
       "count": 22
     },
     {
-      "term": "투자",
+      "term": "안보",
       "count": 21
     },
     {
-      "term": "안보",
-      "count": 20
+      "term": "투자",
+      "count": 21
     },
     {
       "term": "AI",
@@ -176,11 +176,11 @@
       ],
       "metrics": {
         "retweet_count": 11192,
-        "reply_count": 1528,
-        "like_count": 128013,
-        "quote_count": 4059,
-        "bookmark_count": 5473,
-        "impression_count": 8366617
+        "reply_count": 1527,
+        "like_count": 128007,
+        "quote_count": 4060,
+        "bookmark_count": 5471,
+        "impression_count": 8366633
       },
       "media": [
         {
@@ -228,12 +228,12 @@
         "공적 인물의 제보 공유와 사실확인 책임"
       ],
       "metrics": {
-        "retweet_count": 15654,
+        "retweet_count": 15651,
         "reply_count": 3924,
-        "like_count": 64838,
+        "like_count": 64836,
         "quote_count": 2491,
         "bookmark_count": 6479,
-        "impression_count": 11763286
+        "impression_count": 11763552
       },
       "media": []
     },
@@ -260,12 +260,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 6667,
+        "retweet_count": 6666,
         "reply_count": 1176,
-        "like_count": 51663,
+        "like_count": 51660,
         "quote_count": 3050,
         "bookmark_count": 4962,
-        "impression_count": 5066582
+        "impression_count": 5066607
       },
       "media": [
         {
@@ -298,12 +298,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 13961,
+        "retweet_count": 13960,
         "reply_count": 2550,
-        "like_count": 51119,
-        "quote_count": 1702,
+        "like_count": 51118,
+        "quote_count": 1701,
         "bookmark_count": 2890,
-        "impression_count": 9394910
+        "impression_count": 9395043
       },
       "media": []
     },
@@ -332,10 +332,10 @@
       "metrics": {
         "retweet_count": 5874,
         "reply_count": 1951,
-        "like_count": 45424,
+        "like_count": 45423,
         "quote_count": 2271,
         "bookmark_count": 1503,
-        "impression_count": 4390695
+        "impression_count": 4390715
       },
       "media": [
         {
@@ -368,12 +368,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 23585,
+        "retweet_count": 23580,
         "reply_count": 1261,
-        "like_count": 45201,
+        "like_count": 45210,
         "quote_count": 2683,
-        "bookmark_count": 1676,
-        "impression_count": 5251648
+        "bookmark_count": 1674,
+        "impression_count": 5256180
       },
       "media": []
     },
@@ -400,12 +400,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 12057,
+        "retweet_count": 12056,
         "reply_count": 805,
-        "like_count": 44268,
+        "like_count": 44267,
         "quote_count": 1541,
         "bookmark_count": 2564,
-        "impression_count": 1263681
+        "impression_count": 1263739
       },
       "media": [
         {
@@ -443,12 +443,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 13806,
+        "retweet_count": 13805,
         "reply_count": 4228,
-        "like_count": 41456,
-        "quote_count": 7220,
-        "bookmark_count": 2168,
-        "impression_count": 18950012
+        "like_count": 41455,
+        "quote_count": 7219,
+        "bookmark_count": 2167,
+        "impression_count": 18950116
       },
       "media": []
     },
@@ -477,10 +477,10 @@
       "metrics": {
         "retweet_count": 4967,
         "reply_count": 3178,
-        "like_count": 40657,
+        "like_count": 40650,
         "quote_count": 2025,
-        "bookmark_count": 3175,
-        "impression_count": 7064279
+        "bookmark_count": 3174,
+        "impression_count": 7064378
       },
       "media": [
         {
@@ -523,12 +523,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 9795,
+        "retweet_count": 9794,
         "reply_count": 2780,
-        "like_count": 35052,
+        "like_count": 35049,
         "quote_count": 1358,
         "bookmark_count": 1560,
-        "impression_count": 1920109
+        "impression_count": 1920198
       },
       "media": []
     },
@@ -557,10 +557,10 @@
       "metrics": {
         "retweet_count": 3569,
         "reply_count": 908,
-        "like_count": 29214,
+        "like_count": 29210,
         "quote_count": 400,
         "bookmark_count": 731,
-        "impression_count": 910278
+        "impression_count": 910332
       },
       "media": []
     },
@@ -589,16 +589,64 @@
       "metrics": {
         "retweet_count": 2518,
         "reply_count": 546,
-        "like_count": 25926,
+        "like_count": 25927,
         "quote_count": 277,
         "bookmark_count": 710,
-        "impression_count": 3745689
+        "impression_count": 3745712
       },
       "media": []
     }
   ],
   "recent": [
     {
+      "id": "2059228238828945728",
+      "url": "https://x.com/Jaemyung_Lee/status/2059228238828945728",
+      "created_at": "2026-05-26T11:00:45.000Z",
+      "created_kst": "2026. 05. 26. 20:00",
+      "date": "2026-05-26",
+      "lang": "ko",
+      "text": "지금 우리는 그 어느 때보다 중대한 선택의 기로에 서 있습니다. 국제질서는 빠르게 재편되고 있으며, 안보 환경 또한 한 치 앞을 예측하기 어려울 만큼 급변하고 있습니다. 이러한 시대일수록 국가의 원칙과 방향은 더욱 분명해야 합니다. 자주국방은 더 이상 선택이 아닌, 국가의 존립과 국민의 https://t.co/KhXeSraVuh",
+      "type": "기후·에너지",
+      "keywords": [
+        "안보",
+        "있으며 안보",
+        "국제질서",
+        "재편되고",
+        "시대일수록",
+        "분명해야",
+        "자주국방",
+        "중대한"
+      ],
+      "issues": [
+        "메시지가 만든 정치·정책 의제의 확산 경로"
+      ],
+      "metrics": {
+        "retweet_count": 311,
+        "reply_count": 87,
+        "like_count": 1126,
+        "quote_count": 11,
+        "bookmark_count": 19,
+        "impression_count": 13877
+      },
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HJPZGn4akAAzblr.jpg",
+          "alt_text": ""
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HJPZIOEbIAADy3D.jpg",
+          "alt_text": ""
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HJPZI8TbEAAT9C4.jpg",
+          "alt_text": ""
+        }
+      ]
+    },
+    {
       "id": "2059138189550633278",
       "url": "https://x.com/Jaemyung_Lee/status/2059138189550633278",
       "created_at": "2026-05-26T05:02:55.000Z",
@@ -621,12 +669,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 226,
-        "reply_count": 46,
-        "like_count": 706,
-        "quote_count": 3,
-        "bookmark_count": 14,
-        "impression_count": 16371
+        "retweet_count": 678,
+        "reply_count": 260,
+        "like_count": 2449,
+        "quote_count": 11,
+        "bookmark_count": 57,
+        "impression_count": 78673
       },
       "media": []
     },
@@ -653,12 +701,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1342,
-        "reply_count": 1032,
-        "like_count": 8763,
+        "retweet_count": 1365,
+        "reply_count": 1049,
+        "like_count": 8879,
         "quote_count": 208,
-        "bookmark_count": 209,
-        "impression_count": 661925
+        "bookmark_count": 211,
+        "impression_count": 672673
       },
       "media": []
     },
@@ -685,12 +733,12 @@
         "역사 비하 표현에 대한 사회적·입법적 대응"
       ],
       "metrics": {
-        "retweet_count": 6537,
-        "reply_count": 2283,
-        "like_count": 15026,
-        "quote_count": 831,
-        "bookmark_count": 362,
-        "impression_count": 1311664
+        "retweet_count": 6548,
+        "reply_count": 2310,
+        "like_count": 15089,
+        "quote_count": 833,
+        "bookmark_count": 363,
+        "impression_count": 1323092
       },
       "media": []
     },
@@ -717,12 +765,12 @@
         "공적 인물의 제보 공유와 사실확인 책임"
       ],
       "metrics": {
-        "retweet_count": 8501,
-        "reply_count": 1739,
-        "like_count": 19518,
-        "quote_count": 1984,
+        "retweet_count": 8505,
+        "reply_count": 1749,
+        "like_count": 19558,
+        "quote_count": 1987,
         "bookmark_count": 698,
-        "impression_count": 3477862
+        "impression_count": 3485602
       },
       "media": [
         {
@@ -755,12 +803,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1021,
-        "reply_count": 334,
-        "like_count": 5081,
+        "retweet_count": 1025,
+        "reply_count": 333,
+        "like_count": 5107,
         "quote_count": 47,
-        "bookmark_count": 57,
-        "impression_count": 278031
+        "bookmark_count": 56,
+        "impression_count": 279399
       },
       "media": []
     },
@@ -787,12 +835,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2054,
-        "reply_count": 650,
-        "like_count": 6748,
+        "retweet_count": 2057,
+        "reply_count": 655,
+        "like_count": 6771,
         "quote_count": 101,
-        "bookmark_count": 110,
-        "impression_count": 314628
+        "bookmark_count": 109,
+        "impression_count": 316711
       },
       "media": []
     },
@@ -819,12 +867,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 753,
+        "retweet_count": 756,
         "reply_count": 276,
-        "like_count": 3469,
+        "like_count": 3480,
         "quote_count": 16,
         "bookmark_count": 29,
-        "impression_count": 99891
+        "impression_count": 100751
       },
       "media": [
         {
@@ -860,11 +908,11 @@
       ],
       "metrics": {
         "retweet_count": 1342,
-        "reply_count": 661,
-        "like_count": 6224,
+        "reply_count": 662,
+        "like_count": 6235,
         "quote_count": 37,
-        "bookmark_count": 54,
-        "impression_count": 230375
+        "bookmark_count": 53,
+        "impression_count": 231516
       },
       "media": []
     },
@@ -892,12 +940,12 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 6148,
-        "reply_count": 1466,
-        "like_count": 17524,
-        "quote_count": 826,
-        "bookmark_count": 785,
-        "impression_count": 2949709
+        "retweet_count": 6163,
+        "reply_count": 1470,
+        "like_count": 17613,
+        "quote_count": 825,
+        "bookmark_count": 794,
+        "impression_count": 2971200
       },
       "media": []
     },
@@ -925,11 +973,11 @@
       ],
       "metrics": {
         "retweet_count": 1913,
-        "reply_count": 640,
-        "like_count": 6380,
+        "reply_count": 639,
+        "like_count": 6384,
         "quote_count": 52,
-        "bookmark_count": 76,
-        "impression_count": 278384
+        "bookmark_count": 77,
+        "impression_count": 279413
       },
       "media": []
     },
@@ -958,12 +1006,12 @@
         "역사 비하 표현에 대한 사회적·입법적 대응"
       ],
       "metrics": {
-        "retweet_count": 11485,
+        "retweet_count": 11482,
         "reply_count": 1129,
-        "like_count": 24615,
-        "quote_count": 3494,
+        "like_count": 24617,
+        "quote_count": 3491,
         "bookmark_count": 909,
-        "impression_count": 7517927
+        "impression_count": 7520080
       },
       "media": [
         {
@@ -996,12 +1044,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1033,
+        "retweet_count": 1032,
         "reply_count": 188,
-        "like_count": 5082,
+        "like_count": 5084,
         "quote_count": 15,
         "bookmark_count": 53,
-        "impression_count": 166928
+        "impression_count": 167365
       },
       "media": []
     },
@@ -1028,12 +1076,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 23585,
+        "retweet_count": 23580,
         "reply_count": 1261,
-        "like_count": 45201,
+        "like_count": 45210,
         "quote_count": 2683,
-        "bookmark_count": 1676,
-        "impression_count": 5251648
+        "bookmark_count": 1674,
+        "impression_count": 5256180
       },
       "media": []
     },
@@ -1060,12 +1108,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1852,
-        "reply_count": 238,
-        "like_count": 7211,
+        "retweet_count": 1853,
+        "reply_count": 237,
+        "like_count": 7214,
         "quote_count": 35,
         "bookmark_count": 72,
-        "impression_count": 200682
+        "impression_count": 201057
       },
       "media": [
         {
@@ -1115,10 +1163,10 @@
       "metrics": {
         "retweet_count": 1501,
         "reply_count": 897,
-        "like_count": 6361,
+        "like_count": 6362,
         "quote_count": 213,
         "bookmark_count": 100,
-        "impression_count": 356123
+        "impression_count": 356470
       },
       "media": []
     },
@@ -1145,12 +1193,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1202,
+        "retweet_count": 1201,
         "reply_count": 602,
-        "like_count": 6013,
+        "like_count": 6014,
         "quote_count": 91,
         "bookmark_count": 173,
-        "impression_count": 413158
+        "impression_count": 413549
       },
       "media": [
         {
@@ -1185,59 +1233,64 @@
       "metrics": {
         "retweet_count": 754,
         "reply_count": 377,
-        "like_count": 3414,
+        "like_count": 3417,
         "quote_count": 15,
         "bookmark_count": 20,
-        "impression_count": 160805
+        "impression_count": 161132
       },
       "media": []
-    },
-    {
-      "id": "2055251374972273073",
-      "url": "https://x.com/Jaemyung_Lee/status/2055251374972273073",
-      "created_at": "2026-05-15T11:38:07.000Z",
-      "created_kst": "2026. 05. 15. 20:38",
-      "date": "2026-05-15",
-      "lang": "ko",
-      "text": "대구경북통합신공항은 도심 군공항 이전을 통해 주민들의 오랜 불편을 해소하고, 국가안보 역량을 강화하는 중요한 국가적 과제입니다. 동시에 대구·경북이 국가균형발전의 중심축으로 도약하는 중대한 전환점이기도 합니다. 신공항 건설 예정지인 대구 군위군과 경북 의성군을 방문해 사업 추진 현황 https://t.co/UVjRwDSCdg",
-      "type": "외교·안보",
-      "keywords": [
-        "안보",
-        "해소 국가안보",
-        "국가안보",
-        "대구·경북",
-        "대구경북통합신공항",
-        "국가균형발전",
-        "전환점이기",
-        "예정지인"
-      ],
-      "issues": [
-        "메시지가 만든 정치·정책 의제의 확산 경로"
-      ],
-      "metrics": {
-        "retweet_count": 810,
-        "reply_count": 229,
-        "like_count": 3555,
-        "quote_count": 17,
-        "bookmark_count": 25,
-        "impression_count": 86451
-      },
-      "media": [
-        {
-          "type": "photo",
-          "url": "https://pbs.twimg.com/media/HIW4ON9bIAAr-7C.jpg",
-          "alt_text": ""
-        },
-        {
-          "type": "photo",
-          "url": "https://pbs.twimg.com/media/HIW4OORaIAArK3_.jpg",
-          "alt_text": ""
-        }
-      ]
     }
   ],
   "tweets": [
     {
+      "id": "2059228238828945728",
+      "url": "https://x.com/Jaemyung_Lee/status/2059228238828945728",
+      "created_at": "2026-05-26T11:00:45.000Z",
+      "created_kst": "2026. 05. 26. 20:00",
+      "date": "2026-05-26",
+      "lang": "ko",
+      "text": "지금 우리는 그 어느 때보다 중대한 선택의 기로에 서 있습니다. 국제질서는 빠르게 재편되고 있으며, 안보 환경 또한 한 치 앞을 예측하기 어려울 만큼 급변하고 있습니다. 이러한 시대일수록 국가의 원칙과 방향은 더욱 분명해야 합니다. 자주국방은 더 이상 선택이 아닌, 국가의 존립과 국민의 https://t.co/KhXeSraVuh",
+      "type": "기후·에너지",
+      "keywords": [
+        "안보",
+        "있으며 안보",
+        "국제질서",
+        "재편되고",
+        "시대일수록",
+        "분명해야",
+        "자주국방",
+        "중대한"
+      ],
+      "issues": [
+        "메시지가 만든 정치·정책 의제의 확산 경로"
+      ],
+      "metrics": {
+        "retweet_count": 311,
+        "reply_count": 87,
+        "like_count": 1126,
+        "quote_count": 11,
+        "bookmark_count": 19,
+        "impression_count": 13877
+      },
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HJPZGn4akAAzblr.jpg",
+          "alt_text": ""
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HJPZIOEbIAADy3D.jpg",
+          "alt_text": ""
+        },
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/HJPZI8TbEAAT9C4.jpg",
+          "alt_text": ""
+        }
+      ]
+    },
+    {
       "id": "2059138189550633278",
       "url": "https://x.com/Jaemyung_Lee/status/2059138189550633278",
       "created_at": "2026-05-26T05:02:55.000Z",
@@ -1260,12 +1313,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 226,
-        "reply_count": 46,
-        "like_count": 706,
-        "quote_count": 3,
-        "bookmark_count": 14,
-        "impression_count": 16371
+        "retweet_count": 678,
+        "reply_count": 260,
+        "like_count": 2449,
+        "quote_count": 11,
+        "bookmark_count": 57,
+        "impression_count": 78673
       },
       "media": []
     },
@@ -1292,12 +1345,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1342,
-        "reply_count": 1032,
-        "like_count": 8763,
+        "retweet_count": 1365,
+        "reply_count": 1049,
+        "like_count": 8879,
         "quote_count": 208,
-        "bookmark_count": 209,
-        "impression_count": 661925
+        "bookmark_count": 211,
+        "impression_count": 672673
       },
       "media": []
     },
@@ -1324,12 +1377,12 @@
         "역사 비하 표현에 대한 사회적·입법적 대응"
       ],
       "metrics": {
-        "retweet_count": 6537,
-        "reply_count": 2283,
-        "like_count": 15026,
-        "quote_count": 831,
-        "bookmark_count": 362,
-        "impression_count": 1311664
+        "retweet_count": 6548,
+        "reply_count": 2310,
+        "like_count": 15089,
+        "quote_count": 833,
+        "bookmark_count": 363,
+        "impression_count": 1323092
       },
       "media": []
     },
@@ -1356,12 +1409,12 @@
         "공적 인물의 제보 공유와 사실확인 책임"
       ],
       "metrics": {
-        "retweet_count": 8501,
-        "reply_count": 1739,
-        "like_count": 19518,
-        "quote_count": 1984,
+        "retweet_count": 8505,
+        "reply_count": 1749,
+        "like_count": 19558,
+        "quote_count": 1987,
         "bookmark_count": 698,
-        "impression_count": 3477862
+        "impression_count": 3485602
       },
       "media": [
         {
@@ -1394,12 +1447,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1021,
-        "reply_count": 334,
-        "like_count": 5081,
+        "retweet_count": 1025,
+        "reply_count": 333,
+        "like_count": 5107,
         "quote_count": 47,
-        "bookmark_count": 57,
-        "impression_count": 278031
+        "bookmark_count": 56,
+        "impression_count": 279399
       },
       "media": []
     },
@@ -1426,12 +1479,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2054,
-        "reply_count": 650,
-        "like_count": 6748,
+        "retweet_count": 2057,
+        "reply_count": 655,
+        "like_count": 6771,
         "quote_count": 101,
-        "bookmark_count": 110,
-        "impression_count": 314628
+        "bookmark_count": 109,
+        "impression_count": 316711
       },
       "media": []
     },
@@ -1458,12 +1511,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 753,
+        "retweet_count": 756,
         "reply_count": 276,
-        "like_count": 3469,
+        "like_count": 3480,
         "quote_count": 16,
         "bookmark_count": 29,
-        "impression_count": 99891
+        "impression_count": 100751
       },
       "media": [
         {
@@ -1499,11 +1552,11 @@
       ],
       "metrics": {
         "retweet_count": 1342,
-        "reply_count": 661,
-        "like_count": 6224,
+        "reply_count": 662,
+        "like_count": 6235,
         "quote_count": 37,
-        "bookmark_count": 54,
-        "impression_count": 230375
+        "bookmark_count": 53,
+        "impression_count": 231516
       },
       "media": []
     },
@@ -1531,12 +1584,12 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 6148,
-        "reply_count": 1466,
-        "like_count": 17524,
-        "quote_count": 826,
-        "bookmark_count": 785,
-        "impression_count": 2949709
+        "retweet_count": 6163,
+        "reply_count": 1470,
+        "like_count": 17613,
+        "quote_count": 825,
+        "bookmark_count": 794,
+        "impression_count": 2971200
       },
       "media": []
     },
@@ -1564,11 +1617,11 @@
       ],
       "metrics": {
         "retweet_count": 1913,
-        "reply_count": 640,
-        "like_count": 6380,
+        "reply_count": 639,
+        "like_count": 6384,
         "quote_count": 52,
-        "bookmark_count": 76,
-        "impression_count": 278384
+        "bookmark_count": 77,
+        "impression_count": 279413
       },
       "media": []
     },
@@ -1597,12 +1650,12 @@
         "역사 비하 표현에 대한 사회적·입법적 대응"
       ],
       "metrics": {
-        "retweet_count": 11485,
+        "retweet_count": 11482,
         "reply_count": 1129,
-        "like_count": 24615,
-        "quote_count": 3494,
+        "like_count": 24617,
+        "quote_count": 3491,
         "bookmark_count": 909,
-        "impression_count": 7517927
+        "impression_count": 7520080
       },
       "media": [
         {
@@ -1635,12 +1688,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1033,
+        "retweet_count": 1032,
         "reply_count": 188,
-        "like_count": 5082,
+        "like_count": 5084,
         "quote_count": 15,
         "bookmark_count": 53,
-        "impression_count": 166928
+        "impression_count": 167365
       },
       "media": []
     },
@@ -1667,12 +1720,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 23585,
+        "retweet_count": 23580,
         "reply_count": 1261,
-        "like_count": 45201,
+        "like_count": 45210,
         "quote_count": 2683,
-        "bookmark_count": 1676,
-        "impression_count": 5251648
+        "bookmark_count": 1674,
+        "impression_count": 5256180
       },
       "media": []
     },
@@ -1699,12 +1752,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1852,
-        "reply_count": 238,
-        "like_count": 7211,
+        "retweet_count": 1853,
+        "reply_count": 237,
+        "like_count": 7214,
         "quote_count": 35,
         "bookmark_count": 72,
-        "impression_count": 200682
+        "impression_count": 201057
       },
       "media": [
         {
@@ -1754,10 +1807,10 @@
       "metrics": {
         "retweet_count": 1501,
         "reply_count": 897,
-        "like_count": 6361,
+        "like_count": 6362,
         "quote_count": 213,
         "bookmark_count": 100,
-        "impression_count": 356123
+        "impression_count": 356470
       },
       "media": []
     },
@@ -1784,12 +1837,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1202,
+        "retweet_count": 1201,
         "reply_count": 602,
-        "like_count": 6013,
+        "like_count": 6014,
         "quote_count": 91,
         "bookmark_count": 173,
-        "impression_count": 413158
+        "impression_count": 413549
       },
       "media": [
         {
@@ -1824,10 +1877,10 @@
       "metrics": {
         "retweet_count": 754,
         "reply_count": 377,
-        "like_count": 3414,
+        "like_count": 3417,
         "quote_count": 15,
         "bookmark_count": 20,
-        "impression_count": 160805
+        "impression_count": 161132
       },
       "media": []
     },
@@ -1856,10 +1909,10 @@
       "metrics": {
         "retweet_count": 810,
         "reply_count": 229,
-        "like_count": 3555,
+        "like_count": 3557,
         "quote_count": 17,
-        "bookmark_count": 25,
-        "impression_count": 86451
+        "bookmark_count": 24,
+        "impression_count": 86651
       },
       "media": [
         {
@@ -1897,12 +1950,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1039,
-        "reply_count": 423,
-        "like_count": 4004,
+        "retweet_count": 1040,
+        "reply_count": 424,
+        "like_count": 4006,
         "quote_count": 82,
         "bookmark_count": 43,
-        "impression_count": 113403
+        "impression_count": 113623
       },
       "media": [
         {
@@ -1937,10 +1990,10 @@
       "metrics": {
         "retweet_count": 820,
         "reply_count": 268,
-        "like_count": 3696,
+        "like_count": 3697,
         "quote_count": 15,
         "bookmark_count": 20,
-        "impression_count": 75343
+        "impression_count": 75521
       },
       "media": [
         {
@@ -1980,10 +2033,10 @@
       "metrics": {
         "retweet_count": 1400,
         "reply_count": 672,
-        "like_count": 4840,
+        "like_count": 4841,
         "quote_count": 84,
-        "bookmark_count": 108,
-        "impression_count": 601824
+        "bookmark_count": 107,
+        "impression_count": 602134
       },
       "media": []
     },
@@ -2012,10 +2065,10 @@
       "metrics": {
         "retweet_count": 647,
         "reply_count": 302,
-        "like_count": 2679,
+        "like_count": 2680,
         "quote_count": 11,
         "bookmark_count": 19,
-        "impression_count": 69162
+        "impression_count": 69309
       },
       "media": [
         {
@@ -2063,12 +2116,12 @@
         "공적 인물의 제보 공유와 사실확인 책임"
       ],
       "metrics": {
-        "retweet_count": 2987,
+        "retweet_count": 2986,
         "reply_count": 454,
         "like_count": 14142,
         "quote_count": 214,
         "bookmark_count": 837,
-        "impression_count": 358225
+        "impression_count": 358384
       },
       "media": [
         {
@@ -2103,10 +2156,10 @@
       "metrics": {
         "retweet_count": 786,
         "reply_count": 268,
-        "like_count": 3849,
+        "like_count": 3850,
         "quote_count": 17,
         "bookmark_count": 31,
-        "impression_count": 122657
+        "impression_count": 122817
       },
       "media": []
     },
@@ -2135,10 +2188,10 @@
       "metrics": {
         "retweet_count": 1412,
         "reply_count": 324,
-        "like_count": 4716,
+        "like_count": 4718,
         "quote_count": 42,
         "bookmark_count": 75,
-        "impression_count": 119233
+        "impression_count": 119363
       },
       "media": [
         {
@@ -2173,10 +2226,10 @@
       "metrics": {
         "retweet_count": 983,
         "reply_count": 390,
-        "like_count": 4414,
+        "like_count": 4416,
         "quote_count": 21,
         "bookmark_count": 34,
-        "impression_count": 77939
+        "impression_count": 78057
       },
       "media": [
         {
@@ -2226,10 +2279,10 @@
       "metrics": {
         "retweet_count": 2520,
         "reply_count": 1291,
-        "like_count": 7318,
+        "like_count": 7319,
         "quote_count": 226,
         "bookmark_count": 121,
-        "impression_count": 611696
+        "impression_count": 611860
       },
       "media": []
     },
@@ -2256,10 +2309,10 @@
       "metrics": {
         "retweet_count": 731,
         "reply_count": 281,
-        "like_count": 3110,
+        "like_count": 3111,
         "quote_count": 18,
         "bookmark_count": 26,
-        "impression_count": 105939
+        "impression_count": 106096
       },
       "media": []
     },
@@ -2288,10 +2341,10 @@
       "metrics": {
         "retweet_count": 1005,
         "reply_count": 434,
-        "like_count": 3951,
+        "like_count": 3952,
         "quote_count": 441,
         "bookmark_count": 67,
-        "impression_count": 504686
+        "impression_count": 504930
       },
       "media": []
     },
@@ -2320,10 +2373,10 @@
       "metrics": {
         "retweet_count": 1379,
         "reply_count": 535,
-        "like_count": 5099,
+        "like_count": 5100,
         "quote_count": 225,
         "bookmark_count": 84,
-        "impression_count": 534429
+        "impression_count": 534583
       },
       "media": []
     },
@@ -2350,12 +2403,12 @@
         "공적 인물의 제보 공유와 사실확인 책임"
       ],
       "metrics": {
-        "retweet_count": 1770,
-        "reply_count": 722,
-        "like_count": 6226,
+        "retweet_count": 1769,
+        "reply_count": 724,
+        "like_count": 6227,
         "quote_count": 90,
         "bookmark_count": 74,
-        "impression_count": 121644
+        "impression_count": 121757
       },
       "media": [
         {
@@ -2388,12 +2441,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 5303,
+        "retweet_count": 5302,
         "reply_count": 446,
-        "like_count": 12194,
+        "like_count": 12195,
         "quote_count": 679,
-        "bookmark_count": 286,
-        "impression_count": 892883
+        "bookmark_count": 285,
+        "impression_count": 893060
       },
       "media": [
         {
@@ -2428,10 +2481,10 @@
       "metrics": {
         "retweet_count": 1840,
         "reply_count": 589,
-        "like_count": 6126,
+        "like_count": 6127,
         "quote_count": 68,
         "bookmark_count": 92,
-        "impression_count": 303333
+        "impression_count": 303479
       },
       "media": []
     },
@@ -2460,10 +2513,10 @@
       "metrics": {
         "retweet_count": 1172,
         "reply_count": 470,
-        "like_count": 4252,
+        "like_count": 4250,
         "quote_count": 134,
         "bookmark_count": 76,
-        "impression_count": 220956
+        "impression_count": 221067
       },
       "media": []
     },
@@ -2494,8 +2547,8 @@
         "reply_count": 727,
         "like_count": 5221,
         "quote_count": 110,
-        "bookmark_count": 83,
-        "impression_count": 258947
+        "bookmark_count": 84,
+        "impression_count": 259106
       },
       "media": []
     },
@@ -2527,7 +2580,7 @@
         "like_count": 8270,
         "quote_count": 144,
         "bookmark_count": 132,
-        "impression_count": 359987
+        "impression_count": 360192
       },
       "media": []
     },
@@ -2559,7 +2612,7 @@
         "like_count": 4929,
         "quote_count": 21,
         "bookmark_count": 42,
-        "impression_count": 93375
+        "impression_count": 93445
       },
       "media": [
         {
@@ -2592,12 +2645,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1664,
+        "retweet_count": 1665,
         "reply_count": 620,
-        "like_count": 6177,
+        "like_count": 6176,
         "quote_count": 106,
         "bookmark_count": 63,
-        "impression_count": 164082
+        "impression_count": 164199
       },
       "media": []
     },
@@ -2629,7 +2682,7 @@
         "like_count": 4553,
         "quote_count": 24,
         "bookmark_count": 25,
-        "impression_count": 88721
+        "impression_count": 88788
       },
       "media": [
         {
@@ -2667,7 +2720,7 @@
         "like_count": 5370,
         "quote_count": 41,
         "bookmark_count": 31,
-        "impression_count": 149420
+        "impression_count": 149516
       },
       "media": []
     },
@@ -2699,7 +2752,7 @@
         "like_count": 5168,
         "quote_count": 25,
         "bookmark_count": 58,
-        "impression_count": 193614
+        "impression_count": 193697
       },
       "media": []
     },
@@ -2731,7 +2784,7 @@
         "like_count": 5948,
         "quote_count": 96,
         "bookmark_count": 72,
-        "impression_count": 309124
+        "impression_count": 309246
       },
       "media": []
     },
@@ -2763,7 +2816,7 @@
         "like_count": 4927,
         "quote_count": 44,
         "bookmark_count": 50,
-        "impression_count": 99012
+        "impression_count": 99063
       },
       "media": [
         {
@@ -2816,7 +2869,7 @@
         "like_count": 5221,
         "quote_count": 72,
         "bookmark_count": 87,
-        "impression_count": 255269
+        "impression_count": 255354
       },
       "media": []
     },
@@ -2848,7 +2901,7 @@
         "like_count": 5839,
         "quote_count": 215,
         "bookmark_count": 106,
-        "impression_count": 162327
+        "impression_count": 162377
       },
       "media": [
         {
@@ -2886,7 +2939,7 @@
         "like_count": 5448,
         "quote_count": 68,
         "bookmark_count": 62,
-        "impression_count": 137496
+        "impression_count": 137543
       },
       "media": [
         {
@@ -2936,7 +2989,7 @@
         "like_count": 4458,
         "quote_count": 42,
         "bookmark_count": 26,
-        "impression_count": 153299
+        "impression_count": 153353
       },
       "media": []
     },
@@ -2967,7 +3020,7 @@
         "like_count": 5570,
         "quote_count": 51,
         "bookmark_count": 74,
-        "impression_count": 195939
+        "impression_count": 196001
       },
       "media": []
     },
@@ -2999,7 +3052,7 @@
         "like_count": 7453,
         "quote_count": 50,
         "bookmark_count": 51,
-        "impression_count": 211679
+        "impression_count": 211724
       },
       "media": []
     },
@@ -3030,7 +3083,7 @@
         "like_count": 6473,
         "quote_count": 106,
         "bookmark_count": 54,
-        "impression_count": 192404
+        "impression_count": 192458
       },
       "media": []
     },
@@ -3058,11 +3111,11 @@
       ],
       "metrics": {
         "retweet_count": 1288,
-        "reply_count": 703,
+        "reply_count": 702,
         "like_count": 7251,
         "quote_count": 175,
         "bookmark_count": 78,
-        "impression_count": 348706
+        "impression_count": 348769
       },
       "media": []
     },
@@ -3091,10 +3144,10 @@
       "metrics": {
         "retweet_count": 1431,
         "reply_count": 256,
-        "like_count": 5690,
+        "like_count": 5689,
         "quote_count": 35,
         "bookmark_count": 32,
-        "impression_count": 98313
+        "impression_count": 98364
       },
       "media": []
     },
@@ -3126,7 +3179,7 @@
         "like_count": 5400,
         "quote_count": 51,
         "bookmark_count": 51,
-        "impression_count": 163485
+        "impression_count": 163545
       },
       "media": []
     },
@@ -3155,10 +3208,10 @@
       "metrics": {
         "retweet_count": 1361,
         "reply_count": 547,
-        "like_count": 6597,
+        "like_count": 6595,
         "quote_count": 55,
         "bookmark_count": 70,
-        "impression_count": 122099
+        "impression_count": 122139
       },
       "media": [
         {
@@ -3203,10 +3256,10 @@
       "metrics": {
         "retweet_count": 1661,
         "reply_count": 554,
-        "like_count": 6840,
+        "like_count": 6839,
         "quote_count": 105,
         "bookmark_count": 59,
-        "impression_count": 218055
+        "impression_count": 218114
       },
       "media": []
     },
@@ -3237,8 +3290,8 @@
         "reply_count": 939,
         "like_count": 7218,
         "quote_count": 94,
-        "bookmark_count": 127,
-        "impression_count": 367618
+        "bookmark_count": 128,
+        "impression_count": 367654
       },
       "media": []
     },
@@ -3270,7 +3323,7 @@
         "like_count": 6833,
         "quote_count": 104,
         "bookmark_count": 78,
-        "impression_count": 1209932
+        "impression_count": 1210059
       },
       "media": []
     },
@@ -3302,7 +3355,7 @@
         "like_count": 1339,
         "quote_count": 1,
         "bookmark_count": 7,
-        "impression_count": 49379
+        "impression_count": 49402
       },
       "media": []
     },
@@ -3334,7 +3387,7 @@
         "like_count": 1196,
         "quote_count": 2,
         "bookmark_count": 3,
-        "impression_count": 40141
+        "impression_count": 40167
       },
       "media": []
     },
@@ -3366,7 +3419,7 @@
         "like_count": 7048,
         "quote_count": 139,
         "bookmark_count": 85,
-        "impression_count": 181733
+        "impression_count": 181765
       },
       "media": []
     },
@@ -3398,7 +3451,7 @@
         "like_count": 6174,
         "quote_count": 100,
         "bookmark_count": 73,
-        "impression_count": 302698
+        "impression_count": 302760
       },
       "media": []
     },
@@ -3430,7 +3483,7 @@
         "like_count": 4449,
         "quote_count": 21,
         "bookmark_count": 35,
-        "impression_count": 104638
+        "impression_count": 104671
       },
       "media": [
         {
@@ -3468,7 +3521,7 @@
         "like_count": 4419,
         "quote_count": 15,
         "bookmark_count": 41,
-        "impression_count": 123056
+        "impression_count": 123086
       },
       "media": [
         {
@@ -3506,7 +3559,7 @@
         "like_count": 4904,
         "quote_count": 21,
         "bookmark_count": 32,
-        "impression_count": 130431
+        "impression_count": 130464
       },
       "media": [
         {
@@ -3544,7 +3597,7 @@
         "like_count": 5559,
         "quote_count": 38,
         "bookmark_count": 90,
-        "impression_count": 141845
+        "impression_count": 141885
       },
       "media": [
         {
@@ -3580,9 +3633,9 @@
         "retweet_count": 1087,
         "reply_count": 315,
         "like_count": 5735,
-        "quote_count": 35,
+        "quote_count": 34,
         "bookmark_count": 68,
-        "impression_count": 116166
+        "impression_count": 116203
       },
       "media": [
         {
@@ -3617,10 +3670,10 @@
       "metrics": {
         "retweet_count": 882,
         "reply_count": 155,
-        "like_count": 5198,
+        "like_count": 5196,
         "quote_count": 19,
         "bookmark_count": 64,
-        "impression_count": 122811
+        "impression_count": 122837
       },
       "media": [
         {
@@ -3654,10 +3707,10 @@
       "metrics": {
         "retweet_count": 857,
         "reply_count": 368,
-        "like_count": 4354,
+        "like_count": 4353,
         "quote_count": 42,
         "bookmark_count": 44,
-        "impression_count": 134272
+        "impression_count": 134306
       },
       "media": []
     },
@@ -3686,10 +3739,10 @@
       "metrics": {
         "retweet_count": 1284,
         "reply_count": 430,
-        "like_count": 9142,
+        "like_count": 9139,
         "quote_count": 48,
         "bookmark_count": 156,
-        "impression_count": 257354
+        "impression_count": 257391
       },
       "media": [
         {
@@ -3722,12 +3775,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1228,
+        "retweet_count": 1227,
         "reply_count": 290,
-        "like_count": 6640,
+        "like_count": 6641,
         "quote_count": 26,
         "bookmark_count": 80,
-        "impression_count": 149981
+        "impression_count": 150017
       },
       "media": []
     },
@@ -3756,10 +3809,10 @@
       "metrics": {
         "retweet_count": 1587,
         "reply_count": 596,
-        "like_count": 5726,
+        "like_count": 5725,
         "quote_count": 97,
         "bookmark_count": 65,
-        "impression_count": 384717
+        "impression_count": 384776
       },
       "media": []
     },
@@ -3791,7 +3844,7 @@
         "like_count": 4896,
         "quote_count": 15,
         "bookmark_count": 59,
-        "impression_count": 98910
+        "impression_count": 98935
       },
       "media": [
         {
@@ -3826,10 +3879,10 @@
       "metrics": {
         "retweet_count": 1129,
         "reply_count": 258,
-        "like_count": 6067,
+        "like_count": 6069,
         "quote_count": 19,
         "bookmark_count": 82,
-        "impression_count": 112540
+        "impression_count": 112570
       },
       "media": [
         {
@@ -3864,10 +3917,10 @@
       "metrics": {
         "retweet_count": 1614,
         "reply_count": 529,
-        "like_count": 8826,
+        "like_count": 8824,
         "quote_count": 93,
-        "bookmark_count": 154,
-        "impression_count": 214040
+        "bookmark_count": 155,
+        "impression_count": 214075
       },
       "media": [
         {
@@ -3902,10 +3955,10 @@
       "metrics": {
         "retweet_count": 1562,
         "reply_count": 256,
-        "like_count": 7303,
+        "like_count": 7302,
         "quote_count": 46,
         "bookmark_count": 162,
-        "impression_count": 313619
+        "impression_count": 313647
       },
       "media": []
     },
@@ -3937,7 +3990,7 @@
         "like_count": 7148,
         "quote_count": 134,
         "bookmark_count": 123,
-        "impression_count": 449732
+        "impression_count": 449783
       },
       "media": []
     },
@@ -3969,7 +4022,7 @@
         "like_count": 7785,
         "quote_count": 75,
         "bookmark_count": 108,
-        "impression_count": 191967
+        "impression_count": 191999
       },
       "media": [
         {
@@ -4009,10 +4062,10 @@
       "metrics": {
         "retweet_count": 5488,
         "reply_count": 1108,
-        "like_count": 17534,
+        "like_count": 17531,
         "quote_count": 493,
         "bookmark_count": 442,
-        "impression_count": 991434
+        "impression_count": 991492
       },
       "media": []
     },
@@ -4041,10 +4094,10 @@
       "metrics": {
         "retweet_count": 3880,
         "reply_count": 693,
-        "like_count": 12006,
+        "like_count": 12005,
         "quote_count": 94,
         "bookmark_count": 163,
-        "impression_count": 275350
+        "impression_count": 275386
       },
       "media": [
         {
@@ -4092,12 +4145,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1904,
+        "retweet_count": 1903,
         "reply_count": 394,
-        "like_count": 6821,
+        "like_count": 6819,
         "quote_count": 88,
         "bookmark_count": 96,
-        "impression_count": 151178
+        "impression_count": 151205
       },
       "media": [
         {
@@ -4150,7 +4203,7 @@
         "like_count": 6164,
         "quote_count": 61,
         "bookmark_count": 67,
-        "impression_count": 144586
+        "impression_count": 144613
       },
       "media": [
         {
@@ -4185,10 +4238,10 @@
       "metrics": {
         "retweet_count": 3700,
         "reply_count": 1760,
-        "like_count": 11484,
+        "like_count": 11483,
         "quote_count": 400,
         "bookmark_count": 195,
-        "impression_count": 732035
+        "impression_count": 732081
       },
       "media": []
     },
@@ -4217,10 +4270,10 @@
       "metrics": {
         "retweet_count": 3947,
         "reply_count": 2213,
-        "like_count": 14750,
+        "like_count": 14748,
         "quote_count": 1150,
-        "bookmark_count": 389,
-        "impression_count": 1468486
+        "bookmark_count": 388,
+        "impression_count": 1468525
       },
       "media": []
     },
@@ -4247,12 +4300,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1739,
+        "retweet_count": 1738,
         "reply_count": 803,
-        "like_count": 9086,
+        "like_count": 9087,
         "quote_count": 61,
         "bookmark_count": 68,
-        "impression_count": 360385
+        "impression_count": 360405
       },
       "media": []
     },
@@ -4284,7 +4337,7 @@
         "like_count": 5986,
         "quote_count": 96,
         "bookmark_count": 106,
-        "impression_count": 379891
+        "impression_count": 379923
       },
       "media": []
     },
@@ -4311,12 +4364,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 9795,
+        "retweet_count": 9794,
         "reply_count": 2780,
-        "like_count": 35052,
+        "like_count": 35049,
         "quote_count": 1358,
         "bookmark_count": 1560,
-        "impression_count": 1920109
+        "impression_count": 1920198
       },
       "media": []
     },
@@ -4345,10 +4398,10 @@
       "metrics": {
         "retweet_count": 2605,
         "reply_count": 477,
-        "like_count": 7234,
+        "like_count": 7233,
         "quote_count": 196,
         "bookmark_count": 181,
-        "impression_count": 355278
+        "impression_count": 355298
       },
       "media": [
         {
@@ -4381,12 +4434,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 13961,
+        "retweet_count": 13960,
         "reply_count": 2550,
-        "like_count": 51119,
-        "quote_count": 1702,
+        "like_count": 51118,
+        "quote_count": 1701,
         "bookmark_count": 2890,
-        "impression_count": 9394910
+        "impression_count": 9395043
       },
       "media": []
     },
@@ -4415,10 +4468,10 @@
       "metrics": {
         "retweet_count": 999,
         "reply_count": 415,
-        "like_count": 4680,
+        "like_count": 4681,
         "quote_count": 51,
         "bookmark_count": 59,
-        "impression_count": 288738
+        "impression_count": 288760
       },
       "media": [
         {
@@ -4456,12 +4509,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 6175,
+        "retweet_count": 6174,
         "reply_count": 1283,
-        "like_count": 19953,
-        "quote_count": 673,
+        "like_count": 19949,
+        "quote_count": 672,
         "bookmark_count": 1036,
-        "impression_count": 1925369
+        "impression_count": 1925403
       },
       "media": []
     },
@@ -4488,12 +4541,12 @@
         "공적 인물의 제보 공유와 사실확인 책임"
       ],
       "metrics": {
-        "retweet_count": 15654,
+        "retweet_count": 15651,
         "reply_count": 3924,
-        "like_count": 64838,
+        "like_count": 64836,
         "quote_count": 2491,
         "bookmark_count": 6479,
-        "impression_count": 11763286
+        "impression_count": 11763552
       },
       "media": []
     },
@@ -4525,7 +4578,7 @@
         "like_count": 6368,
         "quote_count": 161,
         "bookmark_count": 63,
-        "impression_count": 322175
+        "impression_count": 322196
       },
       "media": []
     },
@@ -4557,7 +4610,7 @@
         "like_count": 5822,
         "quote_count": 58,
         "bookmark_count": 48,
-        "impression_count": 188407
+        "impression_count": 188429
       },
       "media": [
         {
@@ -4592,10 +4645,10 @@
       "metrics": {
         "retweet_count": 1160,
         "reply_count": 282,
-        "like_count": 4498,
+        "like_count": 4497,
         "quote_count": 53,
         "bookmark_count": 36,
-        "impression_count": 238543
+        "impression_count": 238568
       },
       "media": []
     },
@@ -4623,11 +4676,11 @@
       ],
       "metrics": {
         "retweet_count": 1081,
-        "reply_count": 285,
+        "reply_count": 286,
         "like_count": 4646,
         "quote_count": 28,
         "bookmark_count": 34,
-        "impression_count": 103826
+        "impression_count": 103847
       },
       "media": [
         {
@@ -4665,12 +4718,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 3037,
+        "retweet_count": 3036,
         "reply_count": 344,
-        "like_count": 13560,
+        "like_count": 13557,
         "quote_count": 125,
         "bookmark_count": 443,
-        "impression_count": 347027
+        "impression_count": 347048
       },
       "media": [
         {
@@ -4715,10 +4768,10 @@
       "metrics": {
         "retweet_count": 3099,
         "reply_count": 337,
-        "like_count": 5484,
+        "like_count": 5483,
         "quote_count": 519,
         "bookmark_count": 147,
-        "impression_count": 570514
+        "impression_count": 570538
       },
       "media": []
     },
@@ -4745,12 +4798,12 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 658,
+        "retweet_count": 657,
         "reply_count": 298,
-        "like_count": 3332,
+        "like_count": 3331,
         "quote_count": 15,
         "bookmark_count": 30,
-        "impression_count": 99517
+        "impression_count": 99534
       },
       "media": [
         {
@@ -4783,12 +4836,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1198,
-        "reply_count": 537,
-        "like_count": 5859,
+        "retweet_count": 1197,
+        "reply_count": 538,
+        "like_count": 5858,
         "quote_count": 41,
-        "bookmark_count": 61,
-        "impression_count": 129800
+        "bookmark_count": 62,
+        "impression_count": 129819
       },
       "media": [
         {
@@ -4832,11 +4885,11 @@
       ],
       "metrics": {
         "retweet_count": 1534,
-        "reply_count": 560,
-        "like_count": 7475,
+        "reply_count": 561,
+        "like_count": 7473,
         "quote_count": 440,
         "bookmark_count": 256,
-        "impression_count": 435719
+        "impression_count": 435738
       },
       "media": [
         {
@@ -4874,7 +4927,7 @@
         "like_count": 4677,
         "quote_count": 42,
         "bookmark_count": 42,
-        "impression_count": 216643
+        "impression_count": 216667
       },
       "media": []
     },
@@ -4901,12 +4954,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 12057,
+        "retweet_count": 12056,
         "reply_count": 805,
-        "like_count": 44268,
+        "like_count": 44267,
         "quote_count": 1541,
         "bookmark_count": 2564,
-        "impression_count": 1263681
+        "impression_count": 1263739
       },
       "media": [
         {
@@ -4949,7 +5002,7 @@
         "like_count": 4813,
         "quote_count": 18,
         "bookmark_count": 39,
-        "impression_count": 142474
+        "impression_count": 142489
       },
       "media": []
     },
@@ -4981,7 +5034,7 @@
         "like_count": 4780,
         "quote_count": 45,
         "bookmark_count": 54,
-        "impression_count": 115277
+        "impression_count": 115291
       },
       "media": [
         {
@@ -5021,10 +5074,10 @@
       "metrics": {
         "retweet_count": 3913,
         "reply_count": 408,
-        "like_count": 18817,
+        "like_count": 18818,
         "quote_count": 471,
         "bookmark_count": 865,
-        "impression_count": 547771
+        "impression_count": 547805
       },
       "media": [
         {
@@ -5067,7 +5120,7 @@
         "like_count": 6839,
         "quote_count": 165,
         "bookmark_count": 63,
-        "impression_count": 274718
+        "impression_count": 274731
       },
       "media": []
     },
@@ -5096,10 +5149,10 @@
       "metrics": {
         "retweet_count": 1295,
         "reply_count": 678,
-        "like_count": 4843,
+        "like_count": 4842,
         "quote_count": 60,
         "bookmark_count": 61,
-        "impression_count": 247288
+        "impression_count": 247309
       },
       "media": []
     },
@@ -5131,7 +5184,7 @@
         "like_count": 3638,
         "quote_count": 14,
         "bookmark_count": 21,
-        "impression_count": 76719
+        "impression_count": 76730
       },
       "media": [
         {
@@ -5176,10 +5229,10 @@
       "metrics": {
         "retweet_count": 883,
         "reply_count": 394,
-        "like_count": 4188,
+        "like_count": 4187,
         "quote_count": 36,
         "bookmark_count": 31,
-        "impression_count": 100319
+        "impression_count": 100335
       },
       "media": []
     },
@@ -5208,10 +5261,10 @@
       "metrics": {
         "retweet_count": 1312,
         "reply_count": 432,
-        "like_count": 7936,
+        "like_count": 7935,
         "quote_count": 287,
         "bookmark_count": 204,
-        "impression_count": 1309643
+        "impression_count": 1309659
       },
       "media": []
     },
@@ -5240,10 +5293,10 @@
       "metrics": {
         "retweet_count": 1398,
         "reply_count": 334,
-        "like_count": 5691,
+        "like_count": 5690,
         "quote_count": 514,
         "bookmark_count": 121,
-        "impression_count": 683682
+        "impression_count": 683696
       },
       "media": []
     },
@@ -5272,10 +5325,10 @@
       "metrics": {
         "retweet_count": 919,
         "reply_count": 315,
-        "like_count": 4585,
+        "like_count": 4584,
         "quote_count": 48,
         "bookmark_count": 51,
-        "impression_count": 223082
+        "impression_count": 223110
       },
       "media": []
     },
@@ -5304,10 +5357,10 @@
       "metrics": {
         "retweet_count": 1754,
         "reply_count": 477,
-        "like_count": 7082,
+        "like_count": 7081,
         "quote_count": 39,
         "bookmark_count": 63,
-        "impression_count": 307078
+        "impression_count": 307098
       },
       "media": []
     },
@@ -5336,10 +5389,10 @@
       "metrics": {
         "retweet_count": 2034,
         "reply_count": 516,
-        "like_count": 8833,
+        "like_count": 8830,
         "quote_count": 84,
         "bookmark_count": 156,
-        "impression_count": 278128
+        "impression_count": 278138
       },
       "media": []
     },
@@ -5371,7 +5424,7 @@
         "like_count": 6211,
         "quote_count": 49,
         "bookmark_count": 72,
-        "impression_count": 237695
+        "impression_count": 237741
       },
       "media": []
     },
@@ -5403,7 +5456,7 @@
         "like_count": 6948,
         "quote_count": 108,
         "bookmark_count": 82,
-        "impression_count": 379412
+        "impression_count": 379421
       },
       "media": []
     },
@@ -5435,7 +5488,7 @@
         "like_count": 8140,
         "quote_count": 43,
         "bookmark_count": 132,
-        "impression_count": 713796
+        "impression_count": 713809
       },
       "media": []
     },
@@ -5467,7 +5520,7 @@
         "like_count": 7180,
         "quote_count": 46,
         "bookmark_count": 102,
-        "impression_count": 436651
+        "impression_count": 436666
       },
       "media": []
     },
@@ -5496,10 +5549,10 @@
       "metrics": {
         "retweet_count": 1573,
         "reply_count": 538,
-        "like_count": 5775,
+        "like_count": 5776,
         "quote_count": 120,
         "bookmark_count": 79,
-        "impression_count": 292504
+        "impression_count": 292520
       },
       "media": []
     },
@@ -5528,10 +5581,10 @@
       "metrics": {
         "retweet_count": 1381,
         "reply_count": 778,
-        "like_count": 7700,
+        "like_count": 7699,
         "quote_count": 388,
         "bookmark_count": 165,
-        "impression_count": 846328
+        "impression_count": 846346
       },
       "media": []
     },
@@ -5563,7 +5616,7 @@
         "like_count": 4597,
         "quote_count": 27,
         "bookmark_count": 33,
-        "impression_count": 94663
+        "impression_count": 94674
       },
       "media": [
         {
@@ -5611,7 +5664,7 @@
         "like_count": 4330,
         "quote_count": 39,
         "bookmark_count": 32,
-        "impression_count": 88562
+        "impression_count": 88573
       },
       "media": [
         {
@@ -5654,7 +5707,7 @@
         "like_count": 3480,
         "quote_count": 35,
         "bookmark_count": 23,
-        "impression_count": 70782
+        "impression_count": 70791
       },
       "media": []
     },
@@ -5686,7 +5739,7 @@
         "like_count": 5990,
         "quote_count": 48,
         "bookmark_count": 83,
-        "impression_count": 201306
+        "impression_count": 201320
       },
       "media": [
         {
@@ -5729,8 +5782,8 @@
         "reply_count": 318,
         "like_count": 4307,
         "quote_count": 335,
-        "bookmark_count": 237,
-        "impression_count": 1170369
+        "bookmark_count": 236,
+        "impression_count": 1170378
       },
       "media": []
     },
@@ -5762,7 +5815,7 @@
         "like_count": 3598,
         "quote_count": 52,
         "bookmark_count": 152,
-        "impression_count": 171924
+        "impression_count": 171934
       },
       "media": []
     },
@@ -5794,7 +5847,7 @@
         "like_count": 7086,
         "quote_count": 144,
         "bookmark_count": 83,
-        "impression_count": 514796
+        "impression_count": 514813
       },
       "media": []
     },
@@ -5826,7 +5879,7 @@
         "like_count": 9715,
         "quote_count": 381,
         "bookmark_count": 178,
-        "impression_count": 434810
+        "impression_count": 434835
       },
       "media": [
         {
@@ -5861,10 +5914,10 @@
       "metrics": {
         "retweet_count": 830,
         "reply_count": 180,
-        "like_count": 4020,
+        "like_count": 4019,
         "quote_count": 14,
         "bookmark_count": 16,
-        "impression_count": 74129
+        "impression_count": 74138
       },
       "media": [
         {
@@ -5899,10 +5952,10 @@
       "metrics": {
         "retweet_count": 1536,
         "reply_count": 665,
-        "like_count": 6170,
+        "like_count": 6169,
         "quote_count": 114,
         "bookmark_count": 73,
-        "impression_count": 157685
+        "impression_count": 157696
       },
       "media": [
         {
@@ -5940,7 +5993,7 @@
         "like_count": 4251,
         "quote_count": 47,
         "bookmark_count": 68,
-        "impression_count": 233411
+        "impression_count": 233426
       },
       "media": []
     },
@@ -5972,7 +6025,7 @@
         "like_count": 3471,
         "quote_count": 53,
         "bookmark_count": 19,
-        "impression_count": 74177
+        "impression_count": 74185
       },
       "media": [
         {
@@ -6025,7 +6078,7 @@
         "like_count": 6743,
         "quote_count": 53,
         "bookmark_count": 65,
-        "impression_count": 191453
+        "impression_count": 191467
       },
       "media": []
     },
@@ -6053,7 +6106,7 @@
         "like_count": 4426,
         "quote_count": 202,
         "bookmark_count": 69,
-        "impression_count": 989200
+        "impression_count": 989211
       },
       "media": []
     },
@@ -6083,7 +6136,7 @@
         "like_count": 5651,
         "quote_count": 113,
         "bookmark_count": 132,
-        "impression_count": 817679
+        "impression_count": 817733
       },
       "media": []
     },
@@ -6115,7 +6168,7 @@
         "like_count": 5215,
         "quote_count": 280,
         "bookmark_count": 47,
-        "impression_count": 809871
+        "impression_count": 809893
       },
       "media": []
     },
@@ -6147,7 +6200,7 @@
         "like_count": 4522,
         "quote_count": 65,
         "bookmark_count": 32,
-        "impression_count": 208164
+        "impression_count": 208176
       },
       "media": []
     },
@@ -6180,7 +6233,7 @@
         "like_count": 8264,
         "quote_count": 318,
         "bookmark_count": 125,
-        "impression_count": 764464
+        "impression_count": 764482
       },
       "media": []
     },
@@ -6212,7 +6265,7 @@
         "like_count": 6704,
         "quote_count": 100,
         "bookmark_count": 98,
-        "impression_count": 257792
+        "impression_count": 257806
       },
       "media": []
     },
@@ -6244,7 +6297,7 @@
         "like_count": 3842,
         "quote_count": 33,
         "bookmark_count": 25,
-        "impression_count": 86079
+        "impression_count": 86089
       },
       "media": [
         {
@@ -6282,7 +6335,7 @@
         "like_count": 5921,
         "quote_count": 91,
         "bookmark_count": 49,
-        "impression_count": 202402
+        "impression_count": 202410
       },
       "media": [
         {
@@ -6335,7 +6388,7 @@
         "like_count": 5011,
         "quote_count": 50,
         "bookmark_count": 43,
-        "impression_count": 140652
+        "impression_count": 140660
       },
       "media": []
     },
@@ -6364,10 +6417,10 @@
       "metrics": {
         "retweet_count": 994,
         "reply_count": 302,
-        "like_count": 4348,
+        "like_count": 4347,
         "quote_count": 111,
         "bookmark_count": 40,
-        "impression_count": 260770
+        "impression_count": 260781
       },
       "media": []
     },
@@ -6396,10 +6449,10 @@
       "metrics": {
         "retweet_count": 1231,
         "reply_count": 383,
-        "like_count": 5306,
+        "like_count": 5305,
         "quote_count": 208,
         "bookmark_count": 53,
-        "impression_count": 597119
+        "impression_count": 597137
       },
       "media": []
     },
@@ -6428,10 +6481,10 @@
       "metrics": {
         "retweet_count": 4684,
         "reply_count": 1465,
-        "like_count": 12427,
+        "like_count": 12425,
         "quote_count": 1205,
         "bookmark_count": 555,
-        "impression_count": 4462394
+        "impression_count": 4462444
       },
       "media": []
     },
@@ -6463,7 +6516,7 @@
         "like_count": 3693,
         "quote_count": 19,
         "bookmark_count": 23,
-        "impression_count": 89456
+        "impression_count": 89464
       },
       "media": [
         {
@@ -6513,10 +6566,10 @@
       "metrics": {
         "retweet_count": 1852,
         "reply_count": 640,
-        "like_count": 6417,
+        "like_count": 6415,
         "quote_count": 99,
         "bookmark_count": 71,
-        "impression_count": 247648
+        "impression_count": 247657
       },
       "media": []
     },
@@ -6548,7 +6601,7 @@
         "like_count": 9110,
         "quote_count": 153,
         "bookmark_count": 85,
-        "impression_count": 292662
+        "impression_count": 292676
       },
       "media": []
     },
@@ -6580,7 +6633,7 @@
         "like_count": 5409,
         "quote_count": 49,
         "bookmark_count": 46,
-        "impression_count": 118317
+        "impression_count": 118325
       },
       "media": [
         {
@@ -6633,7 +6686,7 @@
         "like_count": 5047,
         "quote_count": 52,
         "bookmark_count": 41,
-        "impression_count": 224268
+        "impression_count": 224276
       },
       "media": []
     },
@@ -6661,7 +6714,7 @@
         "like_count": 8379,
         "quote_count": 67,
         "bookmark_count": 123,
-        "impression_count": 551622
+        "impression_count": 551633
       },
       "media": []
     },
@@ -6688,12 +6741,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 8405,
+        "retweet_count": 8404,
         "reply_count": 1202,
         "like_count": 25827,
         "quote_count": 2279,
-        "bookmark_count": 1331,
-        "impression_count": 3635057
+        "bookmark_count": 1330,
+        "impression_count": 3635104
       },
       "media": []
     },
@@ -6725,7 +6778,7 @@
         "like_count": 6311,
         "quote_count": 68,
         "bookmark_count": 79,
-        "impression_count": 294072
+        "impression_count": 294084
       },
       "media": []
     },
@@ -6757,7 +6810,7 @@
         "like_count": 3996,
         "quote_count": 15,
         "bookmark_count": 24,
-        "impression_count": 77755
+        "impression_count": 77764
       },
       "media": [
         {
@@ -6810,7 +6863,7 @@
         "like_count": 8471,
         "quote_count": 111,
         "bookmark_count": 109,
-        "impression_count": 393026
+        "impression_count": 393041
       },
       "media": []
     },
@@ -6842,7 +6895,7 @@
         "like_count": 5179,
         "quote_count": 90,
         "bookmark_count": 53,
-        "impression_count": 210446
+        "impression_count": 210460
       },
       "media": []
     },
@@ -6874,7 +6927,7 @@
         "like_count": 3791,
         "quote_count": 7,
         "bookmark_count": 16,
-        "impression_count": 87021
+        "impression_count": 87029
       },
       "media": []
     },
@@ -6906,7 +6959,7 @@
         "like_count": 7933,
         "quote_count": 90,
         "bookmark_count": 132,
-        "impression_count": 389019
+        "impression_count": 389027
       },
       "media": []
     },
@@ -6935,10 +6988,10 @@
       "metrics": {
         "retweet_count": 1884,
         "reply_count": 1734,
-        "like_count": 6276,
+        "like_count": 6275,
         "quote_count": 290,
         "bookmark_count": 143,
-        "impression_count": 426135
+        "impression_count": 426157
       },
       "media": []
     },
@@ -6965,12 +7018,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2938,
+        "retweet_count": 2937,
         "reply_count": 195,
-        "like_count": 5917,
+        "like_count": 5916,
         "quote_count": 1018,
         "bookmark_count": 243,
-        "impression_count": 575409
+        "impression_count": 575419
       },
       "media": [
         {
@@ -7008,7 +7061,7 @@
         "like_count": 5864,
         "quote_count": 83,
         "bookmark_count": 115,
-        "impression_count": 357709
+        "impression_count": 357724
       },
       "media": []
     },
@@ -7037,10 +7090,10 @@
       "metrics": {
         "retweet_count": 1720,
         "reply_count": 624,
-        "like_count": 8386,
+        "like_count": 8385,
         "quote_count": 45,
         "bookmark_count": 75,
-        "impression_count": 564966
+        "impression_count": 564974
       },
       "media": []
     },
@@ -7072,7 +7125,7 @@
         "like_count": 4707,
         "quote_count": 113,
         "bookmark_count": 31,
-        "impression_count": 265826
+        "impression_count": 265837
       },
       "media": []
     },
@@ -7101,10 +7154,10 @@
       "metrics": {
         "retweet_count": 1638,
         "reply_count": 524,
-        "like_count": 6364,
+        "like_count": 6363,
         "quote_count": 47,
         "bookmark_count": 54,
-        "impression_count": 142525
+        "impression_count": 142547
       },
       "media": []
     },
@@ -7127,10 +7180,10 @@
       "metrics": {
         "retweet_count": 1187,
         "reply_count": 471,
-        "like_count": 4535,
+        "like_count": 4534,
         "quote_count": 107,
         "bookmark_count": 55,
-        "impression_count": 282963
+        "impression_count": 282974
       },
       "media": []
     },
@@ -7162,7 +7215,7 @@
         "like_count": 11933,
         "quote_count": 408,
         "bookmark_count": 308,
-        "impression_count": 1016132
+        "impression_count": 1016150
       },
       "media": []
     },
@@ -7191,10 +7244,10 @@
       "metrics": {
         "retweet_count": 1673,
         "reply_count": 98,
-        "like_count": 3119,
+        "like_count": 3117,
         "quote_count": 194,
         "bookmark_count": 349,
-        "impression_count": 337803
+        "impression_count": 337811
       },
       "media": []
     },
@@ -7221,7 +7274,7 @@
         "like_count": 5076,
         "quote_count": 73,
         "bookmark_count": 41,
-        "impression_count": 470000
+        "impression_count": 470013
       },
       "media": []
     },
@@ -7247,10 +7300,10 @@
       "metrics": {
         "retweet_count": 5268,
         "reply_count": 898,
-        "like_count": 14726,
-        "quote_count": 3474,
+        "like_count": 14725,
+        "quote_count": 3475,
         "bookmark_count": 531,
-        "impression_count": 4985093
+        "impression_count": 4985137
       },
       "media": [
         {
@@ -7285,10 +7338,10 @@
       "metrics": {
         "retweet_count": 2583,
         "reply_count": 539,
-        "like_count": 7050,
+        "like_count": 7048,
         "quote_count": 245,
         "bookmark_count": 144,
-        "impression_count": 491894
+        "impression_count": 491903
       },
       "media": []
     },
@@ -7317,10 +7370,10 @@
       "metrics": {
         "retweet_count": 862,
         "reply_count": 185,
-        "like_count": 3674,
+        "like_count": 3673,
         "quote_count": 24,
         "bookmark_count": 31,
-        "impression_count": 117506
+        "impression_count": 117512
       },
       "media": []
     },
@@ -7349,10 +7402,10 @@
       "metrics": {
         "retweet_count": 1183,
         "reply_count": 519,
-        "like_count": 5128,
+        "like_count": 5126,
         "quote_count": 733,
         "bookmark_count": 69,
-        "impression_count": 1321043
+        "impression_count": 1321064
       },
       "media": []
     },
@@ -7384,7 +7437,7 @@
         "like_count": 10131,
         "quote_count": 509,
         "bookmark_count": 204,
-        "impression_count": 1631428
+        "impression_count": 1631445
       },
       "media": []
     },
@@ -7416,7 +7469,7 @@
         "like_count": 3834,
         "quote_count": 22,
         "bookmark_count": 31,
-        "impression_count": 99878
+        "impression_count": 99888
       },
       "media": []
     },
@@ -7448,7 +7501,7 @@
         "like_count": 6346,
         "quote_count": 62,
         "bookmark_count": 58,
-        "impression_count": 153136
+        "impression_count": 153145
       },
       "media": [
         {
@@ -7491,7 +7544,7 @@
         "like_count": 4823,
         "quote_count": 157,
         "bookmark_count": 55,
-        "impression_count": 432235
+        "impression_count": 432258
       },
       "media": []
     },
@@ -7516,10 +7569,10 @@
       "metrics": {
         "retweet_count": 1246,
         "reply_count": 522,
-        "like_count": 6274,
+        "like_count": 6273,
         "quote_count": 29,
         "bookmark_count": 34,
-        "impression_count": 198417
+        "impression_count": 198426
       },
       "media": []
     },
@@ -7549,7 +7602,7 @@
         "like_count": 4323,
         "quote_count": 39,
         "bookmark_count": 26,
-        "impression_count": 99010
+        "impression_count": 99017
       },
       "media": [
         {
@@ -7584,10 +7637,10 @@
       "metrics": {
         "retweet_count": 1507,
         "reply_count": 3150,
-        "like_count": 5692,
+        "like_count": 5691,
         "quote_count": 285,
         "bookmark_count": 172,
-        "impression_count": 379373
+        "impression_count": 379385
       },
       "media": []
     },
@@ -7616,10 +7669,10 @@
       "metrics": {
         "retweet_count": 3936,
         "reply_count": 603,
-        "like_count": 10780,
+        "like_count": 10779,
         "quote_count": 1263,
         "bookmark_count": 373,
-        "impression_count": 1925465
+        "impression_count": 1925495
       },
       "media": []
     },
@@ -7650,7 +7703,7 @@
         "like_count": 5053,
         "quote_count": 27,
         "bookmark_count": 31,
-        "impression_count": 204662
+        "impression_count": 204674
       },
       "media": []
     },
@@ -7679,10 +7732,10 @@
       "metrics": {
         "retweet_count": 6512,
         "reply_count": 2246,
-        "like_count": 23029,
+        "like_count": 23028,
         "quote_count": 1192,
-        "bookmark_count": 2529,
-        "impression_count": 2374379
+        "bookmark_count": 2524,
+        "impression_count": 2374404
       },
       "media": []
     },
@@ -7714,7 +7767,7 @@
         "like_count": 11203,
         "quote_count": 262,
         "bookmark_count": 255,
-        "impression_count": 666185
+        "impression_count": 666193
       },
       "media": []
     },
@@ -7746,7 +7799,7 @@
         "like_count": 3908,
         "quote_count": 34,
         "bookmark_count": 29,
-        "impression_count": 105014
+        "impression_count": 105023
       },
       "media": [
         {
@@ -7782,10 +7835,10 @@
       "metrics": {
         "retweet_count": 2797,
         "reply_count": 878,
-        "like_count": 8241,
+        "like_count": 8240,
         "quote_count": 240,
         "bookmark_count": 88,
-        "impression_count": 491383
+        "impression_count": 491404
       },
       "media": []
     },
@@ -7814,10 +7867,10 @@
       "metrics": {
         "retweet_count": 1883,
         "reply_count": 1007,
-        "like_count": 7702,
+        "like_count": 7701,
         "quote_count": 338,
         "bookmark_count": 154,
-        "impression_count": 1443745
+        "impression_count": 1443769
       },
       "media": []
     },
@@ -7849,7 +7902,7 @@
         "like_count": 4397,
         "quote_count": 16,
         "bookmark_count": 28,
-        "impression_count": 90970
+        "impression_count": 90979
       },
       "media": [
         {
@@ -7902,7 +7955,7 @@
         "like_count": 12693,
         "quote_count": 177,
         "bookmark_count": 508,
-        "impression_count": 862819
+        "impression_count": 862830
       },
       "media": [
         {
@@ -7940,7 +7993,7 @@
         "like_count": 4859,
         "quote_count": 25,
         "bookmark_count": 44,
-        "impression_count": 155407
+        "impression_count": 155415
       },
       "media": [
         {
@@ -7978,7 +8031,7 @@
         "like_count": 7105,
         "quote_count": 127,
         "bookmark_count": 78,
-        "impression_count": 314514
+        "impression_count": 314521
       },
       "media": []
     },
@@ -8010,7 +8063,7 @@
         "like_count": 4609,
         "quote_count": 51,
         "bookmark_count": 45,
-        "impression_count": 114479
+        "impression_count": 114488
       },
       "media": [
         {
@@ -8045,10 +8098,10 @@
       "metrics": {
         "retweet_count": 1018,
         "reply_count": 302,
-        "like_count": 5045,
+        "like_count": 5044,
         "quote_count": 30,
         "bookmark_count": 36,
-        "impression_count": 159761
+        "impression_count": 159768
       },
       "media": []
     },
@@ -8080,7 +8133,7 @@
         "like_count": 4066,
         "quote_count": 15,
         "bookmark_count": 15,
-        "impression_count": 88706
+        "impression_count": 88714
       },
       "media": [
         {
@@ -8115,10 +8168,10 @@
       "metrics": {
         "retweet_count": 877,
         "reply_count": 245,
-        "like_count": 4322,
+        "like_count": 4321,
         "quote_count": 19,
         "bookmark_count": 28,
-        "impression_count": 93029
+        "impression_count": 93037
       },
       "media": [
         {
@@ -8153,10 +8206,10 @@
       "metrics": {
         "retweet_count": 4325,
         "reply_count": 1330,
-        "like_count": 13648,
+        "like_count": 13646,
         "quote_count": 924,
         "bookmark_count": 699,
-        "impression_count": 2228442
+        "impression_count": 2228462
       },
       "media": []
     },
@@ -8185,10 +8238,10 @@
       "metrics": {
         "retweet_count": 2925,
         "reply_count": 1148,
-        "like_count": 15602,
+        "like_count": 15600,
         "quote_count": 337,
         "bookmark_count": 310,
-        "impression_count": 1082000
+        "impression_count": 1082008
       },
       "media": []
     },
@@ -8220,7 +8273,7 @@
         "like_count": 5113,
         "quote_count": 35,
         "bookmark_count": 40,
-        "impression_count": 136604
+        "impression_count": 136612
       },
       "media": [
         {
@@ -8248,12 +8301,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 3410,
+        "retweet_count": 3409,
         "reply_count": 950,
-        "like_count": 11061,
+        "like_count": 11059,
         "quote_count": 2993,
         "bookmark_count": 328,
-        "impression_count": 1140028
+        "impression_count": 1140043
       },
       "media": [
         {
@@ -8283,12 +8336,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2942,
+        "retweet_count": 2941,
         "reply_count": 818,
-        "like_count": 9649,
+        "like_count": 9650,
         "quote_count": 2476,
         "bookmark_count": 376,
-        "impression_count": 1910623
+        "impression_count": 1910634
       },
       "media": [
         {
@@ -8323,10 +8376,10 @@
       "metrics": {
         "retweet_count": 6728,
         "reply_count": 1854,
-        "like_count": 17871,
+        "like_count": 17870,
         "quote_count": 1443,
         "bookmark_count": 661,
-        "impression_count": 4042055
+        "impression_count": 4042083
       },
       "media": []
     },
@@ -8358,7 +8411,7 @@
         "like_count": 13750,
         "quote_count": 709,
         "bookmark_count": 524,
-        "impression_count": 742343
+        "impression_count": 742359
       },
       "media": []
     },
@@ -8390,7 +8443,7 @@
         "like_count": 4856,
         "quote_count": 35,
         "bookmark_count": 30,
-        "impression_count": 163806
+        "impression_count": 163814
       },
       "media": []
     },
@@ -8422,7 +8475,7 @@
         "like_count": 4531,
         "quote_count": 65,
         "bookmark_count": 36,
-        "impression_count": 142078
+        "impression_count": 142085
       },
       "media": []
     },
@@ -8454,7 +8507,7 @@
         "like_count": 4451,
         "quote_count": 59,
         "bookmark_count": 31,
-        "impression_count": 152695
+        "impression_count": 152702
       },
       "media": []
     },
@@ -8486,7 +8539,7 @@
         "like_count": 5340,
         "quote_count": 71,
         "bookmark_count": 54,
-        "impression_count": 143434
+        "impression_count": 143441
       },
       "media": [
         {
@@ -8539,7 +8592,7 @@
         "like_count": 6844,
         "quote_count": 330,
         "bookmark_count": 119,
-        "impression_count": 603641
+        "impression_count": 603648
       },
       "media": []
     },
@@ -8571,7 +8624,7 @@
         "like_count": 5720,
         "quote_count": 126,
         "bookmark_count": 119,
-        "impression_count": 402909
+        "impression_count": 402923
       },
       "media": []
     },
@@ -8603,7 +8656,7 @@
         "like_count": 6171,
         "quote_count": 113,
         "bookmark_count": 67,
-        "impression_count": 295513
+        "impression_count": 295526
       },
       "media": []
     },
@@ -8627,10 +8680,10 @@
       "metrics": {
         "retweet_count": 3504,
         "reply_count": 477,
-        "like_count": 14821,
+        "like_count": 14820,
         "quote_count": 865,
         "bookmark_count": 336,
-        "impression_count": 1606508
+        "impression_count": 1606513
       },
       "media": []
     },
@@ -8662,7 +8715,7 @@
         "like_count": 5268,
         "quote_count": 97,
         "bookmark_count": 46,
-        "impression_count": 250771
+        "impression_count": 250779
       },
       "media": []
     },
@@ -8694,7 +8747,7 @@
         "like_count": 3978,
         "quote_count": 80,
         "bookmark_count": 42,
-        "impression_count": 387409
+        "impression_count": 387420
       },
       "media": []
     },
@@ -8726,7 +8779,7 @@
         "like_count": 7375,
         "quote_count": 193,
         "bookmark_count": 145,
-        "impression_count": 574713
+        "impression_count": 574728
       },
       "media": []
     },
@@ -8755,10 +8808,10 @@
       "metrics": {
         "retweet_count": 5874,
         "reply_count": 1951,
-        "like_count": 45424,
+        "like_count": 45423,
         "quote_count": 2271,
         "bookmark_count": 1503,
-        "impression_count": 4390695
+        "impression_count": 4390715
       },
       "media": [
         {
@@ -8796,7 +8849,7 @@
         "like_count": 4397,
         "quote_count": 11,
         "bookmark_count": 25,
-        "impression_count": 105500
+        "impression_count": 105507
       },
       "media": []
     },
@@ -8825,10 +8878,10 @@
       "metrics": {
         "retweet_count": 3569,
         "reply_count": 908,
-        "like_count": 29214,
+        "like_count": 29210,
         "quote_count": 400,
         "bookmark_count": 731,
-        "impression_count": 910278
+        "impression_count": 910332
       },
       "media": []
     },
@@ -8860,7 +8913,7 @@
         "like_count": 7597,
         "quote_count": 58,
         "bookmark_count": 132,
-        "impression_count": 327978
+        "impression_count": 327986
       },
       "media": []
     },
@@ -8892,7 +8945,7 @@
         "like_count": 7505,
         "quote_count": 137,
         "bookmark_count": 157,
-        "impression_count": 418903
+        "impression_count": 418926
       },
       "media": []
     },
@@ -8921,10 +8974,10 @@
       "metrics": {
         "retweet_count": 2442,
         "reply_count": 959,
-        "like_count": 7956,
+        "like_count": 7954,
         "quote_count": 139,
         "bookmark_count": 112,
-        "impression_count": 396000
+        "impression_count": 396017
       },
       "media": []
     },
@@ -8953,10 +9006,10 @@
       "metrics": {
         "retweet_count": 1096,
         "reply_count": 336,
-        "like_count": 5616,
+        "like_count": 5615,
         "quote_count": 55,
         "bookmark_count": 44,
-        "impression_count": 278765
+        "impression_count": 278773
       },
       "media": [
         {
@@ -9004,7 +9057,7 @@
         "like_count": 8376,
         "quote_count": 1135,
         "bookmark_count": 163,
-        "impression_count": 2663056
+        "impression_count": 2663077
       },
       "media": []
     },
@@ -9036,7 +9089,7 @@
         "like_count": 3023,
         "quote_count": 40,
         "bookmark_count": 28,
-        "impression_count": 75333
+        "impression_count": 75340
       },
       "media": [
         {
@@ -9074,7 +9127,7 @@
         "like_count": 4499,
         "quote_count": 49,
         "bookmark_count": 48,
-        "impression_count": 193553
+        "impression_count": 193563
       },
       "media": []
     },
@@ -9106,7 +9159,7 @@
         "like_count": 6708,
         "quote_count": 107,
         "bookmark_count": 74,
-        "impression_count": 230791
+        "impression_count": 230799
       },
       "media": []
     },
@@ -9133,12 +9186,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 3748,
+        "retweet_count": 3747,
         "reply_count": 652,
-        "like_count": 11145,
+        "like_count": 11144,
         "quote_count": 296,
         "bookmark_count": 233,
-        "impression_count": 397580
+        "impression_count": 397589
       },
       "media": []
     },
@@ -9171,7 +9224,7 @@
         "like_count": 8315,
         "quote_count": 172,
         "bookmark_count": 163,
-        "impression_count": 405062
+        "impression_count": 405085
       },
       "media": []
     },
@@ -9199,8 +9252,8 @@
         "reply_count": 832,
         "like_count": 13397,
         "quote_count": 2570,
-        "bookmark_count": 434,
-        "impression_count": 3305420
+        "bookmark_count": 433,
+        "impression_count": 3305435
       },
       "media": []
     },
@@ -9227,12 +9280,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 3882,
+        "retweet_count": 3881,
         "reply_count": 1464,
-        "like_count": 15591,
+        "like_count": 15590,
         "quote_count": 503,
         "bookmark_count": 460,
-        "impression_count": 819258
+        "impression_count": 819271
       },
       "media": []
     },
@@ -9261,10 +9314,10 @@
       "metrics": {
         "retweet_count": 1930,
         "reply_count": 780,
-        "like_count": 8945,
+        "like_count": 8944,
         "quote_count": 67,
         "bookmark_count": 81,
-        "impression_count": 195229
+        "impression_count": 195235
       },
       "media": [
         {
@@ -9299,10 +9352,10 @@
       "metrics": {
         "retweet_count": 2598,
         "reply_count": 1348,
-        "like_count": 9056,
+        "like_count": 9055,
         "quote_count": 196,
         "bookmark_count": 184,
-        "impression_count": 614081
+        "impression_count": 614097
       },
       "media": []
     },
@@ -9331,10 +9384,10 @@
       "metrics": {
         "retweet_count": 2299,
         "reply_count": 1294,
-        "like_count": 8418,
+        "like_count": 8417,
         "quote_count": 153,
         "bookmark_count": 119,
-        "impression_count": 504243
+        "impression_count": 504255
       },
       "media": []
     },
@@ -9363,10 +9416,10 @@
       "metrics": {
         "retweet_count": 2712,
         "reply_count": 1040,
-        "like_count": 8388,
+        "like_count": 8387,
         "quote_count": 211,
         "bookmark_count": 149,
-        "impression_count": 1137519
+        "impression_count": 1137533
       },
       "media": []
     },
@@ -9395,7 +9448,7 @@
         "like_count": 6593,
         "quote_count": 100,
         "bookmark_count": 69,
-        "impression_count": 226840
+        "impression_count": 226846
       },
       "media": []
     },
@@ -9422,7 +9475,7 @@
         "like_count": 1984,
         "quote_count": 28,
         "bookmark_count": 7,
-        "impression_count": 110372
+        "impression_count": 110381
       },
       "media": []
     },
@@ -9451,10 +9504,10 @@
       "metrics": {
         "retweet_count": 1381,
         "reply_count": 336,
-        "like_count": 6613,
+        "like_count": 6611,
         "quote_count": 81,
         "bookmark_count": 63,
-        "impression_count": 208118
+        "impression_count": 208127
       },
       "media": [
         {
@@ -9488,10 +9541,10 @@
       "metrics": {
         "retweet_count": 1770,
         "reply_count": 623,
-        "like_count": 7528,
+        "like_count": 7525,
         "quote_count": 266,
-        "bookmark_count": 100,
-        "impression_count": 533312
+        "bookmark_count": 99,
+        "impression_count": 533319
       },
       "media": []
     },
@@ -9523,7 +9576,7 @@
         "like_count": 3164,
         "quote_count": 15,
         "bookmark_count": 20,
-        "impression_count": 138994
+        "impression_count": 139002
       },
       "media": []
     },
@@ -9555,7 +9608,7 @@
         "like_count": 3751,
         "quote_count": 37,
         "bookmark_count": 22,
-        "impression_count": 156319
+        "impression_count": 156331
       },
       "media": []
     },
@@ -9581,7 +9634,7 @@
         "like_count": 3770,
         "quote_count": 23,
         "bookmark_count": 22,
-        "impression_count": 114584
+        "impression_count": 114591
       },
       "media": []
     },
@@ -9613,7 +9666,7 @@
         "like_count": 5496,
         "quote_count": 61,
         "bookmark_count": 71,
-        "impression_count": 230474
+        "impression_count": 230484
       },
       "media": []
     },
@@ -9642,10 +9695,10 @@
       "metrics": {
         "retweet_count": 1926,
         "reply_count": 852,
-        "like_count": 6947,
+        "like_count": 6946,
         "quote_count": 147,
         "bookmark_count": 130,
-        "impression_count": 231829
+        "impression_count": 231835
       },
       "media": []
     },
@@ -9677,7 +9730,7 @@
         "like_count": 4353,
         "quote_count": 28,
         "bookmark_count": 34,
-        "impression_count": 139674
+        "impression_count": 139680
       },
       "media": []
     },
@@ -9709,7 +9762,7 @@
         "like_count": 4330,
         "quote_count": 23,
         "bookmark_count": 27,
-        "impression_count": 88405
+        "impression_count": 88413
       },
       "media": [
         {
@@ -9747,7 +9800,7 @@
         "like_count": 5106,
         "quote_count": 40,
         "bookmark_count": 30,
-        "impression_count": 183197
+        "impression_count": 183211
       },
       "media": []
     },
@@ -9779,7 +9832,7 @@
         "like_count": 6668,
         "quote_count": 41,
         "bookmark_count": 68,
-        "impression_count": 284778
+        "impression_count": 284786
       },
       "media": []
     },
@@ -9811,7 +9864,7 @@
         "like_count": 5640,
         "quote_count": 71,
         "bookmark_count": 65,
-        "impression_count": 311913
+        "impression_count": 311922
       },
       "media": []
     },
@@ -9838,12 +9891,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1953,
+        "retweet_count": 1952,
         "reply_count": 905,
-        "like_count": 6594,
+        "like_count": 6593,
         "quote_count": 91,
         "bookmark_count": 135,
-        "impression_count": 311427
+        "impression_count": 311437
       },
       "media": []
     },
@@ -9872,10 +9925,10 @@
       "metrics": {
         "retweet_count": 2518,
         "reply_count": 546,
-        "like_count": 25926,
+        "like_count": 25927,
         "quote_count": 277,
         "bookmark_count": 710,
-        "impression_count": 3745689
+        "impression_count": 3745712
       },
       "media": []
     },
@@ -9905,9 +9958,9 @@
         "retweet_count": 3050,
         "reply_count": 1373,
         "like_count": 8307,
-        "quote_count": 170,
+        "quote_count": 171,
         "bookmark_count": 163,
-        "impression_count": 1011973
+        "impression_count": 1011993
       },
       "media": []
     },
@@ -9939,7 +9992,7 @@
         "like_count": 7336,
         "quote_count": 110,
         "bookmark_count": 131,
-        "impression_count": 641016
+        "impression_count": 641099
       },
       "media": []
     },
@@ -9971,7 +10024,7 @@
         "like_count": 7371,
         "quote_count": 88,
         "bookmark_count": 71,
-        "impression_count": 309550
+        "impression_count": 309561
       },
       "media": []
     },
@@ -10003,7 +10056,7 @@
         "like_count": 6871,
         "quote_count": 267,
         "bookmark_count": 84,
-        "impression_count": 794564
+        "impression_count": 794628
       },
       "media": []
     },
@@ -10029,10 +10082,10 @@
       "metrics": {
         "retweet_count": 1099,
         "reply_count": 501,
-        "like_count": 5419,
+        "like_count": 5418,
         "quote_count": 150,
         "bookmark_count": 75,
-        "impression_count": 139580
+        "impression_count": 139585
       },
       "media": [
         {
@@ -10070,7 +10123,7 @@
         "like_count": 4070,
         "quote_count": 24,
         "bookmark_count": 40,
-        "impression_count": 79090
+        "impression_count": 79096
       },
       "media": [
         {
@@ -10123,7 +10176,7 @@
         "like_count": 6213,
         "quote_count": 241,
         "bookmark_count": 106,
-        "impression_count": 499823
+        "impression_count": 499869
       },
       "media": []
     },
@@ -10155,7 +10208,7 @@
         "like_count": 5928,
         "quote_count": 84,
         "bookmark_count": 73,
-        "impression_count": 232291
+        "impression_count": 232300
       },
       "media": []
     },
@@ -10187,7 +10240,7 @@
         "like_count": 7594,
         "quote_count": 129,
         "bookmark_count": 179,
-        "impression_count": 454839
+        "impression_count": 454851
       },
       "media": []
     },
@@ -10216,10 +10269,10 @@
       "metrics": {
         "retweet_count": 2964,
         "reply_count": 969,
-        "like_count": 8585,
+        "like_count": 8584,
         "quote_count": 249,
         "bookmark_count": 119,
-        "impression_count": 690118
+        "impression_count": 690132
       },
       "media": []
     },
@@ -10251,7 +10304,7 @@
         "like_count": 6727,
         "quote_count": 129,
         "bookmark_count": 99,
-        "impression_count": 353863
+        "impression_count": 353873
       },
       "media": []
     },
@@ -10283,7 +10336,7 @@
         "like_count": 6097,
         "quote_count": 164,
         "bookmark_count": 70,
-        "impression_count": 334401
+        "impression_count": 334444
       },
       "media": []
     },
@@ -10315,7 +10368,7 @@
         "like_count": 12980,
         "quote_count": 999,
         "bookmark_count": 412,
-        "impression_count": 1472985
+        "impression_count": 1473003
       },
       "media": []
     },
@@ -10347,7 +10400,7 @@
         "like_count": 4487,
         "quote_count": 68,
         "bookmark_count": 50,
-        "impression_count": 238772
+        "impression_count": 238787
       },
       "media": []
     },
@@ -10374,12 +10427,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1754,
+        "retweet_count": 1755,
         "reply_count": 350,
         "like_count": 9716,
         "quote_count": 303,
         "bookmark_count": 290,
-        "impression_count": 1724222
+        "impression_count": 1724249
       },
       "media": []
     },
@@ -10411,7 +10464,7 @@
         "like_count": 6657,
         "quote_count": 189,
         "bookmark_count": 82,
-        "impression_count": 547174
+        "impression_count": 547184
       },
       "media": []
     },
@@ -10443,7 +10496,7 @@
         "like_count": 3728,
         "quote_count": 8,
         "bookmark_count": 19,
-        "impression_count": 121404
+        "impression_count": 121413
       },
       "media": []
     },
@@ -10475,7 +10528,7 @@
         "like_count": 5567,
         "quote_count": 97,
         "bookmark_count": 52,
-        "impression_count": 312861
+        "impression_count": 312871
       },
       "media": []
     },
@@ -10505,7 +10558,7 @@
         "like_count": 4766,
         "quote_count": 142,
         "bookmark_count": 58,
-        "impression_count": 402293
+        "impression_count": 402302
       },
       "media": []
     },
@@ -10532,12 +10585,12 @@
         "공적 인물의 제보 공유와 사실확인 책임"
       ],
       "metrics": {
-        "retweet_count": 1211,
+        "retweet_count": 1210,
         "reply_count": 490,
         "like_count": 4464,
         "quote_count": 122,
         "bookmark_count": 50,
-        "impression_count": 249266
+        "impression_count": 249273
       },
       "media": []
     },
@@ -10566,10 +10619,10 @@
       "metrics": {
         "retweet_count": 3353,
         "reply_count": 618,
-        "like_count": 9917,
+        "like_count": 9915,
         "quote_count": 159,
         "bookmark_count": 223,
-        "impression_count": 746803
+        "impression_count": 746820
       },
       "media": []
     },
@@ -10596,12 +10649,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 4361,
+        "retweet_count": 4360,
         "reply_count": 1108,
         "like_count": 10545,
         "quote_count": 423,
         "bookmark_count": 394,
-        "impression_count": 1473428
+        "impression_count": 1473446
       },
       "media": []
     },
@@ -10633,7 +10686,7 @@
         "like_count": 8073,
         "quote_count": 367,
         "bookmark_count": 283,
-        "impression_count": 1043012
+        "impression_count": 1043021
       },
       "media": []
     },
@@ -10662,10 +10715,10 @@
       "metrics": {
         "retweet_count": 1791,
         "reply_count": 842,
-        "like_count": 6273,
+        "like_count": 6274,
         "quote_count": 237,
         "bookmark_count": 145,
-        "impression_count": 533482
+        "impression_count": 533502
       },
       "media": []
     },
@@ -10697,7 +10750,7 @@
         "like_count": 4839,
         "quote_count": 67,
         "bookmark_count": 46,
-        "impression_count": 315773
+        "impression_count": 315782
       },
       "media": []
     },
@@ -10729,7 +10782,7 @@
         "like_count": 4552,
         "quote_count": 94,
         "bookmark_count": 48,
-        "impression_count": 331994
+        "impression_count": 332003
       },
       "media": []
     },
@@ -10761,7 +10814,7 @@
         "like_count": 3091,
         "quote_count": 20,
         "bookmark_count": 28,
-        "impression_count": 87825
+        "impression_count": 87835
       },
       "media": [
         {
@@ -10799,7 +10852,7 @@
         "like_count": 4217,
         "quote_count": 42,
         "bookmark_count": 37,
-        "impression_count": 213542
+        "impression_count": 213551
       },
       "media": []
     },
@@ -10831,7 +10884,7 @@
         "like_count": 2675,
         "quote_count": 14,
         "bookmark_count": 28,
-        "impression_count": 89740
+        "impression_count": 89747
       },
       "media": [
         {
@@ -10879,7 +10932,7 @@
         "like_count": 2509,
         "quote_count": 197,
         "bookmark_count": 86,
-        "impression_count": 799709
+        "impression_count": 799717
       },
       "media": [
         {
@@ -10927,7 +10980,7 @@
         "like_count": 2155,
         "quote_count": 23,
         "bookmark_count": 16,
-        "impression_count": 73644
+        "impression_count": 73649
       },
       "media": [
         {
@@ -10965,7 +11018,7 @@
         "like_count": 3538,
         "quote_count": 73,
         "bookmark_count": 35,
-        "impression_count": 114738
+        "impression_count": 114760
       },
       "media": []
     },
@@ -10997,7 +11050,7 @@
         "like_count": 2908,
         "quote_count": 99,
         "bookmark_count": 41,
-        "impression_count": 364905
+        "impression_count": 364917
       },
       "media": []
     },
@@ -11029,7 +11082,7 @@
         "like_count": 3728,
         "quote_count": 42,
         "bookmark_count": 39,
-        "impression_count": 186156
+        "impression_count": 186164
       },
       "media": []
     },
@@ -11061,7 +11114,7 @@
         "like_count": 5671,
         "quote_count": 169,
         "bookmark_count": 78,
-        "impression_count": 234626
+        "impression_count": 234630
       },
       "media": []
     },
@@ -11094,7 +11147,7 @@
         "like_count": 4532,
         "quote_count": 235,
         "bookmark_count": 58,
-        "impression_count": 499205
+        "impression_count": 499220
       },
       "media": []
     },
@@ -11126,7 +11179,7 @@
         "like_count": 2185,
         "quote_count": 9,
         "bookmark_count": 13,
-        "impression_count": 60708
+        "impression_count": 60713
       },
       "media": [
         {
@@ -11169,7 +11222,7 @@
         "like_count": 2296,
         "quote_count": 72,
         "bookmark_count": 27,
-        "impression_count": 151073
+        "impression_count": 151081
       },
       "media": []
     },
@@ -11201,7 +11254,7 @@
         "like_count": 2694,
         "quote_count": 31,
         "bookmark_count": 38,
-        "impression_count": 147091
+        "impression_count": 147121
       },
       "media": []
     },
@@ -11233,7 +11286,7 @@
         "like_count": 3615,
         "quote_count": 1836,
         "bookmark_count": 117,
-        "impression_count": 2156452
+        "impression_count": 2156477
       },
       "media": []
     },
@@ -11265,7 +11318,7 @@
         "like_count": 3010,
         "quote_count": 40,
         "bookmark_count": 38,
-        "impression_count": 161028
+        "impression_count": 161034
       },
       "media": []
     },
@@ -11297,7 +11350,7 @@
         "like_count": 5832,
         "quote_count": 381,
         "bookmark_count": 96,
-        "impression_count": 586618
+        "impression_count": 586626
       },
       "media": []
     },
@@ -11329,7 +11382,7 @@
         "like_count": 3716,
         "quote_count": 147,
         "bookmark_count": 73,
-        "impression_count": 287513
+        "impression_count": 287521
       },
       "media": []
     },
@@ -11361,7 +11414,7 @@
         "like_count": 3447,
         "quote_count": 51,
         "bookmark_count": 56,
-        "impression_count": 249612
+        "impression_count": 249618
       },
       "media": []
     },
@@ -11393,7 +11446,7 @@
         "like_count": 2945,
         "quote_count": 24,
         "bookmark_count": 41,
-        "impression_count": 151161
+        "impression_count": 151168
       },
       "media": []
     },
@@ -11425,7 +11478,7 @@
         "like_count": 4108,
         "quote_count": 107,
         "bookmark_count": 99,
-        "impression_count": 369227
+        "impression_count": 369235
       },
       "media": []
     },
@@ -11457,7 +11510,7 @@
         "like_count": 3462,
         "quote_count": 49,
         "bookmark_count": 94,
-        "impression_count": 176279
+        "impression_count": 176297
       },
       "media": []
     },
@@ -11489,7 +11542,7 @@
         "like_count": 4751,
         "quote_count": 41,
         "bookmark_count": 49,
-        "impression_count": 173705
+        "impression_count": 173707
       },
       "media": []
     },
@@ -11521,7 +11574,7 @@
         "like_count": 2888,
         "quote_count": 40,
         "bookmark_count": 104,
-        "impression_count": 184346
+        "impression_count": 184352
       },
       "media": []
     },
@@ -11553,7 +11606,7 @@
         "like_count": 3133,
         "quote_count": 50,
         "bookmark_count": 55,
-        "impression_count": 169393
+        "impression_count": 169397
       },
       "media": []
     },
@@ -11580,7 +11633,7 @@
         "like_count": 5933,
         "quote_count": 1225,
         "bookmark_count": 417,
-        "impression_count": 1124669
+        "impression_count": 1124670
       },
       "media": [
         {
@@ -11618,7 +11671,7 @@
         "like_count": 3202,
         "quote_count": 79,
         "bookmark_count": 71,
-        "impression_count": 254079
+        "impression_count": 254082
       },
       "media": []
     },
@@ -11649,7 +11702,7 @@
         "like_count": 4506,
         "quote_count": 127,
         "bookmark_count": 81,
-        "impression_count": 355844
+        "impression_count": 355846
       },
       "media": []
     },
@@ -11681,7 +11734,7 @@
         "like_count": 2674,
         "quote_count": 10,
         "bookmark_count": 18,
-        "impression_count": 94962
+        "impression_count": 94965
       },
       "media": []
     },
@@ -11713,7 +11766,7 @@
         "like_count": 2633,
         "quote_count": 35,
         "bookmark_count": 18,
-        "impression_count": 70463
+        "impression_count": 70467
       },
       "media": [
         {
@@ -11751,7 +11804,7 @@
         "like_count": 4409,
         "quote_count": 91,
         "bookmark_count": 53,
-        "impression_count": 311627
+        "impression_count": 311635
       },
       "media": []
     },
@@ -11780,10 +11833,10 @@
       "metrics": {
         "retweet_count": 1193,
         "reply_count": 398,
-        "like_count": 5522,
+        "like_count": 5521,
         "quote_count": 85,
         "bookmark_count": 134,
-        "impression_count": 285335
+        "impression_count": 285344
       },
       "media": [
         {
@@ -11821,7 +11874,7 @@
         "like_count": 3230,
         "quote_count": 68,
         "bookmark_count": 41,
-        "impression_count": 207004
+        "impression_count": 207008
       },
       "media": []
     },
@@ -11850,10 +11903,10 @@
       "metrics": {
         "retweet_count": 1964,
         "reply_count": 481,
-        "like_count": 8237,
+        "like_count": 8235,
         "quote_count": 217,
         "bookmark_count": 284,
-        "impression_count": 1025473
+        "impression_count": 1025477
       },
       "media": []
     },
@@ -11885,7 +11938,7 @@
         "like_count": 4798,
         "quote_count": 277,
         "bookmark_count": 123,
-        "impression_count": 919614
+        "impression_count": 919627
       },
       "media": []
     },
@@ -11917,7 +11970,7 @@
         "like_count": 3620,
         "quote_count": 86,
         "bookmark_count": 54,
-        "impression_count": 883059
+        "impression_count": 883085
       },
       "media": []
     },
@@ -11949,7 +12002,7 @@
         "like_count": 13151,
         "quote_count": 139,
         "bookmark_count": 414,
-        "impression_count": 1079241
+        "impression_count": 1079247
       },
       "media": [
         {
@@ -11989,10 +12042,10 @@
       "metrics": {
         "retweet_count": 4507,
         "reply_count": 601,
-        "like_count": 17060,
+        "like_count": 17062,
         "quote_count": 1111,
         "bookmark_count": 1326,
-        "impression_count": 6260296
+        "impression_count": 6260362
       },
       "media": []
     },
@@ -12024,7 +12077,7 @@
         "like_count": 3585,
         "quote_count": 62,
         "bookmark_count": 38,
-        "impression_count": 215710
+        "impression_count": 215718
       },
       "media": []
     },
@@ -12053,10 +12106,10 @@
       "metrics": {
         "retweet_count": 544,
         "reply_count": 131,
-        "like_count": 1806,
+        "like_count": 1807,
         "quote_count": 37,
         "bookmark_count": 19,
-        "impression_count": 75177
+        "impression_count": 75181
       },
       "media": [
         {
@@ -12094,7 +12147,7 @@
         "like_count": 2203,
         "quote_count": 12,
         "bookmark_count": 32,
-        "impression_count": 100119
+        "impression_count": 100123
       },
       "media": [
         {
@@ -12139,10 +12192,10 @@
       "metrics": {
         "retweet_count": 820,
         "reply_count": 219,
-        "like_count": 3140,
+        "like_count": 3139,
         "quote_count": 42,
         "bookmark_count": 79,
-        "impression_count": 122317
+        "impression_count": 122320
       },
       "media": [
         {
@@ -12175,12 +12228,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 734,
+        "retweet_count": 733,
         "reply_count": 224,
         "like_count": 3663,
         "quote_count": 28,
         "bookmark_count": 100,
-        "impression_count": 318574
+        "impression_count": 318577
       },
       "media": [
         {
@@ -12215,10 +12268,10 @@
       "metrics": {
         "retweet_count": 1287,
         "reply_count": 343,
-        "like_count": 3627,
+        "like_count": 3628,
         "quote_count": 185,
         "bookmark_count": 67,
-        "impression_count": 784395
+        "impression_count": 784400
       },
       "media": []
     },
@@ -12245,12 +12298,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 6667,
+        "retweet_count": 6666,
         "reply_count": 1176,
-        "like_count": 51663,
+        "like_count": 51660,
         "quote_count": 3050,
         "bookmark_count": 4962,
-        "impression_count": 5066582
+        "impression_count": 5066607
       },
       "media": [
         {
@@ -12284,11 +12337,11 @@
       ],
       "metrics": {
         "retweet_count": 11192,
-        "reply_count": 1528,
-        "like_count": 128013,
-        "quote_count": 4059,
-        "bookmark_count": 5473,
-        "impression_count": 8366617
+        "reply_count": 1527,
+        "like_count": 128007,
+        "quote_count": 4060,
+        "bookmark_count": 5471,
+        "impression_count": 8366633
       },
       "media": [
         {
@@ -12335,10 +12388,10 @@
       "metrics": {
         "retweet_count": 1200,
         "reply_count": 570,
-        "like_count": 5253,
+        "like_count": 5251,
         "quote_count": 130,
         "bookmark_count": 81,
-        "impression_count": 1197065
+        "impression_count": 1197069
       },
       "media": []
     },
@@ -12367,10 +12420,10 @@
       "metrics": {
         "retweet_count": 1341,
         "reply_count": 394,
-        "like_count": 4587,
+        "like_count": 4586,
         "quote_count": 55,
         "bookmark_count": 60,
-        "impression_count": 332338
+        "impression_count": 332343
       },
       "media": []
     },
@@ -12399,10 +12452,10 @@
       "metrics": {
         "retweet_count": 1480,
         "reply_count": 821,
-        "like_count": 6000,
+        "like_count": 5998,
         "quote_count": 434,
         "bookmark_count": 232,
-        "impression_count": 830988
+        "impression_count": 830999
       },
       "media": []
     },
@@ -12435,7 +12488,7 @@
         "like_count": 3508,
         "quote_count": 32,
         "bookmark_count": 52,
-        "impression_count": 225949
+        "impression_count": 225955
       },
       "media": [
         {
@@ -12468,12 +12521,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 895,
+        "retweet_count": 894,
         "reply_count": 304,
         "like_count": 4156,
         "quote_count": 41,
         "bookmark_count": 73,
-        "impression_count": 236313
+        "impression_count": 236315
       },
       "media": [
         {
@@ -12511,7 +12564,7 @@
         "like_count": 3692,
         "quote_count": 35,
         "bookmark_count": 60,
-        "impression_count": 306588
+        "impression_count": 306594
       },
       "media": [
         {
@@ -12549,7 +12602,7 @@
         "like_count": 4882,
         "quote_count": 22,
         "bookmark_count": 96,
-        "impression_count": 281390
+        "impression_count": 281394
       },
       "media": [
         {
@@ -12582,12 +12635,12 @@
         "역사 비하 표현에 대한 사회적·입법적 대응"
       ],
       "metrics": {
-        "retweet_count": 3484,
+        "retweet_count": 3483,
         "reply_count": 698,
         "like_count": 8865,
         "quote_count": 294,
         "bookmark_count": 237,
-        "impression_count": 1298194
+        "impression_count": 1298198
       },
       "media": []
     },
@@ -12616,10 +12669,10 @@
       "metrics": {
         "retweet_count": 4967,
         "reply_count": 3178,
-        "like_count": 40657,
+        "like_count": 40650,
         "quote_count": 2025,
-        "bookmark_count": 3175,
-        "impression_count": 7064279
+        "bookmark_count": 3174,
+        "impression_count": 7064378
       },
       "media": [
         {
@@ -12667,7 +12720,7 @@
         "like_count": 4581,
         "quote_count": 41,
         "bookmark_count": 95,
-        "impression_count": 397187
+        "impression_count": 397192
       },
       "media": [
         {
@@ -12700,12 +12753,12 @@
         "역사 비하 표현에 대한 사회적·입법적 대응"
       ],
       "metrics": {
-        "retweet_count": 1962,
+        "retweet_count": 1961,
         "reply_count": 416,
         "like_count": 5142,
         "quote_count": 85,
         "bookmark_count": 61,
-        "impression_count": 426688
+        "impression_count": 426690
       },
       "media": []
     },
@@ -12737,7 +12790,7 @@
         "like_count": 6444,
         "quote_count": 166,
         "bookmark_count": 208,
-        "impression_count": 486688
+        "impression_count": 486698
       },
       "media": []
     },
@@ -12796,7 +12849,7 @@
         "like_count": 2755,
         "quote_count": 121,
         "bookmark_count": 38,
-        "impression_count": 255801
+        "impression_count": 255807
       },
       "media": []
     },
@@ -12857,12 +12910,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1553,
+        "retweet_count": 1552,
         "reply_count": 602,
-        "like_count": 6167,
+        "like_count": 6165,
         "quote_count": 188,
         "bookmark_count": 154,
-        "impression_count": 339659
+        "impression_count": 339661
       },
       "media": [
         {
@@ -12915,7 +12968,7 @@
         "like_count": 2408,
         "quote_count": 25,
         "bookmark_count": 27,
-        "impression_count": 78146
+        "impression_count": 78148
       },
       "media": []
     },
@@ -12942,7 +12995,7 @@
         "like_count": 2887,
         "quote_count": 44,
         "bookmark_count": 31,
-        "impression_count": 117406
+        "impression_count": 117407
       },
       "media": [
         {
@@ -13012,7 +13065,7 @@
         "like_count": 2934,
         "quote_count": 13,
         "bookmark_count": 23,
-        "impression_count": 71802
+        "impression_count": 71803
       },
       "media": [
         {
@@ -13050,12 +13103,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1603,
+        "retweet_count": 1602,
         "reply_count": 494,
-        "like_count": 6480,
+        "like_count": 6479,
         "quote_count": 153,
         "bookmark_count": 113,
-        "impression_count": 223817
+        "impression_count": 223818
       },
       "media": [
         {
@@ -13125,7 +13178,7 @@
         "like_count": 3644,
         "quote_count": 37,
         "bookmark_count": 42,
-        "impression_count": 96408
+        "impression_count": 96410
       },
       "media": [
         {
@@ -13206,7 +13259,7 @@
         "like_count": 4539,
         "quote_count": 34,
         "bookmark_count": 39,
-        "impression_count": 279281
+        "impression_count": 279283
       },
       "media": []
     },
@@ -13235,10 +13288,10 @@
       "metrics": {
         "retweet_count": 2617,
         "reply_count": 296,
-        "like_count": 5554,
+        "like_count": 5553,
         "quote_count": 704,
         "bookmark_count": 332,
-        "impression_count": 753126
+        "impression_count": 753127
       },
       "media": [
         {
@@ -13378,7 +13431,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 549,
+        "retweet_count": 548,
         "reply_count": 110,
         "like_count": 1867,
         "quote_count": 11,
@@ -13421,7 +13474,7 @@
         "like_count": 2930,
         "quote_count": 33,
         "bookmark_count": 27,
-        "impression_count": 63520
+        "impression_count": 63522
       },
       "media": [
         {
@@ -13502,12 +13555,12 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 1425,
+        "retweet_count": 1424,
         "reply_count": 357,
         "like_count": 4184,
         "quote_count": 80,
         "bookmark_count": 57,
-        "impression_count": 195579
+        "impression_count": 195580
       },
       "media": [
         {
@@ -13541,7 +13594,7 @@
         "like_count": 659,
         "quote_count": 2,
         "bookmark_count": 5,
-        "impression_count": 30339
+        "impression_count": 30340
       },
       "media": [
         {
@@ -13594,7 +13647,7 @@
         "like_count": 2367,
         "quote_count": 10,
         "bookmark_count": 18,
-        "impression_count": 64457
+        "impression_count": 64459
       },
       "media": [
         {
@@ -13738,7 +13791,7 @@
         "like_count": 2896,
         "quote_count": 26,
         "bookmark_count": 29,
-        "impression_count": 74030
+        "impression_count": 74032
       },
       "media": [
         {
@@ -13783,10 +13836,10 @@
       "metrics": {
         "retweet_count": 2609,
         "reply_count": 302,
-        "like_count": 6638,
+        "like_count": 6637,
         "quote_count": 644,
         "bookmark_count": 166,
-        "impression_count": 1556421
+        "impression_count": 1556530
       },
       "media": []
     },
@@ -13815,10 +13868,10 @@
       "metrics": {
         "retweet_count": 2468,
         "reply_count": 271,
-        "like_count": 6330,
+        "like_count": 6329,
         "quote_count": 115,
         "bookmark_count": 190,
-        "impression_count": 1492002
+        "impression_count": 1492006
       },
       "media": []
     },
@@ -13937,10 +13990,10 @@
       "metrics": {
         "retweet_count": 667,
         "reply_count": 179,
-        "like_count": 2582,
+        "like_count": 2581,
         "quote_count": 33,
         "bookmark_count": 44,
-        "impression_count": 103911
+        "impression_count": 103912
       },
       "media": [
         {
@@ -13983,7 +14036,7 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 460,
+        "retweet_count": 459,
         "reply_count": 113,
         "like_count": 1894,
         "quote_count": 9,
@@ -14026,7 +14079,7 @@
         "like_count": 2638,
         "quote_count": 10,
         "bookmark_count": 19,
-        "impression_count": 48075
+        "impression_count": 48076
       },
       "media": [
         {
@@ -14288,7 +14341,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 853,
+        "retweet_count": 852,
         "reply_count": 178,
         "like_count": 2970,
         "quote_count": 21,
@@ -14333,7 +14386,7 @@
       "metrics": {
         "retweet_count": 683,
         "reply_count": 132,
-        "like_count": 2126,
+        "like_count": 2125,
         "quote_count": 24,
         "bookmark_count": 32,
         "impression_count": 40448
@@ -14404,7 +14457,7 @@
       "metrics": {
         "retweet_count": 484,
         "reply_count": 54,
-        "like_count": 1675,
+        "like_count": 1674,
         "quote_count": 10,
         "bookmark_count": 17,
         "impression_count": 31301
@@ -14481,7 +14534,7 @@
         "like_count": 1819,
         "quote_count": 23,
         "bookmark_count": 12,
-        "impression_count": 57259
+        "impression_count": 57260
       },
       "media": [
         {
@@ -14548,7 +14601,7 @@
         "like_count": 2249,
         "quote_count": 10,
         "bookmark_count": 20,
-        "impression_count": 45748
+        "impression_count": 45750
       },
       "media": [
         {
@@ -14583,10 +14636,10 @@
       "metrics": {
         "retweet_count": 749,
         "reply_count": 296,
-        "like_count": 2965,
+        "like_count": 2964,
         "quote_count": 22,
         "bookmark_count": 31,
-        "impression_count": 65182
+        "impression_count": 65183
       },
       "media": [
         {
@@ -14634,7 +14687,7 @@
       "metrics": {
         "retweet_count": 936,
         "reply_count": 225,
-        "like_count": 3957,
+        "like_count": 3956,
         "quote_count": 35,
         "bookmark_count": 38,
         "impression_count": 63853
@@ -14670,7 +14723,7 @@
       "metrics": {
         "retweet_count": 646,
         "reply_count": 205,
-        "like_count": 2444,
+        "like_count": 2443,
         "quote_count": 22,
         "bookmark_count": 21,
         "impression_count": 44333
@@ -14706,7 +14759,7 @@
       "metrics": {
         "retweet_count": 509,
         "reply_count": 112,
-        "like_count": 2069,
+        "like_count": 2068,
         "quote_count": 11,
         "bookmark_count": 16,
         "impression_count": 37413
@@ -14744,7 +14797,7 @@
       "metrics": {
         "retweet_count": 570,
         "reply_count": 138,
-        "like_count": 2419,
+        "like_count": 2418,
         "quote_count": 10,
         "bookmark_count": 17,
         "impression_count": 47787
@@ -14782,7 +14835,7 @@
       "metrics": {
         "retweet_count": 576,
         "reply_count": 86,
-        "like_count": 2249,
+        "like_count": 2248,
         "quote_count": 6,
         "bookmark_count": 21,
         "impression_count": 43358
@@ -14820,7 +14873,7 @@
       "metrics": {
         "retweet_count": 481,
         "reply_count": 83,
-        "like_count": 1895,
+        "like_count": 1894,
         "quote_count": 8,
         "bookmark_count": 19,
         "impression_count": 50609
@@ -14855,7 +14908,7 @@
       "metrics": {
         "retweet_count": 479,
         "reply_count": 73,
-        "like_count": 1820,
+        "like_count": 1819,
         "quote_count": 12,
         "bookmark_count": 16,
         "impression_count": 36517
@@ -14890,7 +14943,7 @@
       "metrics": {
         "retweet_count": 414,
         "reply_count": 67,
-        "like_count": 1449,
+        "like_count": 1448,
         "quote_count": 4,
         "bookmark_count": 13,
         "impression_count": 31497
@@ -14926,7 +14979,7 @@
       "metrics": {
         "retweet_count": 391,
         "reply_count": 64,
-        "like_count": 1541,
+        "like_count": 1540,
         "quote_count": 1,
         "bookmark_count": 10,
         "impression_count": 31693
@@ -14961,7 +15014,7 @@
       "metrics": {
         "retweet_count": 713,
         "reply_count": 187,
-        "like_count": 2553,
+        "like_count": 2552,
         "quote_count": 34,
         "bookmark_count": 42,
         "impression_count": 55803
@@ -15002,7 +15055,7 @@
         "like_count": 1936,
         "quote_count": 7,
         "bookmark_count": 27,
-        "impression_count": 44294
+        "impression_count": 44295
       },
       "media": [
         {
@@ -16049,7 +16102,7 @@
         "like_count": 3283,
         "quote_count": 33,
         "bookmark_count": 45,
-        "impression_count": 78093
+        "impression_count": 78094
       },
       "media": [
         {
@@ -16092,7 +16145,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1491,
+        "retweet_count": 1490,
         "reply_count": 406,
         "like_count": 4250,
         "quote_count": 122,
@@ -16125,7 +16178,7 @@
         "like_count": 2628,
         "quote_count": 35,
         "bookmark_count": 32,
-        "impression_count": 63629
+        "impression_count": 63632
       },
       "media": [
         {
@@ -16157,7 +16210,7 @@
       "metrics": {
         "retweet_count": 1206,
         "reply_count": 402,
-        "like_count": 3624,
+        "like_count": 3623,
         "quote_count": 49,
         "bookmark_count": 68,
         "impression_count": 81706
@@ -16279,7 +16332,7 @@
         "like_count": 5102,
         "quote_count": 120,
         "bookmark_count": 82,
-        "impression_count": 512734
+        "impression_count": 512735
       },
       "media": [
         {
@@ -16382,7 +16435,7 @@
         "like_count": 915,
         "quote_count": 14,
         "bookmark_count": 24,
-        "impression_count": 37981
+        "impression_count": 37982
       },
       "media": [
         {
@@ -16435,7 +16488,7 @@
         "like_count": 3044,
         "quote_count": 52,
         "bookmark_count": 65,
-        "impression_count": 81194
+        "impression_count": 81196
       },
       "media": [
         {
@@ -16470,7 +16523,7 @@
       "metrics": {
         "retweet_count": 740,
         "reply_count": 248,
-        "like_count": 2198,
+        "like_count": 2197,
         "quote_count": 60,
         "bookmark_count": 24,
         "impression_count": 69916
@@ -16873,7 +16926,7 @@
       "metrics": {
         "retweet_count": 1136,
         "reply_count": 244,
-        "like_count": 3286,
+        "like_count": 3285,
         "quote_count": 56,
         "bookmark_count": 49,
         "impression_count": 113900
@@ -17059,7 +17112,7 @@
       "metrics": {
         "retweet_count": 537,
         "reply_count": 79,
-        "like_count": 2202,
+        "like_count": 2201,
         "quote_count": 7,
         "bookmark_count": 13,
         "impression_count": 49082
@@ -17308,7 +17361,7 @@
         "like_count": 1676,
         "quote_count": 12,
         "bookmark_count": 17,
-        "impression_count": 50450
+        "impression_count": 50451
       },
       "media": [
         {
@@ -17348,7 +17401,7 @@
       "metrics": {
         "retweet_count": 790,
         "reply_count": 100,
-        "like_count": 3309,
+        "like_count": 3308,
         "quote_count": 16,
         "bookmark_count": 34,
         "impression_count": 77734
@@ -17515,7 +17568,7 @@
       "metrics": {
         "retweet_count": 1809,
         "reply_count": 551,
-        "like_count": 6947,
+        "like_count": 6946,
         "quote_count": 174,
         "bookmark_count": 148,
         "impression_count": 326989
@@ -17568,10 +17621,10 @@
       "metrics": {
         "retweet_count": 1350,
         "reply_count": 316,
-        "like_count": 4483,
+        "like_count": 4482,
         "quote_count": 46,
         "bookmark_count": 83,
-        "impression_count": 163902
+        "impression_count": 163903
       },
       "media": [
         {
@@ -17906,10 +17959,10 @@
       "metrics": {
         "retweet_count": 1090,
         "reply_count": 614,
-        "like_count": 3734,
+        "like_count": 3735,
         "quote_count": 118,
         "bookmark_count": 38,
-        "impression_count": 112341
+        "impression_count": 112343
       },
       "media": [
         {
@@ -18139,10 +18192,10 @@
       "metrics": {
         "retweet_count": 737,
         "reply_count": 173,
-        "like_count": 2373,
+        "like_count": 2372,
         "quote_count": 93,
         "bookmark_count": 28,
-        "impression_count": 195176
+        "impression_count": 195177
       },
       "media": [
         {
@@ -18195,7 +18248,7 @@
         "like_count": 2935,
         "quote_count": 180,
         "bookmark_count": 42,
-        "impression_count": 458205
+        "impression_count": 458207
       },
       "media": [
         {
@@ -18271,7 +18324,7 @@
         "like_count": 8751,
         "quote_count": 216,
         "bookmark_count": 163,
-        "impression_count": 656989
+        "impression_count": 656992
       },
       "media": [
         {
@@ -18319,12 +18372,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1767,
+        "retweet_count": 1766,
         "reply_count": 534,
-        "like_count": 6406,
+        "like_count": 6405,
         "quote_count": 95,
         "bookmark_count": 89,
-        "impression_count": 161740
+        "impression_count": 161741
       },
       "media": [
         {
@@ -18357,12 +18410,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 3109,
+        "retweet_count": 3108,
         "reply_count": 613,
-        "like_count": 8792,
+        "like_count": 8793,
         "quote_count": 685,
-        "bookmark_count": 422,
-        "impression_count": 632092
+        "bookmark_count": 423,
+        "impression_count": 632094
       },
       "media": [
         {
@@ -18509,12 +18562,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 5652,
+        "retweet_count": 5653,
         "reply_count": 245,
         "like_count": 19877,
         "quote_count": 494,
         "bookmark_count": 1208,
-        "impression_count": 637433
+        "impression_count": 637529
       },
       "media": [
         {
@@ -18559,10 +18612,10 @@
       "metrics": {
         "retweet_count": 4588,
         "reply_count": 351,
-        "like_count": 12095,
-        "quote_count": 6125,
-        "bookmark_count": 1437,
-        "impression_count": 2780525
+        "like_count": 12092,
+        "quote_count": 6124,
+        "bookmark_count": 1438,
+        "impression_count": 2780533
       },
       "media": [
         {
@@ -18805,7 +18858,7 @@
         "like_count": 2343,
         "quote_count": 14,
         "bookmark_count": 25,
-        "impression_count": 95868
+        "impression_count": 95869
       },
       "media": []
     },
@@ -18875,7 +18928,7 @@
         "like_count": 2593,
         "quote_count": 71,
         "bookmark_count": 22,
-        "impression_count": 114241
+        "impression_count": 114242
       },
       "media": [
         {
@@ -19070,7 +19123,7 @@
         "like_count": 2257,
         "quote_count": 8,
         "bookmark_count": 17,
-        "impression_count": 61279
+        "impression_count": 61280
       },
       "media": [
         {
@@ -19184,12 +19237,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 6900,
+        "retweet_count": 6901,
         "reply_count": 594,
-        "like_count": 18712,
+        "like_count": 18710,
         "quote_count": 3017,
-        "bookmark_count": 1849,
-        "impression_count": 2291918
+        "bookmark_count": 1847,
+        "impression_count": 2291920
       },
       "media": [
         {
@@ -19515,7 +19568,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1318,
+        "retweet_count": 1317,
         "reply_count": 355,
         "like_count": 4179,
         "quote_count": 238,
@@ -19677,7 +19730,7 @@
         "like_count": 4925,
         "quote_count": 108,
         "bookmark_count": 64,
-        "impression_count": 616382
+        "impression_count": 616383
       },
       "media": []
     },
@@ -19808,7 +19861,7 @@
         "like_count": 2633,
         "quote_count": 20,
         "bookmark_count": 21,
-        "impression_count": 81573
+        "impression_count": 81574
       },
       "media": [
         {
@@ -19851,7 +19904,7 @@
         "like_count": 4401,
         "quote_count": 118,
         "bookmark_count": 62,
-        "impression_count": 262962
+        "impression_count": 262963
       },
       "media": [
         {
@@ -20158,7 +20211,7 @@
         "like_count": 5278,
         "quote_count": 143,
         "bookmark_count": 99,
-        "impression_count": 359034
+        "impression_count": 359036
       },
       "media": [
         {
@@ -20343,9 +20396,9 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1350,
+        "retweet_count": 1349,
         "reply_count": 152,
-        "like_count": 4854,
+        "like_count": 4853,
         "quote_count": 30,
         "bookmark_count": 40,
         "impression_count": 181748
@@ -20413,7 +20466,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 860,
+        "retweet_count": 859,
         "reply_count": 105,
         "like_count": 3148,
         "quote_count": 4,
@@ -20453,7 +20506,7 @@
         "like_count": 3158,
         "quote_count": 97,
         "bookmark_count": 26,
-        "impression_count": 249938
+        "impression_count": 249939
       },
       "media": []
     },
@@ -20480,7 +20533,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1773,
+        "retweet_count": 1771,
         "reply_count": 427,
         "like_count": 6558,
         "quote_count": 52,
@@ -20518,12 +20571,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1645,
+        "retweet_count": 1644,
         "reply_count": 455,
         "like_count": 6409,
         "quote_count": 78,
         "bookmark_count": 124,
-        "impression_count": 319115
+        "impression_count": 319116
       },
       "media": [
         {
@@ -20561,7 +20614,7 @@
         "like_count": 5042,
         "quote_count": 92,
         "bookmark_count": 73,
-        "impression_count": 204369
+        "impression_count": 204370
       },
       "media": [
         {
@@ -20599,7 +20652,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 603,
+        "retweet_count": 602,
         "reply_count": 146,
         "like_count": 2428,
         "quote_count": 32,
@@ -20668,7 +20721,7 @@
         "like_count": 3103,
         "quote_count": 21,
         "bookmark_count": 23,
-        "impression_count": 93807
+        "impression_count": 93809
       },
       "media": [
         {
@@ -20956,10 +21009,10 @@
       "metrics": {
         "retweet_count": 3910,
         "reply_count": 430,
-        "like_count": 11893,
+        "like_count": 11894,
         "quote_count": 1008,
         "bookmark_count": 391,
-        "impression_count": 1980696
+        "impression_count": 1980697
       },
       "media": []
     },
@@ -21072,7 +21125,7 @@
         "like_count": 4558,
         "quote_count": 49,
         "bookmark_count": 34,
-        "impression_count": 263681
+        "impression_count": 263683
       },
       "media": []
     },
@@ -21142,7 +21195,7 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 983,
+        "retweet_count": 982,
         "reply_count": 357,
         "like_count": 3676,
         "quote_count": 34,
@@ -21228,12 +21281,12 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 994,
+        "retweet_count": 993,
         "reply_count": 248,
         "like_count": 3963,
         "quote_count": 32,
         "bookmark_count": 33,
-        "impression_count": 114781
+        "impression_count": 114782
       },
       "media": [
         {
@@ -21266,12 +21319,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 3239,
+        "retweet_count": 3238,
         "reply_count": 410,
         "like_count": 6602,
         "quote_count": 420,
         "bookmark_count": 238,
-        "impression_count": 1276823
+        "impression_count": 1276825
       },
       "media": []
     },
@@ -21411,7 +21464,7 @@
         "like_count": 3009,
         "quote_count": 18,
         "bookmark_count": 18,
-        "impression_count": 110474
+        "impression_count": 110477
       },
       "media": [
         {
@@ -21449,7 +21502,7 @@
         "like_count": 2712,
         "quote_count": 35,
         "bookmark_count": 16,
-        "impression_count": 98979
+        "impression_count": 98980
       },
       "media": [
         {
@@ -21487,7 +21540,7 @@
         "like_count": 3077,
         "quote_count": 37,
         "bookmark_count": 35,
-        "impression_count": 126709
+        "impression_count": 126710
       },
       "media": [
         {
@@ -21522,10 +21575,10 @@
       "metrics": {
         "retweet_count": 3491,
         "reply_count": 641,
-        "like_count": 8686,
+        "like_count": 8685,
         "quote_count": 5590,
         "bookmark_count": 1051,
-        "impression_count": 2572773
+        "impression_count": 2572776
       },
       "media": [
         {
@@ -21558,12 +21611,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 815,
+        "retweet_count": 814,
         "reply_count": 192,
         "like_count": 3644,
         "quote_count": 19,
         "bookmark_count": 31,
-        "impression_count": 195514
+        "impression_count": 195517
       },
       "media": []
     },
@@ -21595,7 +21648,7 @@
         "like_count": 4691,
         "quote_count": 79,
         "bookmark_count": 50,
-        "impression_count": 230469
+        "impression_count": 230470
       },
       "media": [
         {
@@ -21668,10 +21721,10 @@
       "metrics": {
         "retweet_count": 4734,
         "reply_count": 699,
-        "like_count": 18373,
+        "like_count": 18374,
         "quote_count": 2476,
         "bookmark_count": 557,
-        "impression_count": 4175515
+        "impression_count": 4175518
       },
       "media": [
         {
@@ -21720,10 +21773,10 @@
       "metrics": {
         "retweet_count": 3306,
         "reply_count": 1217,
-        "like_count": 11453,
-        "quote_count": 4572,
+        "like_count": 11451,
+        "quote_count": 4571,
         "bookmark_count": 396,
-        "impression_count": 4772451
+        "impression_count": 4772456
       },
       "media": []
     },
@@ -21752,7 +21805,7 @@
       "metrics": {
         "retweet_count": 3444,
         "reply_count": 681,
-        "like_count": 10112,
+        "like_count": 10111,
         "quote_count": 1837,
         "bookmark_count": 208,
         "impression_count": 1171237
@@ -21782,12 +21835,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 11517,
+        "retweet_count": 11516,
         "reply_count": 563,
-        "like_count": 21207,
+        "like_count": 21210,
         "quote_count": 9805,
         "bookmark_count": 1046,
-        "impression_count": 5857737
+        "impression_count": 5857752
       },
       "media": []
     },
@@ -21852,12 +21905,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 3758,
+        "retweet_count": 3757,
         "reply_count": 430,
         "like_count": 11125,
         "quote_count": 166,
         "bookmark_count": 190,
-        "impression_count": 1043038
+        "impression_count": 1043040
       },
       "media": []
     },
@@ -21889,7 +21942,7 @@
         "like_count": 7711,
         "quote_count": 137,
         "bookmark_count": 108,
-        "impression_count": 296042
+        "impression_count": 296047
       },
       "media": [
         {
@@ -21998,7 +22051,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2091,
+        "retweet_count": 2090,
         "reply_count": 190,
         "like_count": 5298,
         "quote_count": 147,
@@ -22036,12 +22089,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2257,
+        "retweet_count": 2256,
         "reply_count": 404,
         "like_count": 6525,
         "quote_count": 258,
         "bookmark_count": 86,
-        "impression_count": 292990
+        "impression_count": 292994
       },
       "media": [
         {
@@ -22227,7 +22280,7 @@
       "metrics": {
         "retweet_count": 973,
         "reply_count": 363,
-        "like_count": 3182,
+        "like_count": 3183,
         "quote_count": 34,
         "bookmark_count": 38,
         "impression_count": 108976
@@ -22311,7 +22364,7 @@
         "like_count": 4533,
         "quote_count": 49,
         "bookmark_count": 51,
-        "impression_count": 118249
+        "impression_count": 118251
       },
       "media": [
         {
@@ -22382,7 +22435,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2118,
+        "retweet_count": 2117,
         "reply_count": 309,
         "like_count": 7450,
         "quote_count": 99,
@@ -22635,9 +22688,9 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 5913,
+        "retweet_count": 5912,
         "reply_count": 618,
-        "like_count": 16011,
+        "like_count": 16009,
         "quote_count": 431,
         "bookmark_count": 277,
         "impression_count": 2188792
@@ -22705,12 +22758,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 1048,
+        "retweet_count": 1047,
         "reply_count": 229,
         "like_count": 4410,
         "quote_count": 27,
         "bookmark_count": 26,
-        "impression_count": 163898
+        "impression_count": 163899
       },
       "media": []
     },
@@ -22780,7 +22833,7 @@
         "like_count": 5266,
         "quote_count": 81,
         "bookmark_count": 78,
-        "impression_count": 603054
+        "impression_count": 603060
       },
       "media": [
         {
@@ -22818,7 +22871,7 @@
         "like_count": 4328,
         "quote_count": 22,
         "bookmark_count": 35,
-        "impression_count": 96902
+        "impression_count": 96903
       },
       "media": [
         {
@@ -22920,7 +22973,7 @@
         "like_count": 6702,
         "quote_count": 24,
         "bookmark_count": 43,
-        "impression_count": 269757
+        "impression_count": 269758
       },
       "media": []
     },
@@ -22952,7 +23005,7 @@
         "like_count": 8934,
         "quote_count": 56,
         "bookmark_count": 78,
-        "impression_count": 527173
+        "impression_count": 527174
       },
       "media": []
     },
@@ -23055,12 +23108,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2311,
+        "retweet_count": 2310,
         "reply_count": 429,
         "like_count": 9743,
         "quote_count": 102,
         "bookmark_count": 103,
-        "impression_count": 780073
+        "impression_count": 780075
       },
       "media": []
     },
@@ -23087,7 +23140,7 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 2132,
+        "retweet_count": 2131,
         "reply_count": 410,
         "like_count": 9632,
         "quote_count": 197,
@@ -23202,7 +23255,7 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 2306,
+        "retweet_count": 2305,
         "reply_count": 941,
         "like_count": 8341,
         "quote_count": 948,
@@ -23235,12 +23288,12 @@
         "생활 의제의 정책 전환 가능성"
       ],
       "metrics": {
-        "retweet_count": 3531,
+        "retweet_count": 3530,
         "reply_count": 551,
-        "like_count": 14712,
+        "like_count": 14711,
         "quote_count": 702,
         "bookmark_count": 245,
-        "impression_count": 1754519
+        "impression_count": 1754523
       },
       "media": [
         {
@@ -23311,8 +23364,8 @@
         "reply_count": 528,
         "like_count": 9286,
         "quote_count": 2130,
-        "bookmark_count": 540,
-        "impression_count": 1297336
+        "bookmark_count": 539,
+        "impression_count": 1297337
       },
       "media": [
         {
@@ -23350,7 +23403,7 @@
         "like_count": 20935,
         "quote_count": 1110,
         "bookmark_count": 467,
-        "impression_count": 3209471
+        "impression_count": 3209478
       },
       "media": [
         {
@@ -23388,12 +23441,12 @@
         "메시지가 만든 정치·정책 의제의 확산 경로"
       ],
       "metrics": {
-        "retweet_count": 13806,
+        "retweet_count": 13805,
         "reply_count": 4228,
-        "like_count": 41456,
-        "quote_count": 7220,
-        "bookmark_count": 2168,
-        "impression_count": 18950012
+        "like_count": 41455,
+        "quote_count": 7219,
+        "bookmark_count": 2167,
+        "impression_count": 18950116
       },
       "media": []
     }

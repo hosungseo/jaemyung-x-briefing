@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T05:31:43.146Z",
+  "generated_at": "2026-05-26T11:31:37.673Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,59 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 543,
-  "total_tweets": 608,
+  "linked_tweets": 544,
+  "total_tweets": 609,
   "links": {
+    "2059228238828945728": [
+      {
+        "title": "관세청장 취임사",
+        "ministry": "관세청",
+        "date": "2026-05-18",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762240&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-18/113_관세청_관세청장_취임사.md",
+        "strength": "높음",
+        "reason": "공통 의제: 안보, 지금, 어느 · 관세청 자료",
+        "debug": {
+          "bm25_score": 15.5712,
+          "keyword_overlap": 6,
+          "shared_terms": [
+            "안보",
+            "지금",
+            "어느",
+            "때보다",
+            "있습니다",
+            "또한"
+          ],
+          "date_delta_days": -8,
+          "date_score": 1.24,
+          "soft_match_score": 4.35,
+          "final_score": 26.1612
+        }
+      },
+      {
+        "title": "아이와 함께 여는 국방의 미래... 방위사업청, 직원 자녀 초청행사 개최",
+        "ministry": "방위사업청",
+        "date": "2026-05-14",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761485&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-14/030_방위사업청_아이와_함께_여는_국방의_미래_방위사업청_직원_자녀_초청행사_개최.md",
+        "strength": "높음",
+        "reason": "공통 의제: 안보, 있으며, 있습니다 · 방위사업청 자료",
+        "debug": {
+          "bm25_score": 13.5728,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "안보",
+            "있으며",
+            "있습니다",
+            "환경"
+          ],
+          "date_delta_days": -12,
+          "date_score": 0.76,
+          "soft_match_score": 3.3,
+          "final_score": 22.2328
+        }
+      }
+    ],
     "2059138189550633278": [
       {
         "title": "장관, 가정의 달 맞이 북향민 아동 청소년 및 교직원 격려",
