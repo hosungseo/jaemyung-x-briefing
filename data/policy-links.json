@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T11:31:37.673Z",
+  "generated_at": "2026-05-27T09:31:28.259Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,55 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 544,
-  "total_tweets": 609,
+  "linked_tweets": 545,
+  "total_tweets": 610,
   "links": {
+    "2059564341717012921": [
+      {
+        "title": "고유가 피해지원금 2차도 차질없이, 행정안전부, 시·도와 준비상황 점검",
+        "ministry": "행정안전부",
+        "date": "2026-05-13",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761361&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-13/101_행정안전부_고유가_피해지원금_2차도_차질없이_행정안전부_시_도와_준비상황_점검.md",
+        "strength": "높음",
+        "reason": "공통 의제: 체납관리단, 지방정부, 운영하 · 행정안전부 자료",
+        "debug": {
+          "bm25_score": 21.6178,
+          "keyword_overlap": 3,
+          "shared_terms": [
+            "체납관리단",
+            "지방정부",
+            "운영하"
+          ],
+          "date_delta_days": -14,
+          "date_score": 0.52,
+          "soft_match_score": 3.1,
+          "final_score": 28.6878
+        }
+      },
+      {
+        "title": "임광현 국세청장, 유럽 3개국과 체납세금 징수공조 신속 추진 합의하고 고액체납자 동시 세무조사 방안 논의",
+        "ministry": "국세청",
+        "date": "2026-05-14",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761514&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-14/060_국세청_임광현_국세청장_유럽_3개국과_체납세금_징수공조_신속_추진_합의하고_고액체납자_동시_세무조사_방안_논의.md",
+        "strength": "높음",
+        "reason": "공통 의제: 국세청장, 국세청, 국세 · 국세청 자료",
+        "debug": {
+          "bm25_score": 22.0066,
+          "keyword_overlap": 3,
+          "shared_terms": [
+            "국세청장",
+            "국세청",
+            "국세"
+          ],
+          "date_delta_days": -13,
+          "date_score": 0.64,
+          "soft_match_score": 2.25,
+          "final_score": 28.3466
+        }
+      }
+    ],
     "2059228238828945728": [
       {
         "title": "관세청장 취임사",
