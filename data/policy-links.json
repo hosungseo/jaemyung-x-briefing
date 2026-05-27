@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T09:31:28.259Z",
+  "generated_at": "2026-05-27T10:01:26.180Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,60 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 545,
-  "total_tweets": 610,
+  "linked_tweets": 546,
+  "total_tweets": 611,
   "links": {
+    "2059569852767928714": [
+      {
+        "title": "유엔 식량농업기구(FAO) 국제 수산법 훈련과정 부산에서 열려",
+        "ministry": "해양수산부",
+        "date": "2026-05-17",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761991&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-17/006_해양수산부_유엔_식량농업기구_FAO_국제_수산법_훈련과정_부산에서_열려.md",
+        "strength": "높음",
+        "reason": "공통 의제: 당시, 국제, 원조 · 해양수산부 자료",
+        "debug": {
+          "bm25_score": 24.3249,
+          "keyword_overlap": 5,
+          "shared_terms": [
+            "당시",
+            "국제",
+            "원조",
+            "부산",
+            "성장"
+          ],
+          "date_delta_days": -10,
+          "date_score": 1,
+          "soft_match_score": 3.5,
+          "final_score": 33.8249
+        }
+      },
+      {
+        "title": "부여 관북리유적 출토 악기, '횡적' 이야기 재해석한 웹툰 대국민 공모(5.13.~6.13.)",
+        "ministry": "국가유산청",
+        "date": "2026-05-13",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761229&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-13/034_국가유산청_부여_관북리유적_출토_악기_횡적_이야기_재해석한_웹툰_대국민_공모_5_13_6_13.md",
+        "strength": "높음",
+        "reason": "공통 의제: 유네스코 세계유산위원회, 유네스코, 세계유산위원회 · 국가유산청 자료",
+        "debug": {
+          "bm25_score": 22.4726,
+          "keyword_overlap": 6,
+          "shared_terms": [
+            "유네스코 세계유산위원회",
+            "유네스코",
+            "세계유산위원회",
+            "제48차",
+            "국제",
+            "부산"
+          ],
+          "date_delta_days": -14,
+          "date_score": 0.52,
+          "soft_match_score": 5.55,
+          "final_score": 33.5426
+        }
+      }
+    ],
     "2059564341717012921": [
       {
         "title": "고유가 피해지원금 2차도 차질없이, 행정안전부, 시·도와 준비상황 점검",
