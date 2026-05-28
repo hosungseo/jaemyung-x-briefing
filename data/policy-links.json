@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T10:01:26.180Z",
+  "generated_at": "2026-05-28T11:31:35.308Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,32 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 546,
-  "total_tweets": 611,
+  "linked_tweets": 547,
+  "total_tweets": 612,
   "links": {
+    "2059953166616268941": [
+      {
+        "title": "행정안전부-법무부, 제9회 전국동시지방선거 대국민 담화문 발표",
+        "ministry": "행정안전부",
+        "date": "2026-05-20",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762615&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-20/064_행정안전부_행정안전부_법무부_제9회_전국동시지방선거_대국민_담화문_발표.md",
+        "strength": "높음",
+        "reason": "공통 의제: 헌정사, 중대한 · 행정안전부 자료",
+        "debug": {
+          "bm25_score": 18.2609,
+          "keyword_overlap": 2,
+          "shared_terms": [
+            "헌정사",
+            "중대한"
+          ],
+          "date_delta_days": -8,
+          "date_score": 1.24,
+          "soft_match_score": 1.4,
+          "final_score": 23.2009
+        }
+      }
+    ],
     "2059569852767928714": [
       {
         "title": "유엔 식량농업기구(FAO) 국제 수산법 훈련과정 부산에서 열려",
