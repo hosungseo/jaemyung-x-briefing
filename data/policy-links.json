@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T11:31:35.308Z",
+  "generated_at": "2026-05-30T00:06:40.905Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -7,9 +7,57 @@
     "candidate_press_docs": 24235
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
-  "linked_tweets": 547,
-  "total_tweets": 612,
+  "linked_tweets": 548,
+  "total_tweets": 613,
   "links": {
+    "2060507155736957097": [
+      {
+        "title": "행정안전부-법무부, 제9회 전국동시지방선거 대국민 담화문 발표",
+        "ministry": "행정안전부",
+        "date": "2026-05-20",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762615&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-20/064_행정안전부_행정안전부_법무부_제9회_전국동시지방선거_대국민_담화문_발표.md",
+        "strength": "높음",
+        "reason": "공통 의제: 민주주의, 민주주, 투표 · 행정안전부 자료",
+        "debug": {
+          "bm25_score": 13.908,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "민주주의",
+            "민주주",
+            "투표",
+            "중립"
+          ],
+          "date_delta_days": -9,
+          "date_score": 1.12,
+          "soft_match_score": 2.6,
+          "final_score": 22.228
+        }
+      },
+      {
+        "title": "[5.19.행사시작(15시) 이후] 질병관리청장, 희귀질환자 쉼터 현장 방문 환아·가족 소통하며 현장 중심 지원 강화",
+        "ministry": "질병관리청",
+        "date": "2026-05-19",
+        "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762450&call_from=openData",
+        "path": "data/2026/2026-05/2026-05-19/092_질병관리청_5_19_행사시작_15시_이후_질병관리청장_희귀질환자_쉼터_현장_방문_환아_가족_소통하며_현장_중심_지원_강화.md",
+        "strength": "높음",
+        "reason": "공통 의제: 포기, 가족, 아니라 · 질병관리청 자료",
+        "debug": {
+          "bm25_score": 7.2524,
+          "keyword_overlap": 4,
+          "shared_terms": [
+            "포기",
+            "가족",
+            "아니라",
+            "포기하"
+          ],
+          "date_delta_days": -10,
+          "date_score": 1,
+          "soft_match_score": 2.1,
+          "final_score": 14.9524
+        }
+      }
+    ],
     "2059953166616268941": [
       {
         "title": "행정안전부-법무부, 제9회 전국동시지방선거 대국민 담화문 발표",
