@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T00:06:40.905Z",
+  "generated_at": "2026-05-30T15:06:39.561Z",
   "source": {
     "tweets": "data/briefing.json",
     "press_root": "/Users/seohoseong/.openclaw/workspace/gov-press-md",
@@ -8,8 +8,9 @@
   },
   "note": "debug scores are for owner/admin review only; public UI should show strength and reason, not raw BM25.",
   "linked_tweets": 548,
-  "total_tweets": 613,
+  "total_tweets": 614,
   "links": {
+    "2060739144066932762": [],
     "2060507155736957097": [
       {
         "title": "행정안전부-법무부, 제9회 전국동시지방선거 대국민 담화문 발표",
